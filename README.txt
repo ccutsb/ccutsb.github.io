@@ -1,6 +1,6 @@
-   ![Badge en Desarollo](https://img.shields.io/badge/STATUS-EN%20DESAROLLO-green)
+![Badge en Desarollo](https://img.shields.io/badge/STATUS-EN%20DESAROLLO-green)
 
-<h1>Proyecto Final Modulo 1 - Desafío Latam </h1>
+Proyecto Final Modulo 1 - Desafío Latam
 
 
 -En el siguiente proyecto, se solicita contruir un CV utilizando HTML y CSS, Bootstrap o algún template.
