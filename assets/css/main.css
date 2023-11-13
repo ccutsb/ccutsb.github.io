@@ -45,7 +45,7 @@
   vertical-align: middle;
   transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
   margin-right: 20px;
-  background: rgba(44, 44, 44, 0.2); }
+  background: rgba(0, 0, 0, 0.2); }
 
 .bootstrap-switch .bootstrap-switch-container {
   display: inline-flex;
