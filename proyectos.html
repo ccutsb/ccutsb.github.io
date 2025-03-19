@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyectos - Portfolio Cristian Cortés</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navegación Principal -->
+    <header class="main-header">
+        <nav class="navbar">
+            <a href="./index.html" class="logo">
+                <span class="logo-text">CRISTIAN <span class="accent">CORTES</span></span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Inicio</a></li>
+                <li><a href="index.html#habilidades" class="nav-link">Habilidades</a></li>
+                <li><a href="#proyectos" class="nav-link active">Proyectos</a></li>
+                <li><a href="index.html#contacto" class="nav-link">Contacto</a></li>
+            </ul>
+            <button class="menu-toggle" aria-label="Menú de navegación">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Encabezado de Proyectos -->
+        <section class="projects-header">
+            <div class="container">
+                <div class="section-header">
+                    <h1>Mis <span class="accent">Proyectos</span></h1>
+                    <p>Explora mi portafolio de soluciones backend y aplicaciones desarrolladas</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Filtros de Categorías -->
+        <section class="project-categories">
+            <div class="container">
+                <div class="categories-filter">
+                    <button class="filter-btn active" data-filter="all">Todos</button>
+                    <button class="filter-btn" data-filter="api">APIs</button>
+                    <button class="filter-btn" data-filter="data">Datos</button>
+                    <button class="filter-btn" data-filter="web">Web</button>
+                    <button class="filter-btn" data-filter="mobile">Mobile</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Proyectos -->
+        <section id="proyectos" class="projects">
+            <div class="container">
+                <div class="projects-container">
+                    <!-- Proyecto 1 -->
+                    <article class="project-card" data-category="api">
+                        <figure class="project-image">
+                            <img src="https://via.placeholder.com/600x400/171f2e/64ffda?text=API+Gateway" alt="API Gateway" loading="lazy">
+                            <figcaption class="project-overlay">
+                                <nav class="project-links">
+                                    <a href="https://github.com" target="_blank" class="project-link" aria-label="Ver en GitHub" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i></a>
+                                    <a href="#" class="project-link" aria-label="Ver proyecto en vivo" rel="noopener noreferrer"><i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
+                                </nav>
+                            </figcaption>
+                        </figure>
+                        <div class="project-info">
+                            <h3>API Gateway Microservicios</h3>
+                            <p>Gateway de APIs con autenticación JWT, rate limiting y balanceo de carga para arquitectura de microservicios.</p>
+                            <ul class="project-tech">
+                                <li class="tech-tag">Node.js</li>
+                                <li class="tech-tag">Express</li>
+                                <li class="tech-tag">Redis</li>
+                                <li class="tech-tag">Docker</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <!-- Proyecto 2 -->
+                    <article class="project-card" data-category="data">
+                        <figure class="project-image">
+                            <img src="https://via.placeholder.com/600x400/171f2e/64ffda?text=Data+Pipeline" alt="Data Pipeline" loading="lazy">
+                            <figcaption class="project-overlay">
+                                <nav class="project-links">
+                                    <a href="https://github.com" target="_blank" class="project-link" aria-label="Ver en GitHub" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i></a>
+                                    <a href="#" class="project-link" aria-label="Ver proyecto en vivo" rel="noopener noreferrer"><i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
+                                </nav>
+                            </figcaption>
+                        </figure>
+                        <div class="project-info">
+                            <h3>Pipeline de Procesamiento de Datos</h3>
+                            <p>Sistema ETL para procesamiento de grandes volúmenes de datos en tiempo real con monitoreo y alertas.</p>
+                            <ul class="project-tech">
+                                <li class="tech-tag">Python</li>
+                                <li class="tech-tag">Apache Kafka</li>
+                                <li class="tech-tag">Spark</li>
+                                <li class="tech-tag">Airflow</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <!-- Proyecto 3 -->
+                    <article class="project-card" data-category="web">
+                        <figure class="project-image">
+                            <img src="https://via.placeholder.com/600x400/171f2e/64ffda?text=CMS+Headless" alt="CMS Headless" loading="lazy">
+                            <figcaption class="project-overlay">
+                                <nav class="project-links">
+                                    <a href="https://github.com" target="_blank" class="project-link" aria-label="Ver en GitHub" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i></a>
+                                    <a href="#" class="project-link" aria-label="Ver proyecto en vivo" rel="noopener noreferrer"><i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
+                                </nav>
+                            </figcaption>
+                        </figure>
+                        <div class="project-info">
+                            <h3>CMS Headless Personalizado</h3>
+                            <p>Sistema de gestión de contenidos headless con API GraphQL y panel de administración React.</p>
+                            <ul class="project-tech">
+                                <li class="tech-tag">Node.js</li>
+                                <li class="tech-tag">GraphQL</li>
+                                <li class="tech-tag">MongoDB</li>
+                                <li class="tech-tag">React</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <!-- Proyecto 4 -->
+                    <article class="project-card" data-category="api">
+                        <figure class="project-image">
+                            <img src="https://via.placeholder.com/600x400/171f2e/64ffda?text=API+Pagos" alt="API Pagos" loading="lazy">
+                            <figcaption class="project-overlay">
+                                <nav class="project-links">
+                                    <a href="https://github.com" target="_blank" class="project-link" aria-label="Ver en GitHub" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i></a>
+                                    <a href="#" class="project-link" aria-label="Ver proyecto en vivo" rel="noopener noreferrer"><i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
+                                </nav>
+                            </figcaption>
+                        </figure>
+                        <div class="project-info">
+                            <h3>API de Procesamiento de Pagos</h3>
+                            <p>Sistema de procesamiento de pagos con integración a múltiples pasarelas y sistema antifraude.</p>
+                            <ul class="project-tech">
+                                <li class="tech-tag">Java</li>
+                                <li class="tech-tag">Spring Boot</li>
+                                <li class="tech-tag">PostgreSQL</li>
+                                <li class="tech-tag">RabbitMQ</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <!-- Proyecto 5 -->
+                    <article class="project-card" data-category="mobile">
+                        <figure class="project-image">
+                            <img src="https://via.placeholder.com/600x400/171f2e/64ffda?text=Backend+Mobile" alt="Backend Mobile" loading="lazy">
+                            <figcaption class="project-overlay">
+                                <nav class="project-links">
+                                    <a href="https://github.com" target="_blank" class="project-link" aria-label="Ver en GitHub" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i></a>
+                                    <a href="#" class="project-link" aria-label="Ver proyecto en vivo" rel="noopener noreferrer"><i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
+                                </nav>
+                            </figcaption>
+                        </figure>
+                        <div class="project-info">
+                            <h3>Backend para Aplicación Móvil</h3>
+                            <p>API RESTful con notificaciones push, sincronización offline y optimización para bajo consumo de datos.</p>
+                            <ul class="project-tech">
+                                <li class="tech-tag">Go</li>
+                                <li class="tech-tag">Firebase</li>
+                                <li class="tech-tag">MongoDB</li>
+                                <li class="tech-tag">Redis</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <!-- Proyecto 6 -->
+                    <article class="project-card" data-category="data">
+                        <figure class="project-image">
+                            <img src="https://via.placeholder.com/600x400/171f2e/64ffda?text=Data+Warehouse" alt="Data Warehouse" loading="lazy">
+                            <figcaption class="project-overlay">
+                                <nav class="project-links">
+                                    <a href="https://github.com" target="_blank" class="project-link" aria-label="Ver en GitHub" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i></a>
+                                    <a href="#" class="project-link" aria-label="Ver proyecto en vivo" rel="noopener noreferrer"><i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
+                                </nav>
+                            </figcaption>
+                        </figure>
+                        <div class="project-info">
+                            <h3>Data Warehouse Analítico</h3>
+                            <p>Sistema de almacenamiento y análisis de datos con modelado dimensional y visualizaciones interactivas.</p>
+                            <ul class="project-tech">
+                                <li class="tech-tag">Python</li>
+                                <li class="tech-tag">SQL</li>
+                                <li class="tech-tag">Snowflake</li>
+                                <li class="tech-tag">Tableau</li>
+                            </ul>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección CTA -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-content">
+                    <h2>¿Tienes un proyecto en mente?</h2>
+                    <p>Estoy disponible para nuevos proyectos. Contáctame y hablemos sobre cómo puedo ayudarte a construir soluciones backend robustas y escalables.</p>
+                    <a href="index.html#contacto" class="btn btn-primary">Contactar ahora</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <article class="footer-logo">
+                    <h3>DEV<span class="accent">BACKEND</span></h3>
+                    <p>Construyendo soluciones backend robustas y escalables</p>
+                </article>
+                <nav class="footer-links">
+                    <div class="footer-column">
+                        <h3>Enlaces</h3>
+                        <ul>
+                            <li><a href="index.html">Inicio</a></li>
+                            <li><a href="index.html#habilidades">Habilidades</a></li>
+                            <li><a href="#proyectos">Proyectos</a></li>
+                            <li><a href="index.html#contacto">Contacto</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Servicios</h3>
+                        <ul>
+                            <li><a href="#" rel="noopener noreferrer">Desarrollo de APIs</a></li>
+                            <li><a href="#" rel="noopener noreferrer">Arquitectura de Sistemas</a></li>
+                            <li><a href="#" rel="noopener noreferrer">Optimización de Bases de Datos</a></li>
+                            <li><a href="#" rel="noopener noreferrer">Consultoría DevOps</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Cristian Cortés B. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html> 

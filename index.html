@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Cristian Cortés</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navegación Principal -->
+    <header class="main-header">
+        <nav class="navbar">
+            <a href="./index.html" class="logo">
+                <span class="logo-text">CRISTIAN <span class="accent">CORTÉS</span></span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#inicio" class="nav-link">Inicio</a></li>
+                <li><a href="#habilidades" class="nav-link">Habilidades</a></li>
+                <li><a href="#proyectos" class="nav-link">Proyectos</a></li>
+                <li><a href="#contacto" class="nav-link">Contacto</a></li>
+            </ul>
+            <button class="menu-toggle" aria-label="Menú de navegación">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Sección Hero -->
+    <section id="inicio" class="hero">
+        <article class="hero-content">
+            <main class="hero-text">
+                <h1></h1>
+                <h2>Construyendo la <span class="accent">infraestructura</span> del futuro digital</h2>
+                <p>Construcción de arquitecturas escalables, APIs y soluciones de alto rendimiento</p>
+                <nav class="hero-buttons">
+                    <a href="#proyectos" class="btn btn-primary">Ver Proyectos</a>
+                    <a href="#contacto" class="btn btn-secondary">Contactar</a>
+                </nav>
+            </main>
+            <aside class="hero-image">
+                <figure class="hero-image-container">
+                    <img src="./assets/img/mainpic.png" alt="Foto de perfil de Cristian Cortés">
+                </figure>
+            </aside>
+        </article>
+    </section>
+
+    <!-- Sección Habilidades -->
+    <section id="habilidades" class="skills">
+        <div class="section-header">
+            <h2>Mis <span class="accent">Habilidades</span></h2>
+            <p>Tecnologías y herramientas que domino</p>
+        </div>
+        <main class="skills-container">
+            <ul class="skill-items">
+                <li class="skill-item" data-skill="Python">
+                    <i class="fab fa-python" aria-hidden="true"></i>
+                    <span class="skill-name">Python</span>
+                </li>
+                <li class="skill-item" data-skill="JavaScript">
+                    <i class="fab fa-js" aria-hidden="true"></i>
+                    <span class="skill-name">JavaScript</span>
+                </li>
+                <li class="skill-item" data-skill="Java">
+                    <i class="fab fa-java" aria-hidden="true"></i>
+                    <span class="skill-name">Java</span>
+                </li>
+                <li class="skill-item" data-skill="Node.js">
+                    <i class="fab fa-node-js" aria-hidden="true"></i>
+                    <span class="skill-name">Node.js</span>
+                </li>
+                <li class="skill-item" data-skill="Django">
+                    <i class="fab fa-python" aria-hidden="true"></i>
+                    <span class="skill-name">Django</span>
+                </li>
+                <li class="skill-item" data-skill="Spring">
+                    <i class="fab fa-java" aria-hidden="true"></i>
+                    <span class="skill-name">Spring</span>
+                </li>
+                <li class="skill-item" data-skill="PostgreSQL">
+                    <i class="fas fa-database" aria-hidden="true"></i>
+                    <span class="skill-name">PostgreSQL</span>
+                </li>
+                <li class="skill-item" data-skill="MongoDB">
+                    <i class="fas fa-database" aria-hidden="true"></i>
+                    <span class="skill-name">MongoDB</span>
+                </li>
+                <li class="skill-item" data-skill="Redis">
+                    <i class="fas fa-database" aria-hidden="true"></i>
+                    <span class="skill-name">Redis</span>
+                </li>
+            </ul>
+        </main>
+    </section>
+
+    <!-- Sección Proyectos -->
+    <section id="proyectos" class="projects">
+        <div class="section-header">
+            <h2>Mis <span class="accent">Proyectos</span></h2>
+            <p>Soluciones tecnológicas que he desarrollado</p>
+        </div>
+        <main class="projects-container">
+            <article class="project-card">
+                <figure class="project-image">
+                    <img src="img/project1.jpg" alt="Imagen de una Aplicación Administrador de colaboradores para una empresa" loading="lazy">
+                    <figcaption class="project-overlay">
+                        <nav class="project-links">
+                            <a href="https://github.com/ccutsb/Base-de-datos-colaboradores" target="_blank" class="project-link" aria-label="Ver en GitHub" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i></a>
+                            <a href="https://ccutsb.github.io/Base-de-datos-colaboradores/" target="_blank" class="project-link" aria-label="Ver proyecto en vivo" rel="noopener noreferrer"><i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
+                        </nav>
+                    </figcaption>
+                </figure>
+                <div class="project-info">
+                    <h3>Administrador de colaboradores</h3>
+                    <p>Aplicación web para la gestión de colaboradores para una empresa; permite agregar, buscar, ordenar y eliminar colaboradores.
+                        Permite el envío de correos electrónicos a los colaboradores mediante un botón directo. 
+                    </p>
+                    <ul class="project-tech">
+                        <li class="tech-tag">React</li>
+                        <li class="tech-tag">Bootstrap</li>
+                        <li class="tech-tag">JavaScript</li>
+                    </ul>
+                </div>
+            </article>
+            <article class="project-card">
+                <figure class="project-image">
+                    <img src="img/project2.jpg" alt="Sistema de Procesamiento" loading="lazy">
+                    <figcaption class="project-overlay">
+                        <nav class="project-links">
+                            <a href="#" class="project-link" aria-label="Ver en GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
+                            <a href="#" class="project-link" aria-label="Ver proyecto en vivo"><i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
+                        </nav>
+                    </figcaption>
+                </figure>
+                <div class="project-info">
+                    <h3>Sistema de Procesamiento en Tiempo Real</h3>
+                    <p>Plataforma de análisis de datos en tiempo real utilizando Kafka, Spark y Python para procesamiento de grandes volúmenes de información.</p>
+                    <ul class="project-tech">
+                        <li class="tech-tag">Python</li>
+                        <li class="tech-tag">AWS</li>
+                    </ul>
+                </div>
+            </article>
+            <article class="project-card">
+                <figure class="project-image">
+                    <img src="img/project3.jpg" alt="Plataforma E-learning" loading="lazy">
+                    <figcaption class="project-overlay">
+                        <nav class="project-links">
+                            <a href="#" class="project-link" aria-label="Ver en GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
+                            <a href="#" class="project-link" aria-label="Ver proyecto en vivo"><i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
+                        </nav>
+                    </figcaption>
+                </figure>
+                <div class="project-info">
+                    <h3>Plataforma E-learning</h3>
+                    <p>Backend para plataforma educativa con Django, implementando sistema de autenticación, gestión de cursos y analíticas de aprendizaje.</p>
+                    <ul class="project-tech">
+                        <li class="tech-tag">Django</li>
+                        <li class="tech-tag">PostgreSQL</li>
+                        <li class="tech-tag">Redis</li>
+                        <li class="tech-tag">Docker</li>
+                    </ul>
+                </div>
+            </article>
+        </main>
+        <div class="projects-more">
+            <a href="./proyectos.html" class="btn btn-primary">Ver más proyectos <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+        </div>
+    </section>
+
+    <!-- Sección Contacto -->
+    <section id="contacto" class="contact">
+        <div class="section-header">
+            <h2>Ponte en <span class="accent">Contacto</span></h2>
+            <p>¿Tienes un proyecto en mente? ¡Hablemos!</p>
+        </div>
+        <main class="contact-container">
+            <aside class="contact-info">
+                <article class="contact-item">
+                    <i class="fas fa-envelope" aria-hidden="true"></i>
+                    <div>
+                        <h3>Email</h3>
+                        <p>contacto@desarrolladorbackend.com</p>
+                    </div>
+                </article>
+                <article class="contact-item">
+                    <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                    <div>
+                        <h3>Ubicación</h3>
+                        <p>Santiago, Chile</p>
+                    </div>
+                </article>
+                <nav class="contact-social">
+                    <a href="https://github.com" target="_blank" class="social-link" aria-label="Ver perfil en GitHub" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i></a>
+                    <a href="https://linkedin.com" target="_blank" class="social-link" aria-label="Ver perfil en LinkedIn" rel="noopener noreferrer"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+                    <a href="https://twitter.com" target="_blank" class="social-link" aria-label="Ver perfil en Twitter" rel="noopener noreferrer"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                    <a href="https://dev.to" target="_blank" class="social-link" aria-label="Ver perfil en DEV" rel="noopener noreferrer"><i class="fab fa-dev" aria-hidden="true"></i></a>
+                </nav>
+            </aside>
+            <form id="contactForm" class="contact-form-container">
+                <div class="contact-form">
+                    <div class="form-group">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" id="nombre" name="nombre" required>
+                        <div class="form-line"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                        <div class="form-line"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="mensaje">Mensaje</label>
+                        <textarea id="mensaje" name="mensaje" required></textarea>
+                        <div class="form-line"></div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
+                </div>
+            </form>
+        </main>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <article class="footer-logo">
+                <h3>DEV<span class="accent">BACKEND</span></h3>
+                <p>Construyendo soluciones backend robustas y escalables</p>
+            </article>
+            <nav class="footer-links">
+                <div class="footer-column">
+                    <h3>Enlaces</h3>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="#habilidades">Habilidades</a></li>
+                        <li><a href="#proyectos">Proyectos</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Servicios</h3>
+                    <ul>
+                        <li><a href="#" rel="noopener noreferrer">Desarrollo de APIs</a></li>
+                        <li><a href="#" rel="noopener noreferrer">Arquitectura de Sistemas</a></li>
+                        <li><a href="#" rel="noopener noreferrer">Optimización de Bases de Datos</a></li>
+                        <li><a href="#" rel="noopener noreferrer">Consultoría DevOps</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Cristian Cortés B. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html> 
