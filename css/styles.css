@@ -701,28 +701,33 @@
   .contact-form {
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: 30px;
   }
   
   .form-group {
     position: relative;
+    margin-top: 20px;
   }
   
   .form-group label {
     position: absolute;
-    top: 10px;
+    top: 12px;
     left: 10px;
     font-family: var(--font-primary);
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     color: var(--text-secondary);
     pointer-events: none;
-    transition: var(--transition);
+    transition: all 0.25s ease;
+    transform-origin: left top;
+    background: transparent;
+    padding: 0 5px;
+    z-index: 1;
   }
   
   .form-group input,
   .form-group textarea {
     width: 100%;
-    padding: 10px;
+    padding: 12px 10px;
     font-size: 1rem;
     color: var(--text-color);
     background: rgba(15, 22, 36, 0.5);
@@ -730,6 +735,33 @@
     outline: none;
     font-family: var(--font-primary);
     border-radius: 4px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .form-group textarea {
+    min-height: 120px;
+    resize: vertical;
+  }
+  
+  .form-group input:hover,
+  .form-group textarea:hover {
+    border-color: rgba(100, 255, 218, 0.5);
+  }
+  
+  .form-group input:focus ~ label,
+  .form-group textarea:focus ~ label,
+  .form-group input:not(:placeholder-shown) ~ label,
+  .form-group textarea:not(:placeholder-shown) ~ label {
+    top: -12px;
+    font-size: 0.8rem;
+    color: var(--primary-color);
+    transform: scale(0.9);
+    background: var(--card-bg);
+  }
+  
+  .form-group input::placeholder,
+  .form-group textarea::placeholder {
+    color: transparent;
   }
   
   .form-line {
@@ -756,15 +788,6 @@
   .form-group textarea:focus {
     border-color: var(--primary-color);
     box-shadow: 0 0 5px rgba(100, 255, 218, 0.2);
-  }
-  
-  .form-group input:focus ~ label,
-  .form-group textarea:focus ~ label,
-  .form-group input:valid ~ label,
-  .form-group textarea:valid ~ label {
-    top: -20px;
-    font-size: 0.8rem;
-    color: var(--primary-color);
   }
   
   .form-group input:focus ~ .form-line::after,
@@ -977,6 +1000,10 @@
       width: 250px;
       height: 250px;
       margin-top: -50px;
+    }
+    
+    .form-group label {
+        font-size: 0.9rem;
     }
   }
   

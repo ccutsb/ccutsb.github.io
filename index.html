@@ -19,6 +19,11 @@
                 <li><a href="#inicio" class="nav-link">Inicio</a></li>
                 <li><a href="#habilidades" class="nav-link">Habilidades</a></li>
                 <li><a href="#proyectos" class="nav-link">Proyectos</a></li>
+                <li>
+                    <a href="./assets/documents/CristianCortesCV.pdf" class="nav-link" download>
+                        <i class="fas fa-envelope" aria-hidden="true"></i>
+                    </a>
+                </li>
                 <li><a href="#contacto" class="nav-link">Contacto</a></li>
             </ul>
             <button class="menu-toggle" aria-label="Menú de navegación">
@@ -191,7 +196,7 @@
                     <i class="fas fa-envelope" aria-hidden="true"></i>
                     <div>
                         <h3>Email</h3>
-                        <p>contacto@desarrolladorbackend.com</p>
+                        <p>cristiancortesb@icloud.com</p>
                     </div>
                 </article>
                 <article class="contact-item">
@@ -208,26 +213,31 @@
                     <a href="https://dev.to" target="_blank" class="social-link" aria-label="Ver perfil en DEV" rel="noopener noreferrer"><i class="fab fa-dev" aria-hidden="true"></i></a>
                 </nav>
             </aside>
-            <form id="contactForm" class="contact-form-container">
+            <form action="https://formsubmit.co/38318f2acd0b2859fa6b818e22b24fba" method="POST" class="contact-form-container">
+                <!-- Desactiva el captcha -->
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_next" value="https://ccutsb.github.io/index.html/">
+            
                 <div class="contact-form">
                     <div class="form-group">
+                        <input type="text" id="nombre" name="nombre" placeholder=" " required>
                         <label for="nombre">Nombre</label>
-                        <input type="text" id="nombre" name="nombre" required>
                         <div class="form-line"></div>
                     </div>
                     <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder=" " required>
                         <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
                         <div class="form-line"></div>
                     </div>
                     <div class="form-group">
+                        <textarea id="mensaje" name="mensaje" placeholder=" " required></textarea>
                         <label for="mensaje">Mensaje</label>
-                        <textarea id="mensaje" name="mensaje" required></textarea>
                         <div class="form-line"></div>
                     </div>
                     <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
                 </div>
             </form>
+            
         </main>
     </section>
 
@@ -235,8 +245,8 @@
     <footer>
         <div class="footer-content">
             <article class="footer-logo">
-                <h3>DEV<span class="accent">BACKEND</span></h3>
-                <p>Construyendo soluciones backend robustas y escalables</p>
+                <h3>CRISTIAN <span class="accent">CORTÉS</span></h3>
+                <p>Construyendo soluciones robustas y escalables</p>
             </article>
             <nav class="footer-links">
                 <div class="footer-column">
