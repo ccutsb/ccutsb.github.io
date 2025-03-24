@@ -555,4 +555,39 @@ document.addEventListener("DOMContentLoaded", () => {
   
   // Inicializar las nuevas funcionalidades
   setupTypewriterEffect();
+  
+  // Función para manejar el envío del formulario
+  function setupContactForm() {
+    const form = document.getElementById('contactForm');
+
+form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    const formData = new FormData(form);
+
+    try {
+        const response = await fetch('http://3.144.100.181:3000/send', {
+            method: 'POST',
+            body: formData
+        });
+
+        // Verifica que la respuesta sea un JSON
+        const result = await response.json(); // Aquí es donde tratamos de convertir la respuesta a JSON
+
+        if (result.success) {
+            console.log(result.message);  // Mensaje de éxito
+            alert(result.message);  // Muestra el mensaje de éxito
+        } else {
+            console.error(result.error);  // Si hubo un error, mostrarlo
+            alert('Hubo un error al enviar el mensaje.');
+        }
+
+    } catch (error) {
+        console.error('Error al enviar el formulario:', error);
+    }
+});
+  }
+  
+  // Inicializar el formulario de contacto
+  setupContactForm();
 });

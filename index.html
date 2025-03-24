@@ -157,7 +157,7 @@
             </article>
             <article class="project-card">
                 <figure class="project-image">
-                    <img src="img/project3.jpg" alt="Plataforma E-learning" loading="lazy">
+                    <img src="#" alt="Plataforma E-learning" loading="lazy">
                     <figcaption class="project-overlay">
                         <nav class="project-links">
                             <a href="#" class="project-link" aria-label="Ver en GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
@@ -211,10 +211,8 @@
                     <a href="https://dev.to" target="_blank" class="social-link" aria-label="Ver perfil en DEV" rel="noopener noreferrer"><i class="fab fa-dev" aria-hidden="true"></i></a>
                 </nav>
             </aside>
-            <form action="https://formsubmit.co/38318f2acd0b2859fa6b818e22b24fba" method="POST" class="contact-form-container">
-                <!-- Desactiva el captcha -->
-                <input type="hidden" name="_captcha" value="false">
-            
+
+            <form id="contactForm" action="http://3.144.100.181:3000/send" method="POST" class="contact-form-container">
                 <div class="contact-form">
                     <div class="form-group">
                         <input type="text" id="nombre" name="nombre" placeholder=" " required>
@@ -232,6 +230,7 @@
                         <div class="form-line"></div>
                     </div>
                     <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
+                    <div id="formStatus" class="form-status"></div>
                 </div>
             </form>
             
