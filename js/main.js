@@ -7,7 +7,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const navLinksItems = document.querySelectorAll(".nav-link");
   const sections = document.querySelectorAll("section");
   const skillItems = document.querySelectorAll(".skill-item");
-  const contactForm = document.getElementById("contactForm");
   const projectCards = document.querySelectorAll(".project-card");
 
   // Función para cambiar el estilo del header al hacer scroll
@@ -74,106 +73,6 @@ document.addEventListener("DOMContentLoaded", () => {
   animateSkillsOnScroll();
   window.addEventListener("scroll", animateSkillsOnScroll);
 
-  // Validación y envío del formulario de contacto
-  if (contactForm) {
-    contactForm.addEventListener("submit", function (e) {
-      e.preventDefault();
-
-      // Obtener valores del formulario
-      const nombre = document.getElementById("nombre").value;
-      const email = document.getElementById("email").value;
-      const mensaje = document.getElementById("mensaje").value;
-
-      // Validación básica
-      if (!nombre || !email || !mensaje) {
-        showNotification("Por favor, completa todos los campos", "error");
-        return;
-      }
-
-      if (!isValidEmail(email)) {
-        showNotification("Por favor, introduce un email válido", "error");
-        return;
-      }
-
-      // Simulación de envío
-      setTimeout(() => {
-        showNotification(
-          "¡Mensaje enviado con éxito! Te responderé pronto.",
-          "success"
-        );
-        contactForm.reset();
-      }, 1500);
-
-      showNotification("Enviando mensaje...", "info");
-    });
-    
-    // Validación en tiempo real para los campos del formulario
-    const formInputs = contactForm.querySelectorAll('input, textarea');
-    
-    formInputs.forEach(input => {
-      input.addEventListener('blur', function() {
-        validateInput(this);
-      });
-      
-      input.addEventListener('input', function() {
-        if (this.classList.contains('invalid')) {
-          validateInput(this);
-        }
-      });
-    });
-    
-    function validateInput(input) {
-      const parent = input.parentElement;
-      
-      if (input.value.trim() === '') {
-        parent.classList.add('error');
-        showInputError(input, 'Este campo es obligatorio');
-        return false;
-      }
-      
-      if (input.type === 'email' && !isValidEmail(input.value)) {
-        parent.classList.add('error');
-        showInputError(input, 'Email no válido');
-        return false;
-      }
-      
-      parent.classList.remove('error');
-      hideInputError(input);
-      return true;
-    }
-    
-    function showInputError(input, message) {
-      const parent = input.parentElement;
-      let errorElement = parent.querySelector('.error-message');
-      
-      if (!errorElement) {
-        errorElement = document.createElement('span');
-        errorElement.className = 'error-message';
-        parent.appendChild(errorElement);
-      }
-      
-      errorElement.textContent = message;
-      input.classList.add('invalid');
-    }
-    
-    function hideInputError(input) {
-      const parent = input.parentElement;
-      const errorElement = parent.querySelector('.error-message');
-      
-      if (errorElement) {
-        parent.removeChild(errorElement);
-      }
-      
-      input.classList.remove('invalid');
-    }
-  }
-
-  // Función para validar email
-  function isValidEmail(email) {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-  }
-
   // Función para mostrar notificaciones
   function showNotification(message, type = "info") {
     const existingNotification = document.querySelector(".notification");
@@ -198,7 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }, 300);
     }, 3000);
   }
-  
+
   // NUEVA FUNCIONALIDAD: Animación de escritura para el texto del hero
   function setupTypewriterEffect() {
     const heroTitle = document.querySelector('.hero-text h1');
@@ -206,22 +105,22 @@ document.addEventListener("DOMContentLoaded", () => {
       // Guardar el contenido original para mantener la estructura HTML
       const originalText = heroTitle.innerHTML;
       // Extraer el nombre base (sin la parte que cambiará)
-      const baseText = originalText.includes('</span>') 
+      const baseText = originalText.includes('</span>')
         ? originalText.substring(0, originalText.lastIndexOf('</span>') + 7) + ' '
         : '';
-      
+
       // Palabras que se alternarán en la animación con formato [primera palabra, segunda palabra con accent]
       const words = [
         ['Desarrollo', 'Web'],
         ['Desarrollo', 'Backend'],
         ['Soporte', 'TI']
       ];
-      
+
       // Crear un span para el cursor
       const cursor = document.createElement('span');
       cursor.classList.add('cursor');
       cursor.innerHTML = '|';
-      
+
       // Añadir estilos para el cursor
       const cursorStyle = document.createElement('style');
       cursorStyle.textContent = `
@@ -239,7 +138,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       `;
       document.head.appendChild(cursorStyle);
-      
+
       // Función para escribir texto
       function typeText(wordPair, i, onComplete) {
         const fullText = wordPair[0] + ' ' + wordPair[1];
@@ -247,12 +146,12 @@ document.addEventListener("DOMContentLoaded", () => {
           let currentText = fullText.substring(0, i);
           // Si hemos escrito más allá de la primera palabra, aplicamos el formato
           if (i > wordPair[0].length) {
-            currentText = wordPair[0] + ' <span class="accent">' + 
+            currentText = wordPair[0] + ' <span class="accent">' +
               fullText.substring(wordPair[0].length + 1, i) + '</span>';
           }
           heroTitle.innerHTML = baseText + currentText;
           heroTitle.appendChild(cursor);
-          
+
           // Velocidad aleatoria para un efecto más realista
           setTimeout(() => typeText(wordPair, i + 1, onComplete), 100 + Math.random() * 50);
         } else if (typeof onComplete === 'function') {
@@ -260,7 +159,7 @@ document.addEventListener("DOMContentLoaded", () => {
           setTimeout(onComplete, 1500);
         }
       }
-      
+
       // Función para borrar texto
       function deleteText(wordPair, i, onComplete) {
         const fullText = wordPair[0] + ' ' + wordPair[1];
@@ -268,12 +167,12 @@ document.addEventListener("DOMContentLoaded", () => {
           let currentText = fullText.substring(0, i);
           // Si aún estamos borrando la segunda palabra
           if (i > wordPair[0].length) {
-            currentText = wordPair[0] + ' <span class="accent">' + 
+            currentText = wordPair[0] + ' <span class="accent">' +
               fullText.substring(wordPair[0].length + 1, i) + '</span>';
           }
           heroTitle.innerHTML = baseText + currentText;
           heroTitle.appendChild(cursor);
-          
+
           // Velocidad aleatoria para un efecto más realista
           setTimeout(() => deleteText(wordPair, i - 1, onComplete), 50 + Math.random() * 30);
         } else if (typeof onComplete === 'function') {
@@ -281,22 +180,22 @@ document.addEventListener("DOMContentLoaded", () => {
           setTimeout(onComplete, 500);
         }
       }
-      
+
       // Función para iniciar el ciclo de animación
       function startTypingCycle(wordIndex = 0) {
         const currentWordPair = words[wordIndex];
         const nextIndex = (wordIndex + 1) % words.length;
-        
+
         // Escribir la palabra actual
-        typeText(currentWordPair, 0, function() {
+        typeText(currentWordPair, 0, function () {
           // Luego borrarla
-          deleteText(currentWordPair, currentWordPair[0].length + 1 + currentWordPair[1].length, function() {
+          deleteText(currentWordPair, currentWordPair[0].length + 1 + currentWordPair[1].length, function () {
             // Continuar con la siguiente palabra
             startTypingCycle(nextIndex);
           });
         });
       }
-      
+
       // Iniciar la animación después de un breve retraso
       setTimeout(() => {
         // Limpiar el contenido original
@@ -552,42 +451,38 @@ document.addEventListener("DOMContentLoaded", () => {
   `;
 
   document.head.appendChild(styles);
-  
+
   // Inicializar las nuevas funcionalidades
   setupTypewriterEffect();
-  
-  // Función para manejar el envío del formulario
-  function setupContactForm() {
-    const form = document.getElementById('contactForm');
 
-form.addEventListener('submit', async (event) => {
-    event.preventDefault();
+  // Nuevo código para el manejo del formulario
+  document.getElementById("contactForm").addEventListener("submit", async function (event) {
+    event.preventDefault(); // Evita que el formulario se envíe de forma tradicional
 
-    const formData = new FormData(form);
+    const formData = {
+        nombre: document.getElementById("nombre").value,
+        email: document.getElementById("email").value,
+        mensaje: document.getElementById("mensaje").value
+    };
+
+    console.log("Enviando datos:", formData); // 👀 Verifica que los datos sean correctos
 
     try {
-        const response = await fetch('http://3.144.100.181:3000/send', {
-            method: 'POST',
-            body: formData
+        const response = await fetch("http://3.145.119.72:3000/send/", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(formData)
         });
 
-        // Verifica que la respuesta sea un JSON
-        const result = await response.json(); // Aquí es donde tratamos de convertir la respuesta a JSON
+        const result = await response.json();
+        console.log("Respuesta del servidor:", result);
 
-        if (result.success) {
-            console.log(result.message);  // Mensaje de éxito
-            alert(result.message);  // Muestra el mensaje de éxito
-        } else {
-            console.error(result.error);  // Si hubo un error, mostrarlo
-            alert('Hubo un error al enviar el mensaje.');
-        }
-
+        // Mostrar mensaje de éxito
     } catch (error) {
-        console.error('Error al enviar el formulario:', error);
+        console.error("Error al enviar el formulario:", error);
     }
 });
-  }
-  
-  // Inicializar el formulario de contacto
-  setupContactForm();
+
 });
