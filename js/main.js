@@ -49,9 +49,39 @@ document.addEventListener("DOMContentLoaded", () => {
     menuToggle.classList.toggle("active");
   });
 
-  // Cerrar menú móvil al hacer clic en un enlace
+  // Cerrar menú móvil y manejar scroll suave con offset para header fijo
   navLinksItems.forEach((link) => {
-    link.addEventListener("click", () => {
+    link.addEventListener("click", (e) => {
+      const href = link.getAttribute("href");
+      
+      // Solo procesar si es un enlace de ancla (#)
+      if (href.startsWith("#")) {
+        const targetId = href.substring(1);
+        const targetSection = document.getElementById(targetId);
+        
+        if (targetSection) {
+          e.preventDefault();
+          
+          // Calcular posición con offset para el header fijo
+          const headerHeight = header.offsetHeight;
+          const targetPosition = targetSection.offsetTop - headerHeight;
+          
+          // Si es la sección inicio y ya estamos en el top, no hacer scroll
+          if (targetId === "inicio" && window.scrollY <= headerHeight) {
+            window.scrollTo({
+              top: 0,
+              behavior: "smooth"
+            });
+          } else {
+            // Scroll suave a la posición calculada
+            window.scrollTo({
+              top: Math.max(0, targetPosition), // Asegurar que no sea negativo
+              behavior: "smooth"
+            });
+          }
+        }
+      }
+      
       navLinks.classList.remove("active");
       menuToggle.classList.remove("active");
     });
@@ -98,113 +128,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 3000);
   }
 
-  // NUEVA FUNCIONALIDAD: Animación de escritura para el texto del hero
-  function setupTypewriterEffect() {
-    const heroTitle = document.querySelector('.hero-text h1');
-    if (heroTitle) {
-      // Guardar el contenido original para mantener la estructura HTML
-      const originalText = heroTitle.innerHTML;
-      // Extraer el nombre base (sin la parte que cambiará)
-      const baseText = originalText.includes('</span>')
-        ? originalText.substring(0, originalText.lastIndexOf('</span>') + 7) + ' '
-        : '';
-
-      // Palabras que se alternarán en la animación con formato [primera palabra, segunda palabra con accent]
-      const words = [
-        ['Desarrollo', 'Web'],
-        ['Desarrollo', 'Backend'],
-        ['Soporte', 'TI']
-      ];
-
-      // Crear un span para el cursor
-      const cursor = document.createElement('span');
-      cursor.classList.add('cursor');
-      cursor.innerHTML = '|';
-
-      // Añadir estilos para el cursor
-      const cursorStyle = document.createElement('style');
-      cursorStyle.textContent = `
-        .cursor {
-          display: inline-block;
-          width: 3px;
-          background-color: var(--primary-color);
-          animation: blink 1.5s infinite;
-          margin-left: 5px;
-        }
-        
-        @keyframes blink {
-          0%, 100% { opacity: 1; }
-          50% { opacity: 0; }
-        }
-      `;
-      document.head.appendChild(cursorStyle);
-
-      // Función para escribir texto
-      function typeText(wordPair, i, onComplete) {
-        const fullText = wordPair[0] + ' ' + wordPair[1];
-        if (i <= fullText.length) {
-          let currentText = fullText.substring(0, i);
-          // Si hemos escrito más allá de la primera palabra, aplicamos el formato
-          if (i > wordPair[0].length) {
-            currentText = wordPair[0] + ' <span class="accent">' +
-              fullText.substring(wordPair[0].length + 1, i) + '</span>';
-          }
-          heroTitle.innerHTML = baseText + currentText;
-          heroTitle.appendChild(cursor);
-
-          // Velocidad aleatoria para un efecto más realista
-          setTimeout(() => typeText(wordPair, i + 1, onComplete), 100 + Math.random() * 50);
-        } else if (typeof onComplete === 'function') {
-          // Pausa antes de comenzar a borrar
-          setTimeout(onComplete, 1500);
-        }
-      }
-
-      // Función para borrar texto
-      function deleteText(wordPair, i, onComplete) {
-        const fullText = wordPair[0] + ' ' + wordPair[1];
-        if (i >= 0) {
-          let currentText = fullText.substring(0, i);
-          // Si aún estamos borrando la segunda palabra
-          if (i > wordPair[0].length) {
-            currentText = wordPair[0] + ' <span class="accent">' +
-              fullText.substring(wordPair[0].length + 1, i) + '</span>';
-          }
-          heroTitle.innerHTML = baseText + currentText;
-          heroTitle.appendChild(cursor);
-
-          // Velocidad aleatoria para un efecto más realista
-          setTimeout(() => deleteText(wordPair, i - 1, onComplete), 50 + Math.random() * 30);
-        } else if (typeof onComplete === 'function') {
-          // Pausa antes de comenzar a escribir la siguiente palabra
-          setTimeout(onComplete, 500);
-        }
-      }
-
-      // Función para iniciar el ciclo de animación
-      function startTypingCycle(wordIndex = 0) {
-        const currentWordPair = words[wordIndex];
-        const nextIndex = (wordIndex + 1) % words.length;
-
-        // Escribir la palabra actual
-        typeText(currentWordPair, 0, function () {
-          // Luego borrarla
-          deleteText(currentWordPair, currentWordPair[0].length + 1 + currentWordPair[1].length, function () {
-            // Continuar con la siguiente palabra
-            startTypingCycle(nextIndex);
-          });
-        });
-      }
-
-      // Iniciar la animación después de un breve retraso
-      setTimeout(() => {
-        // Limpiar el contenido original
-        heroTitle.innerHTML = baseText;
-        // Iniciar el ciclo de animación
-        startTypingCycle();
-      }, 500);
-    }
-  }
+  // La animación del texto hero ahora se maneja completamente con CSS
+  // No se necesita JavaScript para esta funcionalidad
 
   // Estilos para las notificaciones y animaciones
   const styles = document.createElement("style");
@@ -452,8 +377,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.head.appendChild(styles);
 
-  // Inicializar las nuevas funcionalidades
-  setupTypewriterEffect();
+  // La animación del texto hero se maneja completamente con CSS
 
   // Manejo del formulario de contacto con Formspree
   const contactForm = document.getElementById("contactForm");

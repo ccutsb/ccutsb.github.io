@@ -43,6 +43,7 @@
   html {
     scroll-behavior: smooth;
     font-size: 16px;
+    scroll-padding-top: 90px; /* Offset para compensar el header fijo al hacer scroll */
   }
   
   body {
@@ -52,6 +53,7 @@
     line-height: 1.6;
     overflow-x: hidden;
     position: relative;
+    padding-top: 90px;
   }
   
   a {
@@ -72,6 +74,10 @@
   section {
     padding: 100px 0;
     position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
   
   .container {
@@ -273,11 +279,12 @@
     min-height: 100vh;
     display: flex;
     align-items: center;
-    padding-top: 100px;
-    padding-bottom: 40px;
+    padding-top: 0;
+    padding-bottom: 0;
     position: relative;
-    overflow: hidden;
+    scroll-margin-top: 90px; /* Offset adicional para scroll suave con header fijo */
   }
+  
   
   .hero::before {
     content: "";
@@ -311,16 +318,69 @@
     font-family: var(--font-accent);
     font-size: 3.5rem;
     font-weight: 900;
-    margin-bottom: 20px;
+    margin-bottom: 30px; /* Aumentado para evitar solapamiento con h2 */
     line-height: 1.2;
+    min-height: 2.4em; /* Altura fija para 2 líneas cuando hay <br> */
+    position: relative;
+  }
+
+  .hero-title-variants {
+    position: relative;
+    display: inline-block;
+    min-width: 420px; /* Ancho fijo basado en "Desarrollador de Software" (la más larga) */
+    min-height: 2.4em; /* Altura fija para 2 líneas - evita cambios de layout */
+    vertical-align: bottom;
+  }
+
+  .hero-variant {
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    color: var(--primary-color);
+    width: 100%;
+    line-height: 1.2; /* Mismo line-height que el h1 */
+    white-space: normal; /* Permitir que el <br> funcione correctamente */
+  }
+
+  /* Animación de cambio de texto con opacidad - ciclo de 6 segundos para 2 variantes */
+  @keyframes fadeInOut {
+    0% {
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    40% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  .hero-variant:nth-child(1) {
+    animation: fadeInOut 6s infinite;
+    animation-delay: 0s;
+  }
+
+  .hero-variant:nth-child(2) {
+    animation: fadeInOut 6s infinite;
+    animation-delay: 3s;
+    min-height: 2.4em; /* Misma altura que la primera variante para evitar cambios de layout */
   }
   
   .hero-text h2 {
     font-family: var(--font-primary);
     font-size: 1.8rem;
     font-weight: 500;
+    margin-top: 0; /* Asegurar que no hay margen superior que cause solapamiento */
     margin-bottom: 20px;
     color: var(--text-secondary);
+    clear: both; /* Asegurar que no haya elementos flotantes que interfieran */
   }
   
   .hero-text p {
@@ -367,7 +427,11 @@
   .skills {
     background: var(--bg-secondary);
     position: relative;
-    padding: 80px 0;
+    padding: 100px 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
   
   .skills::before {
@@ -467,6 +531,10 @@
   .projects {
     background: var(--bg-color);
     position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
   
   .projects::before {
@@ -611,6 +679,10 @@
   .contact {
     background: var(--bg-secondary);
     position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
   
   .contact::before {
@@ -693,8 +765,8 @@
   
   .contact-form-container {
     background: var(--card-bg);
-    border: 1px solid var(--border-color);
-    padding: 40px;
+    border:4px solid var(--border-color);
+    border-radius: 10px;
   }
   
   .contact-form {
@@ -926,11 +998,24 @@
     html {
       font-size: 14px;
     }
-  
+
+    section {
+      min-height: auto;
+      display: block;
+    }
+
     .hero {
       min-height: auto;
       padding-top: 120px;
       padding-bottom: 60px;
+      display: block;
+    }
+
+    .skills,
+    .projects,
+    .contact {
+      display: block;
+      min-height: auto;
     }
   
     .hero-content {
@@ -960,8 +1045,22 @@
         background: rgba(15, 22, 36, 0.98); /* Aumentado opacidad */
     }
     
+    section {
+      min-height: auto;
+      display: block;
+    }
+
     .hero {
-        padding-top: 100px; /* Restaurado este estilo */
+      min-height: auto;
+      padding-bottom: 60px;
+      display: block;
+    }
+
+    .skills,
+    .projects,
+    .contact {
+      display: block;
+      min-height: auto;
     }
   
     .nav-links {
@@ -997,6 +1096,10 @@
     .hero-text h1 {
       font-size: 2.5rem;
     }
+
+    .hero-title-variants {
+      min-width: 300px;
+    }
   
     .hero-text h2 {
       font-size: 1.5rem;
@@ -1011,14 +1114,29 @@
   @media (max-width: 576px) {
     section {
       padding: 60px 0;
+      min-height: auto;
+      display: block;
     }
-  
+
     .hero {
       padding-top: 90px;
+      display: block;
+    }
+
+    .skills,
+    .projects,
+    .contact {
+      display: block;
+      min-height: auto;
     }
   
     .hero-text h1 {
       font-size: 2rem;
+    }
+
+    .hero-title-variants {
+      min-width: 250px;
+      font-size: 0.9em;
     }
   
     .hero-text h2 {
@@ -1251,10 +1369,23 @@
 
 /* ===== MEDIA QUERIES ADICIONALES ===== */
 @media (max-height: 700px) {
+    section {
+        min-height: auto;
+        display: block;
+    }
+
     .hero {
         min-height: auto;
         padding-top: 90px;
         padding-bottom: 30px;
+        display: block;
+    }
+
+    .skills,
+    .projects,
+    .contact {
+        display: block;
+        min-height: auto;
     }
     
     .hero-image-container {
