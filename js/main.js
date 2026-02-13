@@ -455,34 +455,68 @@ document.addEventListener("DOMContentLoaded", () => {
   // Inicializar las nuevas funcionalidades
   setupTypewriterEffect();
 
-  // Nuevo código para el manejo del formulario
-  document.getElementById("contactForm").addEventListener("submit", async function (event) {
-    event.preventDefault(); // Evita que el formulario se envíe de forma tradicional
+  // Manejo del formulario de contacto con Formspree
+  const contactForm = document.getElementById("contactForm");
+  if (contactForm) {
+    const formStatus = document.getElementById("formStatus");
+    const submitButton = contactForm.querySelector('button[type="submit"]');
+    const originalButtonText = submitButton ? submitButton.innerHTML : "";
 
-    const formData = {
-        nombre: document.getElementById("nombre").value,
-        email: document.getElementById("email").value,
-        mensaje: document.getElementById("mensaje").value
-    };
+    contactForm.addEventListener("submit", async function (event) {
+      event.preventDefault(); // Evita el envío tradicional
 
-    console.log("Enviando datos:", formData); // 👀 Verifica que los datos sean correctos
+      // Limpiar estados previos
+      if (formStatus) {
+        formStatus.textContent = "";
+        formStatus.classList.remove("success", "error");
+      }
 
-    try {
-        const response = await fetch("http://3.145.119.72:3000/send/", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(formData)
+      // Mostrar spinner en el botón
+      if (submitButton) {
+        submitButton.disabled = true;
+        submitButton.innerHTML = '<span class="spinner"></span> Enviando...';
+      }
+
+      const formData = new FormData(contactForm);
+
+      try {
+        const response = await fetch("https://formspree.io/f/xdalebor", {
+          method: "POST",
+          body: formData,
+          headers: {
+            Accept: "application/json",
+          },
         });
 
-        const result = await response.json();
-        console.log("Respuesta del servidor:", result);
-
-        // Mostrar mensaje de éxito
-    } catch (error) {
+        if (response.ok) {
+          if (formStatus) {
+            formStatus.textContent =
+              "Envío exitoso. ¡Gracias por contactarme!";
+            formStatus.classList.add("success");
+          }
+          contactForm.reset();
+        } else {
+          if (formStatus) {
+            formStatus.textContent =
+              "Error en el envío. Intenta nuevamente más tarde.";
+            formStatus.classList.add("error");
+          }
+        }
+      } catch (error) {
         console.error("Error al enviar el formulario:", error);
-    }
-});
+        if (formStatus) {
+          formStatus.textContent =
+            "Error en el envío. Revisa tu conexión e intenta de nuevo.";
+          formStatus.classList.add("error");
+        }
+      } finally {
+        // Restaurar botón
+        if (submitButton) {
+          submitButton.disabled = false;
+          submitButton.innerHTML = originalButtonText;
+        }
+      }
+    });
+  }
 
 });
