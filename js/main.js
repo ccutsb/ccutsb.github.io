@@ -45,8 +45,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Menú móvil toggle
   menuToggle.addEventListener("click", () => {
-    navLinks.classList.toggle("active");
-    menuToggle.classList.toggle("active");
+    navLinks.classList.toggle("open");
+    menuToggle.classList.toggle("open");
   });
 
   // Cerrar menú móvil y manejar scroll suave con offset para header fijo
@@ -82,8 +82,8 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       }
       
-      navLinks.classList.remove("active");
-      menuToggle.classList.remove("active");
+      navLinks.classList.remove("open");
+      menuToggle.classList.remove("open");
     });
   });
 
