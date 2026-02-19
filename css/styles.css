@@ -1353,6 +1353,20 @@
       visibility: visible;
       pointer-events: auto;
     }
+
+    .logo {
+      font-size: 1.3rem;
+      letter-spacing: 1px;
+    }
+  
+    .logo-text {
+      display: inline-block;
+      white-space: normal;
+    }
+  
+    .logo-text::before {
+      bottom: -3px;
+    }
   
     .menu-toggle {
       display: block;
