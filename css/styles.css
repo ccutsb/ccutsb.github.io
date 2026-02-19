@@ -379,7 +379,7 @@
   
   .hero-text h1 {
     font-family: var(--font-accent);
-    font-size: 3rem;
+    font-size: clamp(2.3rem, 1.8rem + 1.6vw, 3.3rem);
     font-weight: 900;
     margin-bottom: 50px; /* Aumentado para evitar solapamiento con h2 */
     line-height: 1.2;
@@ -438,7 +438,7 @@
   
   .hero-text h2 {
     font-family: var(--font-primary);
-    font-size: 1.8rem;
+    font-size: clamp(1.6rem, 1.3rem + 0.9vw, 2.4rem);
     font-weight: 500;
     margin-top: 0; /* Asegurar que no hay margen superior que cause solapamiento */
     margin-bottom: 20px;
@@ -1274,17 +1274,11 @@
       font-size: 2rem;
     }
   
-    .hero-text h1 {
-      font-size: 2.5rem;
-    }
-
     .hero-title-variants {
       min-width: 0;
     }
   
-    .hero-text h2 {
-      font-size: 1.5rem;
-    }
+    /* Tamaños de .hero-text h1 y h2 controlados por clamp en el estilo base */
   
     .hero-image-container {
       width: 280px;
@@ -1310,18 +1304,12 @@
       min-height: auto;
     }
   
-    .hero-text h1 {
-      font-size: 2rem;
-    }
-
     .hero-title-variants {
       min-width: 250px;
       font-size: 0.9em;
     }
   
-    .hero-text h2 {
-      font-size: 1.2rem;
-    }
+    /* Tamaños de .hero-text h1 y h2 controlados por clamp en el estilo base */
   
     .btn {
       width: 100%;
@@ -1568,10 +1556,6 @@
     .hero-image-container {
         width: 200px;
         height: 200px;
-    }
-    
-    .hero-text h2 {
-        font-size: 1.1rem;
     }
     
     .section-header h2 {
