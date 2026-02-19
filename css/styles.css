@@ -1444,8 +1444,40 @@
       grid-template-columns: 1fr;
     }
     
+    .contact-form-container {
+      padding: 1.2rem;
+    }
+  
     .contact-form-row {
-      grid-template-columns: 1fr;
+      flex-direction: column;
+    }
+  
+    .form-group input,
+    .form-group textarea {
+      padding: 10px 14px;
+      font-size: 1rem;
+    }
+  
+    .service-option-label {
+      font-size: 0.95rem;
+      padding: 10px;
+    }
+  
+    .btn-primary {
+      padding: 12px;
+      font-size: 1rem;
+    }
+  
+    body {
+      font-size: 17px;
+    }
+  
+    h2 {
+      font-weight: 600;
+    }
+  
+    p {
+      font-weight: 500;
     }
     
     .service-options {
@@ -1508,11 +1540,39 @@
     }
   
     .contact-form-container {
-      padding: clamp(1.25rem, 3vw, 1.875rem) clamp(1rem, 3vw, 1.5rem);
+      padding: 1.2rem;
     }
-    
+  
     .contact-form-row {
-      gap: clamp(0.75rem, 2vw, 1rem);
+      flex-direction: column;
+    }
+  
+    .form-group input,
+    .form-group textarea {
+      padding: 10px 14px;
+      font-size: 1rem;
+    }
+  
+    .service-option-label {
+      font-size: 0.95rem;
+      padding: 10px;
+    }
+  
+    .btn-primary {
+      padding: 12px;
+      font-size: 1rem;
+    }
+  
+    body {
+      font-size: 17px;
+    }
+  
+    h2 {
+      font-weight: 600;
+    }
+  
+    p {
+      font-weight: 500;
     }
     
     .service-options {
