@@ -1389,6 +1389,37 @@
       max-width: min(280px, 100%);
       width: 100%;
     }
+
+    .hero-card {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto auto;
+      text-align: center;
+    }
+  
+    .hero-text-title,
+    .hero-text-body {
+      grid-column: 1;
+    }
+  
+    .hero-title-variants {
+      position: relative;
+      min-height: auto;
+    }
+  
+    .hero-variant {
+      position: relative;
+      opacity: 1;
+      animation: none;
+    }
+  
+    .hero-text h1 {
+      min-height: auto;
+    }
+  
+    .hero-image {
+      order: -1;
+      margin-bottom: 1rem;
+    }
     
     .skill-items {
       grid-template-columns: repeat(auto-fit, minmax(clamp(80px, 15vw, 120px), 1fr));
