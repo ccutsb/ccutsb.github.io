@@ -37,7 +37,9 @@
   }
   
   /* ===== RESET Y ESTILOS GENERALES ===== */
-  * {
+  *,
+  *::before,
+  *::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -47,6 +49,9 @@
     scroll-behavior: smooth;
     font-size: 16px;
     scroll-padding-top: var(--header-height); /* Offset para compensar el header fijo al hacer scroll */
+    overflow-x: hidden;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
   }
   
   body {
@@ -69,9 +74,12 @@
     list-style: none;
   }
   
-  img {
+  img,
+  video,
+  iframe {
     max-width: 100%;
     height: auto;
+    display: block;
   }
   
   section {
@@ -179,8 +187,8 @@
     font-size: 1.1rem;
   }
   
-  /* ===== NAVEGACIÓN ===== */
-  .main-header {
+/* ===== NAVEGACIÓN ===== */
+.main-header {
     position: fixed;
     top: 0;
     left: 0;
@@ -305,9 +313,9 @@
     color: var(--text-color);
   }
   
-  /* ===== HERO SECTION ===== */
-  .hero {
-    min-height: auto;
+/* ===== HERO SECTION ===== */
+.hero {
+    min-height: 100svh;
     display: flex;
     align-items: flex-start;
     padding-top: calc(var(--header-height) + 20px);
@@ -1184,7 +1192,6 @@
     }
 
     .hero {
-      min-height: auto;
       padding-bottom: 60px;
       display: block;
     }
@@ -1232,7 +1239,6 @@
     }
 
     .hero {
-      min-height: auto;
       padding-bottom: 60px;
       display: block;
     }
@@ -1246,7 +1252,7 @@
   
     .nav-links {
       position: fixed;
-      top: 80px;
+      top: var(--header-height);
       left: 0;
       width: 100%;
       background: var(--bg-secondary);
@@ -1257,7 +1263,7 @@
       transition: var(--transition);
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
       border-bottom: 1px solid var(--border-color);
-      z-index: 1000;
+      z-index: 900;
     }
   
     .nav-links.active {
@@ -1534,7 +1540,6 @@
     }
 
     .hero {
-        min-height: auto;
         padding-bottom: 30px;
         display: block;
     }
