@@ -51,7 +51,9 @@
     font-size: 16px;
     scroll-padding-top: var(--header-height); /* Offset para compensar el header sticky al hacer scroll */
     overflow-x: hidden;
+    overflow-x: clip;
     /* overflow-x hidden no afecta position sticky cuando se aplica solo al html */
+    scrollbar-gutter: stable;
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
   }
@@ -62,6 +64,7 @@
     color: var(--text-color);
     line-height: 1.6;
     overflow-x: hidden;
+    overflow-x: clip;
     /* overflow-x hidden en body no rompe position sticky si se usa correctamente */
     position: relative;
     -webkit-font-smoothing: antialiased;
@@ -81,8 +84,21 @@
   video,
   iframe {
     max-width: 100%;
+    max-inline-size: 100%;
     height: auto;
+    block-size: auto;
     display: block;
+  }
+
+  /* Mejor offset de anclas con header sticky */
+  section[id] {
+    scroll-margin-top: calc(var(--header-height) + 12px);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
   }
   
   section {
@@ -574,10 +590,23 @@
   .skill-item i {
     font-size: 2.5rem;
     color: var(--primary-color);
+    inline-size: 1em; /* Reserva espacio estable (relativo al font-size) */
+    block-size: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-bottom: 10px;
     transition: all 0.3s ease;
   }
   
+  .skill-item i img {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+    display: block;
+  }
+
   .skill-name {
     position: absolute;
     bottom: -30px;
@@ -663,7 +692,15 @@
   .project-image {
     position: relative;
     height: clamp(200px, 30vw, 300px);
+    aspect-ratio: 16 / 9;
     overflow: hidden;
+  }
+
+  .project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
   }
   
   .project-image video {
