@@ -21,7 +21,8 @@ document.addEventListener("DOMContentLoaded", () => {
     let currentSection = "";
 
     sections.forEach((section) => {
-      const sectionTop = section.offsetTop - 100;
+      const headerHeight = header ? header.offsetHeight : 0;
+      const sectionTop = section.offsetTop - headerHeight - 12;
       const sectionHeight = section.offsetHeight;
 
       if (
@@ -47,6 +48,14 @@ document.addEventListener("DOMContentLoaded", () => {
   menuToggle.addEventListener("click", () => {
     navLinks.classList.toggle("open");
     menuToggle.classList.toggle("open");
+  });
+
+  // Si se agranda la pantalla, cerrar el menú para evitar estados rotos
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 768) {
+      navLinks.classList.remove("open");
+      menuToggle.classList.remove("open");
+    }
   });
 
   // Cerrar menú móvil y manejar scroll suave con offset para header fijo
