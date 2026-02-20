@@ -21,8 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let currentSection = "";
 
     sections.forEach((section) => {
-      const headerHeight = header ? header.offsetHeight : 0;
-      const sectionTop = section.offsetTop - headerHeight - 12;
+      const sectionTop = section.offsetTop - 100;
       const sectionHeight = section.offsetHeight;
 
       if (
@@ -48,14 +47,6 @@ document.addEventListener("DOMContentLoaded", () => {
   menuToggle.addEventListener("click", () => {
     navLinks.classList.toggle("open");
     menuToggle.classList.toggle("open");
-  });
-
-  // Si se agranda la pantalla, cerrar el menú para evitar estados rotos
-  window.addEventListener("resize", () => {
-    if (window.innerWidth > 768) {
-      navLinks.classList.remove("open");
-      menuToggle.classList.remove("open");
-    }
   });
 
   // Cerrar menú móvil y manejar scroll suave con offset para header fijo
@@ -202,5 +193,106 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
+
+
+  // ===== Projects carousel (mobile-first UX) =====
+  function initProjectsCarousel() {
+    const wrapper = document.querySelector('.projects-carousel[data-carousel="projects"]');
+    if (!wrapper) return;
+
+    const track = wrapper.querySelector(".projects-container");
+    const cards = Array.from(wrapper.querySelectorAll(".project-card"));
+    const prevBtn = wrapper.querySelector(".carousel-btn.prev");
+    const nextBtn = wrapper.querySelector(".carousel-btn.next");
+    const dotsWrap = wrapper.querySelector(".carousel-dots");
+
+    if (!track || cards.length === 0) return;
+
+    // Dots
+    if (dotsWrap) {
+      dotsWrap.innerHTML = "";
+      cards.forEach((_, i) => {
+        const dot = document.createElement("button");
+        dot.type = "button";
+        dot.className = "carousel-dot";
+        dot.setAttribute("aria-label", `Ir al proyecto ${i + 1}`);
+        dot.addEventListener("click", () => scrollToIndex(i));
+        dotsWrap.appendChild(dot);
+      });
+    }
+
+    function getGap() {
+      const styles = window.getComputedStyle(track);
+      const gap = parseFloat(styles.columnGap || styles.gap || "0");
+      return Number.isFinite(gap) ? gap : 0;
+    }
+
+    function scrollToIndex(index) {
+      const clamped = Math.max(0, Math.min(index, cards.length - 1));
+      const card = cards[clamped];
+      const left = card.offsetLeft - 12; // pequeño padding visual
+      track.scrollTo({ left, behavior: "smooth" });
+      setActiveDot(clamped);
+    }
+
+    function getActiveIndex() {
+      const trackRect = track.getBoundingClientRect();
+      const center = trackRect.left + trackRect.width / 2;
+      let bestIdx = 0;
+      let bestDist = Infinity;
+
+      cards.forEach((card, i) => {
+        const r = card.getBoundingClientRect();
+        const c = r.left + r.width / 2;
+        const d = Math.abs(c - center);
+        if (d < bestDist) {
+          bestDist = d;
+          bestIdx = i;
+        }
+      });
+
+      return bestIdx;
+    }
+
+    function setActiveDot(index) {
+      if (!dotsWrap) return;
+      const dots = Array.from(dotsWrap.querySelectorAll(".carousel-dot"));
+      dots.forEach((d, i) => d.setAttribute("aria-current", i === index ? "true" : "false"));
+    }
+
+    function updateButtons() {
+      const i = getActiveIndex();
+      if (prevBtn) prevBtn.disabled = i === 0;
+      if (nextBtn) nextBtn.disabled = i === cards.length - 1;
+      setActiveDot(i);
+    }
+
+    // Buttons
+    prevBtn?.addEventListener("click", () => scrollToIndex(getActiveIndex() - 1));
+    nextBtn?.addEventListener("click", () => scrollToIndex(getActiveIndex() + 1));
+
+    // Keyboard (cuando el track tiene focus)
+    track.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowLeft") scrollToIndex(getActiveIndex() - 1);
+      if (e.key === "ArrowRight") scrollToIndex(getActiveIndex() + 1);
+    });
+
+    // Update state on scroll (throttled)
+    let ticking = false;
+    track.addEventListener("scroll", () => {
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(() => {
+        updateButtons();
+        ticking = false;
+      });
+    });
+
+    // Inicial
+    updateButtons();
+    setTimeout(updateButtons, 150); // por si hay carga de imágenes/video
+  }
+
+  initProjectsCarousel();
 
 });

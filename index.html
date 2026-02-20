@@ -151,7 +151,9 @@
         <h2>Mis <span class="accent">Proyectos</span></h2>
         <p>Soluciones tecnológicas que he desarrollado</p>
       </div>
-      <main class="projects-container">
+      <div class="projects-carousel" data-carousel="projects">
+        <button class="carousel-btn prev" type="button" aria-label="Proyecto anterior"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
+        <div class="projects-container" role="region" aria-label="Carrusel de proyectos" tabindex="0">
         <article class="project-card">
           <figure class="project-image">
             <video src="./assets/img/proyecto1.mp4" autoplay loop muted></video>
@@ -264,7 +266,10 @@
             </ul>
           </div>
         </article>
-      </main>
+      </div>
+        <button class="carousel-btn next" type="button" aria-label="Proyecto siguiente"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
+        <div class="carousel-dots" aria-label="Selector de proyectos"></div>
+      </div>
       <div class="projects-more">
         <a href="./proyectos.html" class="btn btn-primary"
           >Ver más proyectos
