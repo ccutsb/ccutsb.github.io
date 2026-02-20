@@ -152,11 +152,14 @@
         <p>Soluciones tecnológicas que he desarrollado</p>
       </div>
       <div class="projects-carousel" data-carousel="projects">
-        <button class="carousel-btn prev" type="button" aria-label="Proyecto anterior"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
         <div class="projects-container" role="region" aria-label="Carrusel de proyectos" tabindex="0">
         <article class="project-card">
           <figure class="project-image">
-            <video src="./assets/img/proyecto1.mp4" autoplay loop muted></video>
+            <img
+              src="./assets/img/proyecto2.png"
+              alt="Imagen de consultas a la base de datos con la API REST"
+              loading="lazy"
+            />
             <figcaption class="project-overlay">
               <nav class="project-links">
                 <a
@@ -236,7 +239,7 @@
         </article>
         <article class="project-card">
           <figure class="project-image">
-            <img src="#" alt="Plataforma E-learning" loading="lazy" />
+            <img src="/assets/img/proyecto2.png" alt="Plataforma E-learning" loading="lazy" />
             <figcaption class="project-overlay">
               <nav class="project-links">
                 <a href="#" class="project-link" aria-label="Ver en GitHub"
@@ -267,7 +270,6 @@
           </div>
         </article>
       </div>
-        <button class="carousel-btn next" type="button" aria-label="Proyecto siguiente"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
         <div class="carousel-dots" aria-label="Selector de proyectos"></div>
       </div>
       <div class="projects-more">
@@ -300,24 +302,6 @@
               <p>Santiago, Chile</p>
             </div>
           </article>
-          <nav class="contact-social">
-            <a
-              href="https://github.com/ccutsb"
-              target="_blank"
-              class="social-link"
-              aria-label="Ver perfil en GitHub"
-              rel="noopener noreferrer"
-              ><i class="fab fa-github" aria-hidden="true"></i
-            ></a>
-            <a
-              href="https://www.linkedin.com/in/ccortesbustamante/"
-              target="_blank"
-              class="social-link"
-              aria-label="Ver perfil en LinkedIn"
-              rel="noopener noreferrer"
-              ><i class="fab fa-linkedin" aria-hidden="true"></i
-            ></a>
-          </nav>
         </aside>
 
         <form
@@ -397,9 +381,20 @@
                     value="Consultoria"
                   />
                   <label class="service-option-label" for="servicio-consultoria"
-                    >Consultorías</label
+                    >Consultoría</label
                   >
                 </div>
+                <div class="service-option">
+                    <input
+                      type="radio"
+                      id="servicio-soporte"
+                      name="servicio"
+                      value="Soporte"
+                    />
+                    <label class="service-option-label" for="servicio-otro"
+                      >Soporte Informático</label
+                    >
+                  </div>
                 <div class="service-option">
                   <input
                     type="radio"
