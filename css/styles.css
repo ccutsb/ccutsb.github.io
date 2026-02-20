@@ -1613,8 +1613,11 @@ footer::before {
   }
 
   a.btn.btn-primary{
-    width: 60%;
+    width: 75%;
+    margin-top: -20px;
   }
+
+  
 
   .btn-primary {
     padding: 12px;
@@ -1669,6 +1672,10 @@ footer::before {
     section#inicio.hero {
       padding-top: 10px;
       padding-bottom: 10px;
+    }
+
+    section#habilidades.skills{
+      padding: 50px 0;
     }
 
     .hero {
