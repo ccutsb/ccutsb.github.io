@@ -128,8 +128,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 3000);
   }
 
-  // La animación del texto hero se maneja completamente con CSS
-
   // Manejo del formulario de contacto con Formspree
   const contactForm = document.getElementById("contactForm");
   if (contactForm) {
