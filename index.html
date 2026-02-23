@@ -91,13 +91,30 @@
         <h2>Mis <span class="accent">Habilidades</span></h2>
         <p>Tecnologías y herramientas que manejo</p>
       </div>
+
+      <!-- Ambient AI Motion Layer (Circuit Mist) -->
+      <div class="skills-ambient" aria-hidden="true">
+        <video
+          class="skills-ambient__video"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="none"
+          poster="assets/video/skills-bg-poster.png"
+        >
+          <source src="assets/video/skills-bg.webp" type="video/webp" />
+          <source src="assets/video/skills-bg.mp4" type="video/mp4" />
+        </video>
+        <div class="skills-ambient__overlay"></div>
+      </div>
       <main class="skills-container">
         <ul class="skill-items">
           <li class="skill-item" data-skill="Html">
-                <i aria-hidden="true">
-                  <img src="./assets/svg/htm.png" alt="Icono de HTML5" />
-                </i>
-                <span class="skill-name">HTML</span>
+            <i aria-hidden="true">
+              <img src="./assets/svg/htm.png" alt="Icono de HTML5" />
+            </i>
+            <span class="skill-name">HTML</span>
           </li>
           <li class="skill-item" data-skill="CSS">
             <i aria-hidden="true">
@@ -188,124 +205,133 @@
         <p>Soluciones tecnológicas que he desarrollado</p>
       </div>
       <div class="projects-carousel" data-carousel="projects">
-        <div class="projects-container" role="region" aria-label="Carrusel de proyectos" tabindex="0">
-        <article class="project-card">
-          <figure class="project-image">
-            <img
-              src="./assets/img/proyecto2.png"
-              alt="Imagen de consultas a la base de datos con la API REST"
-              loading="lazy"
-            />
-            <figcaption class="project-overlay">
-              <nav class="project-links">
-                <a
-                  href="https://github.com/ccutsb/Base-de-datos-colaboradores"
-                  target="_blank"
-                  class="project-link"
-                  aria-label="Ver en GitHub"
-                  rel="noopener noreferrer"
-                  ><i class="fab fa-github" aria-hidden="true"></i
-                ></a>
-                <a
-                  href="https://ccutsb.github.io/Base-de-datos-colaboradores/"
-                  target="_blank"
-                  class="project-link"
-                  aria-label="Ver proyecto en vivo"
-                  rel="noopener noreferrer"
-                  ><i class="fas fa-external-link-alt" aria-hidden="true"></i
-                ></a>
-              </nav>
-            </figcaption>
-          </figure>
-          <div class="project-info">
-            <h3>Administrador de colaboradores</h3>
-            <p>
-              Aplicación web para la gestión de colaboradores para una empresa;
-              permite agregar, buscar, ordenar y eliminar colaboradores. Permite
-              el envío de correos electrónicos a los colaboradores mediante un
-              botón directo.
-            </p>
-            <ul class="project-tech">
-              <li class="tech-tag">React</li>
-              <li class="tech-tag">Bootstrap</li>
-              <li class="tech-tag">JavaScript</li>
-            </ul>
-          </div>
-        </article>
-        <article class="project-card">
-          <figure class="project-image">
-            <img
-              src="./assets/img/proyecto2.png"
-              alt="Imagen de consultas a la base de datos con la API REST"
-              loading="lazy"
-            />
-            <figcaption class="project-overlay">
-              <nav class="project-links">
-                <a
-                  href="https://github.com/ccutsb/Railway-CRUD-APIREST"
-                  target="_blank"
-                  class="project-link"
-                  aria-label="Ver en GitHub"
-                  ><i class="fab fa-github" aria-hidden="true"></i
-                ></a>
-                <a
-                  href="https://railway-crud-apirest-production-5c10.up.railway.app/productos"
-                  target="_blank"
-                  class="project-link"
-                  aria-label="Ver proyecto en vivo"
-                  ><i class="fas fa-external-link-alt" aria-hidden="true"></i
-                ></a>
-              </nav>
-            </figcaption>
-          </figure>
-          <div class="project-info">
-            <h3>API REST CRUD</h3>
-            <p>
-              Aplicación backend con persistencia de datos para la gestión de
-              productos de una tienda online.
-            </p>
-            <ul class="project-tech">
-              <li class="tech-tag">Java</li>
-              <li class="tech-tag">Spring</li>
-              <li class="tech-tag">PostgreSQL</li>
-              <li class="tech-tag">Railway</li>
-              <li class="tech-tag">Docker</li>
-            </ul>
-          </div>
-        </article>
-        <article class="project-card">
-          <figure class="project-image">
-            <img src="/assets/img/proyecto2.png" alt="Plataforma E-learning" loading="lazy" />
-            <figcaption class="project-overlay">
-              <nav class="project-links">
-                <a href="#" class="project-link" aria-label="Ver en GitHub"
-                  ><i class="fab fa-github" aria-hidden="true"></i
-                ></a>
-                <a
-                  href="#"
-                  class="project-link"
-                  aria-label="Ver proyecto en vivo"
-                  ><i class="fas fa-external-link-alt" aria-hidden="true"></i
-                ></a>
-              </nav>
-            </figcaption>
-          </figure>
-          <div class="project-info">
-            <h3>Plataforma E-learning</h3>
-            <p>
-              Backend para plataforma educativa con Django, implementando
-              sistema de autenticación, gestión de cursos y analíticas de
-              aprendizaje.
-            </p>
-            <ul class="project-tech">
-              <li class="tech-tag">Django</li>
-              <li class="tech-tag">PostgreSQL</li>
-              <li class="tech-tag">Redis</li>
-              <li class="tech-tag">Docker</li>
-            </ul>
-          </div>
-        </article>
-      </div>
+        <div
+          class="projects-container"
+          role="region"
+          aria-label="Carrusel de proyectos"
+          tabindex="0"
+        >
+          <article class="project-card">
+            <figure class="project-image">
+              <img
+                src="./assets/img/proyecto2.png"
+                alt="Imagen de consultas a la base de datos con la API REST"
+                loading="lazy"
+              />
+              <figcaption class="project-overlay">
+                <nav class="project-links">
+                  <a
+                    href="https://github.com/ccutsb/Base-de-datos-colaboradores"
+                    target="_blank"
+                    class="project-link"
+                    aria-label="Ver en GitHub"
+                    rel="noopener noreferrer"
+                    ><i class="fab fa-github" aria-hidden="true"></i
+                  ></a>
+                  <a
+                    href="https://ccutsb.github.io/Base-de-datos-colaboradores/"
+                    target="_blank"
+                    class="project-link"
+                    aria-label="Ver proyecto en vivo"
+                    rel="noopener noreferrer"
+                    ><i class="fas fa-external-link-alt" aria-hidden="true"></i
+                  ></a>
+                </nav>
+              </figcaption>
+            </figure>
+            <div class="project-info">
+              <h3>Administrador de colaboradores</h3>
+              <p>
+                Aplicación web para la gestión de colaboradores para una
+                empresa; permite agregar, buscar, ordenar y eliminar
+                colaboradores. Permite el envío de correos electrónicos a los
+                colaboradores mediante un botón directo.
+              </p>
+              <ul class="project-tech">
+                <li class="tech-tag">React</li>
+                <li class="tech-tag">Bootstrap</li>
+                <li class="tech-tag">JavaScript</li>
+              </ul>
+            </div>
+          </article>
+          <article class="project-card">
+            <figure class="project-image">
+              <img
+                src="./assets/img/proyecto2.png"
+                alt="Imagen de consultas a la base de datos con la API REST"
+                loading="lazy"
+              />
+              <figcaption class="project-overlay">
+                <nav class="project-links">
+                  <a
+                    href="https://github.com/ccutsb/Railway-CRUD-APIREST"
+                    target="_blank"
+                    class="project-link"
+                    aria-label="Ver en GitHub"
+                    ><i class="fab fa-github" aria-hidden="true"></i
+                  ></a>
+                  <a
+                    href="https://railway-crud-apirest-production-5c10.up.railway.app/productos"
+                    target="_blank"
+                    class="project-link"
+                    aria-label="Ver proyecto en vivo"
+                    ><i class="fas fa-external-link-alt" aria-hidden="true"></i
+                  ></a>
+                </nav>
+              </figcaption>
+            </figure>
+            <div class="project-info">
+              <h3>API REST CRUD</h3>
+              <p>
+                Aplicación backend con persistencia de datos para la gestión de
+                productos de una tienda online.
+              </p>
+              <ul class="project-tech">
+                <li class="tech-tag">Java</li>
+                <li class="tech-tag">Spring</li>
+                <li class="tech-tag">PostgreSQL</li>
+                <li class="tech-tag">Railway</li>
+                <li class="tech-tag">Docker</li>
+              </ul>
+            </div>
+          </article>
+          <article class="project-card">
+            <figure class="project-image">
+              <img
+                src="/assets/img/proyecto2.png"
+                alt="Plataforma E-learning"
+                loading="lazy"
+              />
+              <figcaption class="project-overlay">
+                <nav class="project-links">
+                  <a href="#" class="project-link" aria-label="Ver en GitHub"
+                    ><i class="fab fa-github" aria-hidden="true"></i
+                  ></a>
+                  <a
+                    href="#"
+                    class="project-link"
+                    aria-label="Ver proyecto en vivo"
+                    ><i class="fas fa-external-link-alt" aria-hidden="true"></i
+                  ></a>
+                </nav>
+              </figcaption>
+            </figure>
+            <div class="project-info">
+              <h3>Plataforma E-learning</h3>
+              <p>
+                Backend para plataforma educativa con Django, implementando
+                sistema de autenticación, gestión de cursos y analíticas de
+                aprendizaje.
+              </p>
+              <ul class="project-tech">
+                <li class="tech-tag">Django</li>
+                <li class="tech-tag">PostgreSQL</li>
+                <li class="tech-tag">Redis</li>
+                <li class="tech-tag">Docker</li>
+              </ul>
+            </div>
+          </article>
+        </div>
         <div class="carousel-dots" aria-label="Selector de proyectos"></div>
       </div>
       <div class="projects-more">
@@ -421,16 +447,16 @@
                   >
                 </div>
                 <div class="service-option">
-                    <input
-                      type="radio"
-                      id="servicio-soporte"
-                      name="servicio"
-                      value="Soporte"
-                    />
-                    <label class="service-option-label" for="servicio-soporte"
-                      >Soporte Informático</label
-                    >
-                  </div>
+                  <input
+                    type="radio"
+                    id="servicio-soporte"
+                    name="servicio"
+                    value="Soporte"
+                  />
+                  <label class="service-option-label" for="servicio-soporte"
+                    >Soporte Informático</label
+                  >
+                </div>
                 <div class="service-option">
                   <input
                     type="radio"
