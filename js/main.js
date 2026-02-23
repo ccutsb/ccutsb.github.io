@@ -103,6 +103,64 @@ document.addEventListener("DOMContentLoaded", () => {
   animateSkillsOnScroll();
   window.addEventListener("scroll", animateSkillsOnScroll);
 
+
+  // Tooltip/tap behavior para Skills (mismo efecto que desktop en todas las vistas)
+  function setupSkillTooltipToggle() {
+    if (!skillItems || skillItems.length === 0) return;
+
+    // Mejora accesibilidad (teclado / lectores)
+    skillItems.forEach((item) => {
+      item.setAttribute("tabindex", "0");
+      item.setAttribute("role", "button");
+      item.setAttribute("aria-haspopup", "true");
+    });
+
+    function clearActive(exceptEl = null) {
+      skillItems.forEach((el) => {
+        if (exceptEl && el === exceptEl) return;
+        el.classList.remove("active");
+        el.setAttribute("aria-expanded", "false");
+      });
+    }
+
+    skillItems.forEach((item) => {
+      item.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const isActive = item.classList.contains("active");
+        clearActive();
+        if (!isActive) {
+          item.classList.add("active");
+          item.setAttribute("aria-expanded", "true");
+        }
+      });
+
+      item.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          item.click();
+        }
+        if (e.key === "Escape") {
+          item.classList.remove("active");
+          item.setAttribute("aria-expanded", "false");
+        }
+      });
+
+      // Al perder foco (teclado), cerramos el tooltip
+      item.addEventListener("blur", () => {
+        item.classList.remove("active");
+        item.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    // Click fuera cierra todo
+    document.addEventListener("click", () => clearActive());
+
+    // Al hacer scroll, también cerramos para evitar tooltips "colgando"
+    window.addEventListener("scroll", () => clearActive(), { passive: true });
+  }
+
+  setupSkillTooltipToggle();
+
   // Función para mostrar notificaciones
   function showNotification(message, type = "info") {
     const existingNotification = document.querySelector(".notification");
