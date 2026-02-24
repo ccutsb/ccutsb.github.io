@@ -53,35 +53,35 @@ document.addEventListener("DOMContentLoaded", () => {
   navLinksItems.forEach((link) => {
     link.addEventListener("click", (e) => {
       const href = link.getAttribute("href");
-      
+
       // Solo procesar si es un enlace de ancla (#)
       if (href.startsWith("#")) {
         const targetId = href.substring(1);
         const targetSection = document.getElementById(targetId);
-        
+
         if (targetSection) {
           e.preventDefault();
-          
+
           // Calcular posición con offset para el header fijo
           const headerHeight = header.offsetHeight;
           const targetPosition = targetSection.offsetTop - headerHeight;
-          
+
           // Si es la sección inicio y ya estamos en el top, no hacer scroll
           if (targetId === "inicio" && window.scrollY <= headerHeight) {
             window.scrollTo({
               top: 0,
-              behavior: "smooth"
+              behavior: "smooth",
             });
           } else {
             // Scroll suave a la posición calculada
             window.scrollTo({
               top: Math.max(0, targetPosition), // Asegurar que no sea negativo
-              behavior: "smooth"
+              behavior: "smooth",
             });
           }
         }
       }
-      
+
       navLinks.classList.remove("open");
       menuToggle.classList.remove("open");
     });
@@ -102,7 +102,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // Iniciar animación de habilidades al cargar y al hacer scroll
   animateSkillsOnScroll();
   window.addEventListener("scroll", animateSkillsOnScroll);
-
 
   // Tooltip/tap behavior para Skills (mismo efecto que desktop en todas las vistas)
   function setupSkillTooltipToggle() {
@@ -221,8 +220,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (response.ok) {
           if (formStatus) {
-            formStatus.textContent =
-              "Envío exitoso. ¡Gracias por contactarme!";
+            formStatus.textContent = "Envío exitoso. ¡Gracias por contactarme!";
             formStatus.classList.add("success");
           }
           contactForm.reset();
@@ -250,10 +248,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-
   // ===== Projects carousel (mobile-first UX) =====
   function initProjectsCarousel() {
-    const wrapper = document.querySelector('.projects-carousel[data-carousel="projects"]');
+    const wrapper = document.querySelector(
+      '.projects-carousel[data-carousel="projects"]',
+    );
     if (!wrapper) return;
 
     const track = wrapper.querySelector(".projects-container");
@@ -313,7 +312,9 @@ document.addEventListener("DOMContentLoaded", () => {
     function setActiveDot(index) {
       if (!dotsWrap) return;
       const dots = Array.from(dotsWrap.querySelectorAll(".carousel-dot"));
-      dots.forEach((d, i) => d.setAttribute("aria-current", i === index ? "true" : "false"));
+      dots.forEach((d, i) =>
+        d.setAttribute("aria-current", i === index ? "true" : "false"),
+      );
     }
 
     function updateButtons() {
@@ -324,8 +325,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Buttons
-    prevBtn?.addEventListener("click", () => scrollToIndex(getActiveIndex() - 1));
-    nextBtn?.addEventListener("click", () => scrollToIndex(getActiveIndex() + 1));
+    prevBtn?.addEventListener("click", () =>
+      scrollToIndex(getActiveIndex() - 1),
+    );
+    nextBtn?.addEventListener("click", () =>
+      scrollToIndex(getActiveIndex() + 1),
+    );
 
     // Keyboard (cuando el track tiene focus)
     track.addEventListener("keydown", (e) => {
@@ -351,4 +356,65 @@ document.addEventListener("DOMContentLoaded", () => {
 
   initProjectsCarousel();
 
+  // ===== Skills Ambient Video: lazy-load + visibility control =====
+  (function setupSkillsAmbientVideo() {
+    const prefersReduced = window.matchMedia?.(
+      "(prefers-reduced-motion: reduce)",
+    )?.matches;
+    if (prefersReduced) return;
+
+    const section = document.querySelector("#skills");
+    const video = section?.querySelector(".skills-ambient__video");
+    if (!section || !video) return;
+
+    // Lazy-load: cargamos fuentes cuando la sección entra en viewport
+    const sources = Array.from(video.querySelectorAll("source"));
+    const hasSrc = sources.some((s) => s.getAttribute("src"));
+
+    // Si preload="none" + src ya está, solo controlamos play/pause
+    const playSafe = async () => {
+      try {
+        await video.play();
+      } catch (_) {}
+    };
+
+    const pauseSafe = () => {
+      try {
+        video.pause();
+      } catch (_) {}
+    };
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        if (!entry) return;
+
+        if (entry.isIntersecting) {
+          // Forzamos carga en el primer ingreso real
+          if (video.preload === "none") {
+            video.preload = "metadata";
+            // Safari a veces necesita load() explícito
+            video.load();
+          }
+          playSafe();
+        } else {
+          pauseSafe();
+        }
+      },
+      { threshold: 0.05 },
+    );
+
+    video.addEventListener('ended', () => {
+      video.currentTime = 0;
+      video.play();
+    });
+
+    io.observe(section);
+
+    // Pausa al cambiar de pestaña (performance)
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) pauseSafe();
+      else playSafe();
+    });
+  })();
 });

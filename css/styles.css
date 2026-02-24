@@ -92,6 +92,18 @@ iframe {
   display: block;
 }
 
+/* Evitar selección y long-press callout (iOS) */
+img, video {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none; /* iOS: oculta menú de guardar */
+}
+
+/* Evitar drag (desktop) */
+img {
+  -webkit-user-drag: none;
+}
+
 /* Mejor offset de anclas con header sticky */
 section[id] {
   scroll-margin-top: calc(var(--header-height));
@@ -564,34 +576,75 @@ section {
 
 /* ===== SKILLS SECTION ===== */
 .skills {
-  background: var(--bg-secondary);
   position: relative;
   padding: 20px 0;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  overflow: hidden;
 }
 
-.skills::before {
-  content: "";
+.skills h2 {
   position: relative;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 70%;
-  background:
-    radial-gradient(
-      circle at 30% 40%,
-      rgba(100, 255, 218, 0.03) 0%,
-      transparent 40%
-    ),
-    radial-gradient(
-      circle at 70% 60%,
-      rgba(93, 93, 255, 0.03) 0%,
-      transparent 40%
-    );
+  z-index: 3; /* más alto que .skills-container si hace falta */
+  color: rgba(7, 34, 49, 0.95); /* ligeramente más oscuro para accesibilidad */
+  text-shadow: 0 6px 18px rgba(255,255,255,0.35), 0 1px 0 rgba(0,0,0,0.06);
+  /* si quieres un fondo suave */
+  display: inline-block;
+  padding: 8px 14px;
+  border-radius: 12px;
+}
+
+/* Capa de video */
+.skills-ambient {
+  position: absolute;
+  inset: 0;
   z-index: 0;
+  pointer-events: none;
+}
+/* video/img */
+.skills-ambient__video,
+.skills-ambient__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.02);
+  /* Ajusta opacidad si el video tapa mucho */
+  opacity: 0.40; 
+  filter: saturate(1.12) contrast(1.06);
+  mix-blend-mode: normal;
+  animation: subtleBreath 8s ease-in-out infinite;
+}
+
+@keyframes subtleBreath {
+  0%,100% { opacity: 0.30; }
+  50% { opacity: 0.33; }
+}
+
+
+/* Overlay para “glass + haze” y coherencia con tu UI */
+/* overlay sutil, reduce intensidad si tapa el texto */
+.skills-ambient__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(circle at 30% 25%, rgba(76,201,240,0.08), transparent 55%),
+    radial-gradient(circle at 70% 75%, rgba(100,223,223,0.08), transparent 60%),
+    linear-gradient(to bottom, rgba(248,249,250,0.30), rgba(248,249,250,0.48));
+  pointer-events: none;
+  backdrop-filter: blur(0.6px);
+  mix-blend-mode: normal;
+}
+
+/* Reduce motion: no reproducir video si el usuario lo prefiere */
+@media (prefers-reduced-motion: reduce) {
+  .skills-ambient__video {
+    display: none;
+  }
 }
 
 .skills-container {
@@ -599,7 +652,7 @@ section {
   max-width: 1200px;
   margin: 0 auto;
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
 .skill-items {
