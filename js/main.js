@@ -363,7 +363,7 @@ document.addEventListener("DOMContentLoaded", () => {
     )?.matches;
     if (prefersReduced) return;
 
-    const section = document.querySelector("#skills");
+    const section = document.querySelector("#habilidades");
     const video = section?.querySelector(".skills-ambient__video");
     if (!section || !video) return;
 
@@ -401,13 +401,8 @@ document.addEventListener("DOMContentLoaded", () => {
           pauseSafe();
         }
       },
-      { threshold: 0.05 },
+      { threshold: 0.15 },
     );
-
-    video.addEventListener('ended', () => {
-      video.currentTime = 0;
-      video.play();
-    });
 
     io.observe(section);
 

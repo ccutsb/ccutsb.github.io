@@ -92,18 +92,6 @@ iframe {
   display: block;
 }
 
-/* Evitar selección y long-press callout (iOS) */
-img, video {
-  -webkit-user-select: none;
-  user-select: none;
-  -webkit-touch-callout: none; /* iOS: oculta menú de guardar */
-}
-
-/* Evitar drag (desktop) */
-img {
-  -webkit-user-drag: none;
-}
-
 /* Mejor offset de anclas con header sticky */
 section[id] {
   scroll-margin-top: calc(var(--header-height));
@@ -360,6 +348,11 @@ section {
   scroll-margin-top: var(--header-height);
 }
 
+section#inicio.hero {
+  padding-top: 0px;
+  padding-bottom: 10px;
+}
+
 .hero-card {
   width: 100%;
   max-width: 1300px;
@@ -367,7 +360,6 @@ section {
   background: var(--card-bg);
   border-radius: 32px;
   box-shadow: var(--shadow-lg);
-  padding: clamp(1.25rem, 3vw, 2rem) clamp(1.25rem, 4vw, 2.5rem);
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto auto;
@@ -375,6 +367,9 @@ section {
   position: relative;
   overflow: hidden;
   min-height: calc(100vh - var(--header-height) - 40px);
+  --hero-card-pad-y: clamp(1.25rem, 3vw, 2rem);
+  --hero-card-pad-x: clamp(1.25rem, 4vw, 2.5rem);
+  padding: var(--hero-card-pad-y) var(--hero-card-pad-x);
 }
 
 .hero-card::before {
@@ -454,6 +449,11 @@ section {
   width: 100%;
   /* Reserva altura para evitar saltos al cargar */
   min-height: 1.2em;
+}
+
+span.hero-title-variants {
+  color: var(--primary-color);
+  -webkit-text-stroke: 1px black;
 }
 
 .hero-variant {
@@ -568,14 +568,32 @@ section {
 }
 
 .hero-image-container img {
-  width: 100%;
-  height: 100%;
+  width: 110%;
+  height: 110%;
   object-fit: cover;
   object-position: center;
 }
 
 /* ===== SKILLS SECTION ===== */
+#habilidades .section-header h2 {
+  color: #1c2730;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+#habilidades .section-header h2 .accent {
+  background: linear-gradient(90deg, #63e6e2, #8a7dff);
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 12px rgba(99, 230, 226, 0.25);
+}
+
+#habilidades .container {
+  position: relative;
+  z-index: 2;
+}
+
 .skills {
+  background: var(--bg-secondary);
   position: relative;
   padding: 20px 0;
   min-height: 100vh;
@@ -585,15 +603,10 @@ section {
   overflow: hidden;
 }
 
-.skills h2 {
+/* Asegura que el título de Skills quede POR ENCIMA del video/overlay */
+.skills .section-header{
   position: relative;
-  z-index: 3; /* más alto que .skills-container si hace falta */
-  color: rgba(7, 34, 49, 0.95); /* ligeramente más oscuro para accesibilidad */
-  text-shadow: 0 6px 18px rgba(255,255,255,0.35), 0 1px 0 rgba(0,0,0,0.06);
-  /* si quieres un fondo suave */
-  display: inline-block;
-  padding: 8px 14px;
-  border-radius: 12px;
+  z-index: 2;
 }
 
 /* Capa de video */
@@ -603,41 +616,36 @@ section {
   z-index: 0;
   pointer-events: none;
 }
-/* video/img */
-.skills-ambient__video,
-.skills-ambient__img {
+
+/* Video: ocupa toda la sección */
+.skills-ambient__video {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transform: scale(1.02);
-  /* Ajusta opacidad si el video tapa mucho */
-  opacity: 0.40; 
-  filter: saturate(1.12) contrast(1.06);
-  mix-blend-mode: normal;
-  animation: subtleBreath 8s ease-in-out infinite;
-}
+  z-index: 0;
 
-@keyframes subtleBreath {
-  0%,100% { opacity: 0.30; }
-  50% { opacity: 0.33; }
+  /* Ajusta intensidad visual */
+  opacity: 0.28;
+  filter: saturate(1.08) contrast(1.05);
+  transform: scale(1.02); /* evita líneas negras por redondeos / aliasing */
 }
-
 
 /* Overlay para “glass + haze” y coherencia con tu UI */
-/* overlay sutil, reduce intensidad si tapa el texto */
 .skills-ambient__overlay {
   position: absolute;
   inset: 0;
-  z-index: 0;
+
+  /* Mucho más sutil: deja ver el video */
   background:
-    radial-gradient(circle at 30% 25%, rgba(76,201,240,0.08), transparent 55%),
-    radial-gradient(circle at 70% 75%, rgba(100,223,223,0.08), transparent 60%),
-    linear-gradient(to bottom, rgba(248,249,250,0.30), rgba(248,249,250,0.48));
-  pointer-events: none;
-  backdrop-filter: blur(0.6px);
+    radial-gradient(circle at 30% 25%, rgba(76, 201, 240, 0.10), transparent 55%),
+    radial-gradient(circle at 70% 75%, rgba(100, 223, 223, 0.10), transparent 60%),
+    linear-gradient(to bottom, rgba(248, 249, 250, 0.35), rgba(248, 249, 250, 0.55));
+
+  /* Opcional: ayuda a mezclar mejor el video con tu UI */
   mix-blend-mode: normal;
+  backdrop-filter: blur(0.2px);
 }
 
 /* Reduce motion: no reproducir video si el usuario lo prefiere */
@@ -647,12 +655,13 @@ section {
   }
 }
 
+
 .skills-container {
   width: 90%;
   max-width: 1200px;
   margin: 0 auto;
   position: relative;
-  z-index: 2;
+  z-index: 1;
 }
 
 .skill-items {
@@ -1438,6 +1447,11 @@ footer::before {
   .footer-content {
     max-width: 100%;
   }
+
+  section#inicio.hero {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
 }
 
 @media (max-width: 992px) {
@@ -1453,6 +1467,11 @@ footer::before {
   .hero {
     padding: calc(var(--header-height) + 20px) clamp(1rem, 5vw, 2rem) 60px;
     min-height: calc(100vh - var(--header-height));
+  }
+
+  section#inicio.hero {
+    padding-top: 10px;
+    padding-bottom: 10px;
   }
 
   .hero-card {
@@ -1596,13 +1615,13 @@ footer::before {
     min-height: calc(100vh - var(--header-height-mobile));
   }
 
-  .hero-title-variants {
-    min-width: 0;
+  section#inicio.hero {
+    padding-top: 10px;
+    padding-bottom: 10px;
   }
 
-  span.hero-title-variants {
-    color: var(--primary-color);
-    -webkit-text-stroke: 1px black;
+  .hero-title-variants {
+    min-width: 0;
   }
 
   .hero-image-container {
@@ -2136,3 +2155,33 @@ footer::before {
     height: 38px;
   }
 }
+
+
+/* ===== DESKTOP HERO FIXES (>= 992px) ===== */
+@media (min-width: 992px) {
+  /* Make hero fit the first viewport cleanly (no extra scroll) */
+  .hero {
+    /* The old combo: min-height(calc(100vh - header)) + padding-top(header+20)
+       made the hero taller than the viewport. On desktop we lock it to the viewport
+       and keep just a small breathing space. */
+    height: 100vh;
+    min-height: unset;
+    padding-top: calc(var(--header-height) + 12px);
+    padding-bottom: 12px;
+    align-items: center;
+  }
+
+  /* Ensure the card doesn't force extra height */
+  .hero-card {
+    min-height: unset;
+    max-height: calc(100vh - var(--header-height) - 24px);
+  }
+
+  /* Push the main image closer to the right edge (like mobile) */
+  .hero-image {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+}
+
