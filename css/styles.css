@@ -92,6 +92,18 @@ iframe {
   display: block;
 }
 
+/* Evitar selección y long-press callout (iOS) */
+img, video {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none; /* iOS: oculta menú de guardar */
+}
+
+/* Evitar drag (desktop) */
+img {
+  -webkit-user-drag: none;
+}
+
 /* Mejor offset de anclas con header sticky */
 section[id] {
   scroll-margin-top: calc(var(--header-height));
@@ -601,10 +613,18 @@ section {
   object-fit: cover;
   transform: scale(1.02);
   /* Ajusta opacidad si el video tapa mucho */
-  opacity: 0.30; /* puedes bajar a 0.22 o subir a 0.36 según gustes */
-  filter: saturate(1.05) contrast(1.02);
-  mix-blend-mode: normal; /* evitar modos que laven el texto */
+  opacity: 0.40; 
+  filter: saturate(1.12) contrast(1.06);
+  mix-blend-mode: normal;
+  animation: subtleBreath 8s ease-in-out infinite;
 }
+
+@keyframes subtleBreath {
+  0%,100% { opacity: 0.30; }
+  50% { opacity: 0.33; }
+}
+
+
 /* Overlay para “glass + haze” y coherencia con tu UI */
 /* overlay sutil, reduce intensidad si tapa el texto */
 .skills-ambient__overlay {

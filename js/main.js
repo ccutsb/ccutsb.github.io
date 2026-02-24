@@ -401,8 +401,13 @@ document.addEventListener("DOMContentLoaded", () => {
           pauseSafe();
         }
       },
-      { threshold: 0.15 },
+      { threshold: 0.05 },
     );
+
+    video.addEventListener('ended', () => {
+      video.currentTime = 0;
+      video.play();
+    });
 
     io.observe(section);
 
