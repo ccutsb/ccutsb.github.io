@@ -583,7 +583,6 @@ span.hero-title-variants {
 
 #habilidades .section-header h2 .accent {
   background: linear-gradient(90deg, #63e6e2, #8a7dff);
-  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-shadow: 0 0 12px rgba(99, 230, 226, 0.25);
 }
