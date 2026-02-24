@@ -194,14 +194,19 @@ section {
 
 .section-header h2::after {
   content: "";
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60px;
-  height: 3px;
-  background: var(--gradient-primary);
+  display: block;
+  width: 72px;               /* tu tamaño base */
+  height: 4px;
+  margin: 14px auto 0;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--primary-color), rgba(130, 120, 255, 0.9));
+  transform: scaleX(1.5);
+  transform-origin: center;
+  opacity: 0.55;
+  transition: transform 700ms ease, opacity 700ms ease, filter 700ms ease;
+  filter: blur(0px);
 }
+
 
 .section-header p {
   color: var(--text-secondary);
@@ -579,12 +584,6 @@ span.hero-title-variants {
   color: #1c2730;
   font-weight: 700;
   letter-spacing: 0.5px;
-}
-
-#habilidades .section-header h2 .accent {
-  background: linear-gradient(90deg, #63e6e2, #8a7dff);
-  -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 12px rgba(99, 230, 226, 0.25);
 }
 
 #habilidades .container {
