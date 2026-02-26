@@ -196,7 +196,7 @@ section {
   font-family: var(--font-accent);
   /* Más prolijo en escritorio: no se dispara el tamaño */
   font-size: clamp(1.25rem, 1.05rem + 0.8vw, 1.65rem);
-  margin-bottom: 12px;
+  margin: 8px 0;
   position: relative;
   display: inline-block;
   line-height: 1.15;
@@ -779,7 +779,13 @@ span.hero-title-variants {
 
 /* ===== PROJECTS SECTION ===== */
 .projects {
-  background: #ffffff;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(255,255,255,0.02),
+      rgba(0,0,0,0.02)
+    ),
+    var(--background-color);
   position: relative;
 
   /* ✅ Deja de comportarse como "hero" en desktop */
@@ -791,31 +797,6 @@ span.hero-title-variants {
   /* ✅ Sección más compacta y profesional */
   padding: 34px 0;
   overflow: hidden;
-}
-
-/* Fondo mesh mejorado */
-.projects::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at 15% 20%, rgba(110, 231, 231, 0.14) 0%, transparent 45%),
-    radial-gradient(circle at 85% 30%, rgba(165, 180, 255, 0.16) 0%, transparent 45%),
-    radial-gradient(circle at 40% 85%, rgba(110, 231, 231, 0.10) 0%, transparent 55%),
-    radial-gradient(circle at 70% 75%, rgba(165, 180, 255, 0.10) 0%, transparent 55%);
-  z-index: 0;
-}
-
-/* Grain sutil (se siente "premium" sin distraer) */
-.projects::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  opacity: 0.05;
-  mix-blend-mode: overlay;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
-  z-index: 0;
 }
 
 /* Header un poco más compacto SOLO en proyectos */
@@ -890,6 +871,10 @@ section.projects-header {
   height: clamp(150px, 14vw, 190px);
   aspect-ratio: 16 / 9;
   overflow: hidden;
+}
+
+.cta-content h2{
+  font-family: var(--font-accent);
 }
 
 .project-image img,
@@ -2291,6 +2276,59 @@ footer::before {
   /* Tags abajo para estabilizar alturas */
   .project-tech {
     margin-top: auto;
+  }
+}
+
+/* ===== Fine-tune: jerarquía visual del H1 "Mis Proyectos" ===== */
+.projects-header .section-header h1 {
+  position: relative;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+
+  /* Profundidad sutil (no exagerada) */
+  text-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.55),
+    0 10px 22px rgba(0, 0, 0, 0.08);
+}
+
+/* Subrayado/acento con “glow” suave */
+.projects-header .section-header h1::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -10px;
+  width: min(220px, 70%);
+  height: 3px;
+  border-radius: 999px;
+
+  background: linear-gradient(
+    90deg,
+    rgba(95, 244, 255, 0),
+    rgba(95, 244, 255, 0.95),
+    rgba(95, 244, 255, 0)
+  );
+
+  box-shadow:
+    0 8px 20px rgba(95, 244, 255, 0.18),
+    0 0 0 1px rgba(95, 244, 255, 0.10);
+  pointer-events: none;
+}
+
+/* Si tu H1 tiene el "Proyectos" en un <span>, lo potenciamos sin agrandar */
+.projects-header .section-header h1 span {
+  text-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.6),
+    0 10px 24px rgba(95, 244, 255, 0.18);
+  padding-top: 10px;  
+}
+
+/* En pantallas chicas el subrayado se compacta */
+@media (max-width: 480px) {
+  .projects-header .section-header h1::after {
+    bottom: -8px;
+    width: min(180px, 75%);
   }
 }
 
