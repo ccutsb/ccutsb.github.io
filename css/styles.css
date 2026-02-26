@@ -194,10 +194,12 @@ section {
 .section-header h1,
 .section-header h2 {
   font-family: var(--font-accent);
-  font-size: clamp(1.85rem, 1.35rem + 1.6vw, 2.6rem);
-  margin-bottom: 15px;
+  /* Más prolijo en escritorio: no se dispara el tamaño */
+  font-size: clamp(1.25rem, 1.05rem + 0.8vw, 1.65rem);
+  margin-bottom: 12px;
   position: relative;
   display: inline-block;
+  line-height: 1.15;
 }
 
 .section-header h2::after {
@@ -448,7 +450,7 @@ section#inicio.hero {
 
 .hero-text h1 {
   font-family: var(--font-accent);
-  font-size: clamp(2.3rem, 1.8rem + 1.6vw, 3.3rem);
+  font-size: clamp(1.9rem, 1.5rem + 1.3vw, 2.5rem);
   font-weight: 900;
   margin-bottom: 0;
   line-height: 1.2;
@@ -531,7 +533,7 @@ span.hero-title-variants {
 
 .hero-text h2 {
   font-family: var(--font-primary);
-  font-size: clamp(1.6rem, 1.3rem + 0.9vw, 2.4rem);
+  font-size: clamp(1.15rem, 1.05rem + 0.6vw, 1.55rem);
   font-weight: 500;
   margin-top: 0; /* Asegurar que no hay margen superior que cause solapamiento */
   margin-bottom: 20px;
@@ -2240,6 +2242,55 @@ footer::before {
     display: flex;
     justify-content: flex-end;
     align-items: center;
+  }
+}
+/* ===== Desktop compact view: titles + project cards (no rompe mobile) ===== */
+@media (min-width: 1024px) {
+  /* Encabezado de proyectos más compacto */
+  section.projects-header {
+    padding: 10px 0 6px;
+  }
+
+  .projects-header .section-header {
+    margin-bottom: 14px;
+  }
+
+  /* Sección proyectos un poco más apretada */
+  .projects {
+    padding: 26px 0;
+  }
+
+  /* Cards: bajar altura del media y compactar contenido */
+  .project-image {
+    height: clamp(125px, 10vw, 160px);
+  }
+
+  .project-card {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .project-info {
+    padding: clamp(0.9rem, 1.2vw, 1.1rem);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .project-info h3 {
+    font-size: 1.05rem;
+    margin-bottom: 8px;
+  }
+
+  /* Descripción realmente limitada a 3 líneas (te faltaba el clamp) */
+  .project-info p {
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+  }
+
+  /* Tags abajo para estabilizar alturas */
+  .project-tech {
+    margin-top: auto;
   }
 }
 
