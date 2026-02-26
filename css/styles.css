@@ -184,7 +184,7 @@ section {
   margin-bottom: 60px;
 }
 
-.section-header h2 {
+.section-header h1, h2 {
   font-family: var(--font-accent);
   font-size: 2.5rem;
   margin-bottom: 15px;
@@ -854,6 +854,10 @@ span.hero-title-variants {
   overflow: hidden;
   transition: var(--transition);
   box-shadow: var(--shadow-md);
+}
+
+section.projects-header {
+  padding: 0;
 }
 
 .project-card:hover {
