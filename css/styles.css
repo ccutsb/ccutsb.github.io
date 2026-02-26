@@ -29,13 +29,20 @@
   --font-accent: "Orbitron", sans-serif;
 
   /* Layout */
-  --header-height: 90px; /* Desktop header height */
-  --header-height-mobile: 70px; /* Mobile header height */
+  --header-height: 72px; /* Desktop header height */
+  --header-height-mobile: 60px; /* Mobile header height */
 
   /* Efectos */
   --transition: all 0.3s ease;
   --glow: 0 0 10px rgba(110, 231, 231, 0.35);
 }
+
+@media (max-width: 768px) {
+  :root {
+    --header-height: var(--header-height-mobile);
+  }
+}
+
 
 /* ===== RESET Y ESTILOS GENERALES ===== */
 *,
@@ -181,12 +188,13 @@ section {
 /* ===== ENCABEZADOS DE SECCIÓN ===== */
 .section-header {
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: clamp(1.75rem, 4vw, 3rem);
 }
 
-.section-header h1, h2 {
+.section-header h1,
+.section-header h2 {
   font-family: var(--font-accent);
-  font-size: 2.5rem;
+  font-size: clamp(1.85rem, 1.35rem + 1.6vw, 2.6rem);
   margin-bottom: 15px;
   position: relative;
   display: inline-block;
@@ -211,6 +219,8 @@ section {
 .section-header p {
   color: var(--text-secondary);
   font-size: clamp(0.95rem, 0.9rem + 0.25vw, 1.1rem);
+  max-width: 68ch;
+  margin: 0.25rem auto 0;
 }
 
 /* ===== NAVEGACIÓN ===== */
@@ -221,7 +231,7 @@ section {
   width: 100%;
   z-index: 1000;
   transition: var(--transition);
-  padding: 10px 0;
+  padding: 6px 0;
   height: var(--header-height);
   display: flex;
   align-items: center;
@@ -231,7 +241,7 @@ section {
 }
 
 .main-header.scrolled {
-  padding: 10px 0;
+  padding: 6px 0;
   background: rgba(255, 255, 255, 0.98);
   box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08);
   height: var(--header-height); /* Mantener altura consistente */
@@ -250,7 +260,7 @@ section {
 .logo {
   font-family: var(--font-accent);
   font-weight: 700;
-  font-size: 1.8rem;
+  font-size: clamp(1.35rem, 1.15rem + 0.8vw, 1.7rem);
   letter-spacing: 2px;
 }
 
@@ -270,13 +280,13 @@ section {
 
 .nav-links {
   display: flex;
-  gap: 30px;
+  gap: 22px;
   align-items: center;
 }
 
 .nav-link {
   font-family: var(--font-accent);
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 1px;
   position: relative;
@@ -777,7 +787,7 @@ span.hero-title-variants {
   justify-content: flex-start;
 
   /* ✅ Sección más compacta y profesional */
-  padding: 50px 0;
+  padding: 34px 0;
   overflow: hidden;
 }
 
@@ -857,7 +867,11 @@ span.hero-title-variants {
 }
 
 section.projects-header {
-  padding: 0;
+  padding: 18px 0 10px;
+}
+
+.projects-header .section-header {
+  margin-bottom: clamp(1.25rem, 2.5vw, 1.75rem);
 }
 
 .project-card:hover {
@@ -974,6 +988,11 @@ section.projects-header {
   margin-top: clamp(1.5rem, 3vw, 2rem);
   position: relative;
   z-index: 1;
+}
+
+/* Proyectos page: permite grilla más ancha dentro de .container */
+.projects > .container {
+  max-width: 1200px;
 }
 
 /* ===== PROJECTS CAROUSEL (MOBILE) ===== */
