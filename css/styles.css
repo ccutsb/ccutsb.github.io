@@ -223,6 +223,8 @@ section {
   font-size: clamp(0.95rem, 0.9rem + 0.25vw, 1.1rem);
   max-width: 68ch;
   margin: 0.25rem auto 0;
+  margin-bottom: 25px;
+  
 }
 
 /* ===== NAVEGACIÓN ===== */
@@ -1578,6 +1580,10 @@ footer::before {
   .footer-content {
     grid-template-columns: repeat(auto-fit, minmax(min(180px, 100%), 1fr));
   }
+
+  .section-header p {
+    margin-bottom: 25px;
+  }
 }
 
 /* Mobile: 768px */
@@ -1816,6 +1822,10 @@ footer::before {
       padding: 50px 0;
     }
 
+    .section-header p {
+      margin-bottom: 25px;
+    }
+
     .hero {
       padding: calc(var(--header-height-mobile) + 20px)
         clamp(0.875rem, 4vw, 1.5rem) clamp(2rem, 5vw, 3.75rem);
@@ -1948,7 +1958,6 @@ footer::before {
 
   /* Encabezado de proyectos */
   .projects-header {
-    height: 40vh;
     min-height: 300px;
     display: flex;
     align-items: center;
@@ -2081,6 +2090,10 @@ footer::before {
     font-size: clamp(1rem, 0.95rem + 0.4vw, 1.2rem);
     color: var(--text-secondary);
     margin-bottom: 30px;
+  }
+
+  .section-header p {
+    margin-bottom: 25px;
   }
 
   /* Responsive para la página de proyectos */
