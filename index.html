@@ -10,7 +10,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Roboto:wght@300;400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700&display=swap"
       rel="stylesheet"
     />
   </head>
@@ -23,31 +23,28 @@
             >CRISTIAN <span class="accent">CORTÉS</span></span
           >
         </a>
-        <ul class="nav-links">
-          <li><a href="#inicio" class="nav-link">Inicio</a></li>
-          <li><a href="#habilidades" class="nav-link">Habilidades</a></li>
-          <li><a href="#proyectos" class="nav-link">Proyectos</a></li>
-          <li><a href="#contacto" class="nav-link">Contacto</a></li>
+        <ul class="nav-links" id="site-navigation">
+          <li><a href="#inicio" class="nav-link" data-i18n="nav.home">Inicio</a></li>
+          <li><a href="#habilidades" class="nav-link" data-i18n="nav.skills">Habilidades</a></li>
+          <li><a href="#proyectos" class="nav-link" data-i18n="nav.projects">Proyectos</a></li>
+          <li><a href="#contacto" class="nav-link" data-i18n="nav.contact">Contacto</a></li>
         </ul>
-        <div class="nav-social">
-          <a
-            href="https://github.com/ccutsb"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="GitHub"
-          >
-            <i class="fab fa-github"></i>
-          </a>
-          <a
-            href="https://www.linkedin.com/in/ccortesbustamante/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn"
-          >
-            <i class="fab fa-linkedin-in"></i>
-          </a>
+        <div class="nav-controls">
+          <button class="lang-toggle" type="button" aria-label="Switch language">
+            <i class="fas fa-language" aria-hidden="true"></i>
+            <span data-lang-label>EN</span>
+          </button>
+          <button class="theme-toggle" type="button" aria-label="Cambiar tema" aria-pressed="false">
+            <i class="fas fa-moon" aria-hidden="true"></i>
+            <span data-theme-label data-i18n="theme.dark">Oscuro</span>
+          </button>
         </div>
-        <button class="menu-toggle" aria-label="Menú de navegación">
+        <button
+          class="menu-toggle"
+          aria-label="Abrir menú de navegación"
+          aria-expanded="false"
+          aria-controls="site-navigation"
+        >
           <i class="fas fa-bars"></i>
         </button>
       </nav>
@@ -59,28 +56,34 @@
         <div class="hero-text hero-text-title">
           <h1>
             <span class="hero-title-variants">
-              <span class="hero-variant">Desarrollador de Software</span>
-              <span class="hero-variant">Técnico en Informática</span>
+              <span class="hero-variant" data-i18n="hero.roleMain">Desarrollador de Software</span>
+              <span class="hero-variant" data-i18n="hero.roleAlt">Técnico en Informática</span>
             </span>
           </h1>
         </div>
         <aside class="hero-image">
           <figure class="hero-image-container">
-            <img
-              src="./assets/img/mainpic.png"
-              alt="Foto de perfil de Cristian Cortés"
-            />
+              <img
+                src="./assets/img/mainpic.png"
+                alt="Foto de perfil de Cristian Cortés"
+                width="640"
+                height="640"
+              />
           </figure>
         </aside>
         <div class="hero-text hero-text-body">
-          <h2>
+          <h2 data-i18n-html="hero.subtitle">
             Construyendo la <span class="accent">infraestructura</span> del
             futuro digital
           </h2>
-          <p>
+          <p data-i18n="hero.description">
             Creación de páginas web, arquitecturas escalables, APIs y soluciones
             de alto rendimiento
           </p>
+          <div class="hero-actions">
+            <a href="#proyectos" class="btn btn-primary" data-i18n="hero.ctaPrimary">Ver Proyectos</a>
+            <a href="#contacto" class="btn btn-secondary" data-i18n="hero.ctaSecondary">Contactar</a>
+          </div>
         </div>
       </article>
     </section>
@@ -88,8 +91,8 @@
     <!-- Sección Habilidades -->
     <section id="habilidades" class="skills">
       <div class="section-header">
-        <h2>Mis <span class="accent">Habilidades</span></h2>
-        <p>Tecnologías y herramientas que manejo</p>
+        <h2 data-i18n-html="skills.title">Mis <span class="accent">Habilidades</span></h2>
+        <p data-i18n="skills.subtitle">Tecnologías y herramientas que manejo</p>
       </div>
 
       <!-- Ambient AI Motion Layer (Circuit Mist) -->
@@ -112,85 +115,91 @@
         <ul class="skill-items">
           <li class="skill-item" data-skill="Html">
             <i aria-hidden="true">
-              <img src="./assets/svg/htm.png" alt="Icono de HTML5" />
+              <img src="./assets/svg/htm.png" alt="Icono de HTML5" width="48" height="48" loading="lazy" />
             </i>
             <span class="skill-name">HTML</span>
           </li>
           <li class="skill-item" data-skill="CSS">
             <i aria-hidden="true">
-              <img src="./assets/svg/css.png" alt="Icono de CSS" />
+              <img src="./assets/svg/css.png" alt="Icono de CSS" width="48" height="48" loading="lazy" />
             </i>
             <span class="skill-name">CSS</span>
           </li>
           <li class="skill-item" data-skill="Figma">
             <i aria-hidden="true">
-              <img src="./assets/svg/figma.png" alt="Icono de Figma" /> 
+              <img src="./assets/svg/figma.png" alt="Icono de Figma" width="48" height="48" loading="lazy" /> 
             </i>
             <span class="skill-name">Figma</span>
           </li>
           <li class="skill-item" data-skill="JavaScript">
             <i aria-hidden="true">
-              <img src="./assets/svg/js.png" alt="Icono de JavaScript" />
+              <img src="./assets/svg/js.png" alt="Icono de JavaScript" width="48" height="48" loading="lazy" />
             </i>
             <span class="skill-name">JavaScript</span>
           </li>
           <li class="skill-item" data-skill="React">
             <i aria-hidden="true">
-              <img src="./assets/svg/react.png" alt="Icono de React" />
+              <img src="./assets/svg/react.png" alt="Icono de React" width="48" height="48" loading="lazy" />
             </i>
             <span class="skill-name">React</span>
           </li>
           <li class="skill-item" data-skill="Java">
             <i aria-hidden="true">
-              <img src="./assets/svg/java.png" alt="Icono de Java" />
+              <img src="./assets/svg/java.png" alt="Icono de Java" width="48" height="48" loading="lazy" />
             </i>
             <span class="skill-name">Java</span>
           </li>
           <li class="skill-item" data-skill="Spring">
             <i aria-hidden="true">
-              <img
-                src="./assets/svg/icons8-spring-boot-color-48.png"
-                alt="Icono de Spring"
-              />
+                <img
+                  src="./assets/svg/icons8-spring-boot-color-48.png"
+                  alt="Icono de Spring"
+                  width="48"
+                  height="48"
+                  loading="lazy"
+                />
             </i>
             <span class="skill-name">Spring</span>
           </li>
           <li class="skill-item" data-skill="git">
             <i aria-hidden="true">
-              <img src="./assets/svg/git.png" alt="Icono de Git" />
+              <img src="./assets/svg/git.png" alt="Icono de Git" width="48" height="48" loading="lazy" />
             </i>
             <span class="skill-name">Git</span>
           </li>
           <li class="skill-item" data-skill="Github">
             <i aria-hidden="true">
-              <img src="./assets/svg/github.png" alt="Icono de Github" />
+              <img src="./assets/svg/github.png" alt="Icono de Github" width="48" height="48" loading="lazy" />
             </i>
             <span class="skill-name">GitHub</span>
           </li>
           <li class="skill-item" data-skill="PostgreSQL">
             <i aria-hidden="true">
-              <img
-                src="./assets/svg/postgresql.png"
-                alt="Icono de PostgreSQL"
-              />
+                <img
+                  src="./assets/svg/postgresql.png"
+                  alt="Icono de PostgreSQL"
+                  width="48"
+                  height="48"
+                  loading="lazy"
+                />
             </i>
             <span class="skill-name">PostgreSQL</span>
           </li>
           <li class="skill-item" data-skill="MySQL">
             <i aria-hidden="true">
-              <img src="./assets/svg/mysql.png" alt="Icono de MySQL" />
+              <img src="./assets/svg/mysql.png" alt="Icono de MySQL" width="48" height="48" loading="lazy" />
             </i>
             <span class="skill-name">MySQL</span>
           </li>
           <li class="skill-item" data-skill="Docker">
             <i aria-hidden="true">
-              <img src="./assets/svg/docker.png" alt="Icono de Docker" />
+              <img src="./assets/svg/docker.png" alt="Icono de Docker" width="48" height="48" loading="lazy" />
             </i>
             <span class="skill-name">Docker</span>
           </li>
           <li class="skill-item" data-skill="Bash">
             <i aria-hidden="true">
-              <img src="./assets/svg/bash.png" alt="Icono de Bash" />
+              <img src="./assets/svg/bash.png" alt="Icono de Bash" width="48" height="48" loading="lazy" />
             </i>
             <span class="skill-name">Bash</span>
           </li>
@@ -201,8 +210,8 @@
     <!-- Sección Proyectos -->
     <section id="proyectos" class="projects">
       <div class="section-header">
-        <h2>Mis <span class="accent">Proyectos</span></h2>
-        <p>Soluciones tecnológicas que he desarrollado</p>
+        <h2 data-i18n-html="projects.title">Mis <span class="accent">Proyectos</span></h2>
+        <p data-i18n="projects.subtitle">Soluciones tecnológicas que he desarrollado</p>
       </div>
       <div class="projects-carousel" data-carousel="projects">
         <div
@@ -217,6 +226,8 @@
                 src="./assets/img/proyecto2.png"
                 alt="Imagen de consultas a la base de datos con la API REST"
                 loading="lazy"
+                width="800"
+                height="500"
               />
               <figcaption class="project-overlay">
                 <nav class="project-links">
@@ -260,6 +271,8 @@
                 src="./assets/img/proyecto2.png"
                 alt="Imagen de consultas a la base de datos con la API REST"
                 loading="lazy"
+                width="800"
+                height="500"
               />
               <figcaption class="project-overlay">
                 <nav class="project-links">
@@ -298,9 +311,11 @@
           <article class="project-card">
             <figure class="project-image">
               <img
-                src="/assets/img/proyecto2.png"
+                src="./assets/img/proyecto2.png"
                 alt="Plataforma E-learning"
                 loading="lazy"
+                width="800"
+                height="500"
               />
               <figcaption class="project-overlay">
                 <nav class="project-links">
@@ -336,7 +351,7 @@
       </div>
       <div class="projects-more">
         <a href="./proyectos.html" class="btn btn-primary"
-          >Ver más proyectos
+          ><span data-i18n="projects.more">Ver más proyectos</span>
           <i class="fas fa-arrow-right" aria-hidden="true"></i
         ></a>
       </div>
@@ -345,8 +360,8 @@
     <!-- Sección Contacto -->
     <section id="contacto" class="contact">
       <div class="section-header">
-        <h2>Ponte en <span class="accent">Contacto</span></h2>
-        <p>¿Tienes un proyecto en mente? ¡Hablemos!</p>
+        <h2 data-i18n-html="contact.title">Ponte en <span class="accent">Contacto</span></h2>
+        <p data-i18n="contact.subtitle">¿Tienes un proyecto en mente? ¡Hablemos!</p>
       </div>
       <main class="contact-container">
         <aside class="contact-info">
@@ -360,10 +375,35 @@
           <article class="contact-item">
             <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
             <div>
-              <h3>Ubicación</h3>
+              <h3 data-i18n="contact.locationLabel">Ubicación</h3>
               <p>Santiago, Chile</p>
             </div>
           </article>
+          <div class="contact-social-wrap">
+            <h3 data-i18n="contact.socialTitle">Redes</h3>
+            <div class="contact-social">
+              <a
+                href="https://github.com/ccutsb"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+                class="contact-social-link"
+              >
+                <i class="fab fa-github" aria-hidden="true"></i>
+                <span>GitHub</span>
+              </a>
+              <a
+                href="https://www.linkedin.com/in/ccortesbustamante/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                class="contact-social-link"
+              >
+                <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+                <span>LinkedIn</span>
+              </a>
+            </div>
+          </div>
         </aside>
 
         <form
@@ -382,7 +422,7 @@
                   placeholder=" "
                   required
                 />
-                <label for="nombre">Nombre</label>
+                <label for="nombre" data-i18n="contact.form.name">Nombre</label>
               </div>
               <div class="form-group">
                 <input
@@ -397,7 +437,7 @@
             </div>
 
             <div class="form-group">
-              <span class="form-group-inline-label"
+              <span class="form-group-inline-label" data-i18n="contact.form.service"
                 >¿Qué tipo de servicio necesitas?</span
               >
               <div class="service-options">
@@ -410,7 +450,7 @@
                     checked
                   />
                   <label class="service-option-label" for="servicio-web-design"
-                    >Diseño Web</label
+                    data-i18n="contact.form.webDesign">Diseño Web</label
                   >
                 </div>
                 <div class="service-option">
@@ -421,7 +461,7 @@
                     value="Desarrollo Web"
                   />
                   <label class="service-option-label" for="servicio-web-dev"
-                    >Desarrollo Web</label
+                    data-i18n="contact.form.webDev">Desarrollo Web</label
                   >
                 </div>
                 <div class="service-option">
@@ -432,7 +472,7 @@
                     value="Desarrollo Backend"
                   />
                   <label class="service-option-label" for="servicio-backend"
-                    >Desarrollo Backend</label
+                    data-i18n="contact.form.backend">Desarrollo Backend</label
                   >
                 </div>
                 <div class="service-option">
@@ -443,7 +483,7 @@
                     value="Consultoria"
                   />
                   <label class="service-option-label" for="servicio-consultoria"
-                    >Consultoría</label
+                    data-i18n="contact.form.consulting">Consultoría</label
                   >
                 </div>
                 <div class="service-option">
@@ -454,7 +494,7 @@
                     value="Soporte"
                   />
                   <label class="service-option-label" for="servicio-soporte"
-                    >Soporte Informático</label
+                    data-i18n="contact.form.support">Soporte Informático</label
                   >
                 </div>
                 <div class="service-option">
@@ -465,7 +505,7 @@
                     value="Otro"
                   />
                   <label class="service-option-label" for="servicio-otro"
-                    >Otro</label
+                    data-i18n="contact.form.other">Otro</label
                   >
                 </div>
               </div>
@@ -478,9 +518,9 @@
                 placeholder=" "
                 required
               ></textarea>
-              <label for="mensaje">Mensaje</label>
+              <label for="mensaje" data-i18n="contact.form.message">Mensaje</label>
             </div>
-            <button type="submit" class="btn btn-primary">
+            <button type="submit" class="btn btn-primary" data-i18n="contact.form.submit">
               Enviar Mensaje
             </button>
             <div id="formStatus" class="form-status"></div>
@@ -494,43 +534,43 @@
       <div class="footer-content">
         <article class="footer-logo">
           <h3>CRISTIAN <span class="accent">CORTÉS</span></h3>
-          <p>Construyendo soluciones robustas y escalables</p>
+          <p data-i18n="footer.tagline">Construyendo soluciones robustas y escalables</p>
         </article>
         <nav class="footer-links">
           <div class="footer-column">
-            <h3>Enlaces</h3>
+            <h3 data-i18n="footer.links">Enlaces</h3>
             <ul>
-              <li><a href="index.html">Inicio</a></li>
-              <li><a href="#habilidades">Habilidades</a></li>
-              <li><a href="#proyectos">Proyectos</a></li>
-              <li><a href="#contacto">Contacto</a></li>
+              <li><a href="index.html" data-i18n="nav.home">Inicio</a></li>
+              <li><a href="#habilidades" data-i18n="nav.skills">Habilidades</a></li>
+              <li><a href="#proyectos" data-i18n="nav.projects">Proyectos</a></li>
+              <li><a href="#contacto" data-i18n="nav.contact">Contacto</a></li>
             </ul>
           </div>
           <div class="footer-column">
-            <h3>Servicios</h3>
+            <h3 data-i18n="footer.services">Servicios</h3>
             <ul>
               <li>
-                <a href="#" rel="noopener noreferrer">Desarrollo de APIs</a>
+                <a href="#" rel="noopener noreferrer" data-i18n="footer.api">Desarrollo de APIs</a>
               </li>
               <li>
-                <a href="#" rel="noopener noreferrer"
+                <a href="#" rel="noopener noreferrer" data-i18n="footer.architecture"
                   >Arquitectura de Sistemas</a
                 >
               </li>
               <li>
-                <a href="#" rel="noopener noreferrer"
+                <a href="#" rel="noopener noreferrer" data-i18n="footer.db"
                   >Optimización de Bases de Datos</a
                 >
               </li>
               <li>
-                <a href="#" rel="noopener noreferrer">Consultoría DevOps</a>
+                <a href="#" rel="noopener noreferrer" data-i18n="footer.devops">Consultoría DevOps</a>
               </li>
             </ul>
           </div>
         </nav>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2026 Cristian Cortés B. Todos los derechos reservados.</p>
+        <p data-i18n="footer.copy">&copy; 2026 Cristian Cortés B. Todos los derechos reservados.</p>
       </div>
     </footer>
 
