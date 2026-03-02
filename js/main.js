@@ -8,6 +8,207 @@ document.addEventListener("DOMContentLoaded", () => {
   const sections = document.querySelectorAll("section");
   const skillItems = document.querySelectorAll(".skill-item");
   const projectCards = document.querySelectorAll(".project-card");
+  const themeToggle = document.querySelector(".theme-toggle");
+  const langToggle = document.querySelector(".lang-toggle");
+
+  const translations = {
+    es: {
+      "nav.home": "Inicio",
+      "nav.skills": "Habilidades",
+      "nav.projects": "Proyectos",
+      "nav.contact": "Contacto",
+      "hero.roleMain": "Desarrollador de Software",
+      "hero.roleAlt": "Tecnico en Informatica",
+      "hero.subtitle":
+        'Construyendo la <span class="accent">infraestructura</span> del futuro digital',
+      "hero.description":
+        "Creacion de paginas web, arquitecturas escalables, APIs y soluciones de alto rendimiento",
+      "hero.ctaPrimary": "Ver Proyectos",
+      "hero.ctaSecondary": "Contactar",
+      "skills.title": 'Mis <span class="accent">Habilidades</span>',
+      "skills.subtitle": "Tecnologias y herramientas que manejo",
+      "projects.title": 'Mis <span class="accent">Proyectos</span>',
+      "projects.subtitle": "Soluciones tecnologicas que he desarrollado",
+      "projects.more": "Ver mas proyectos",
+      "contact.title": 'Ponte en <span class="accent">Contacto</span>',
+      "contact.subtitle": "Tienes un proyecto en mente? Hablemos!",
+      "contact.locationLabel": "Ubicacion",
+      "contact.socialTitle": "Redes",
+      "contact.form.name": "Nombre",
+      "contact.form.service": "Que tipo de servicio necesitas?",
+      "contact.form.webDesign": "Diseno Web",
+      "contact.form.webDev": "Desarrollo Web",
+      "contact.form.backend": "Desarrollo Backend",
+      "contact.form.consulting": "Consultoria",
+      "contact.form.support": "Soporte Informatico",
+      "contact.form.other": "Otro",
+      "contact.form.message": "Mensaje",
+      "contact.form.submit": "Enviar Mensaje",
+      "contact.form.sending": "Enviando...",
+      "contact.form.success": "Envio exitoso. Gracias por contactarme!",
+      "contact.form.error": "Error en el envio. Intenta nuevamente mas tarde.",
+      "contact.form.network": "Error en el envio. Revisa tu conexion e intenta de nuevo.",
+      "footer.tagline": "Construyendo soluciones robustas y escalables",
+      "footer.links": "Enlaces",
+      "footer.services": "Servicios",
+      "footer.api": "Desarrollo de APIs",
+      "footer.architecture": "Arquitectura de Sistemas",
+      "footer.db": "Optimizacion de Bases de Datos",
+      "footer.devops": "Consultoria DevOps",
+      "footer.copy": "© 2026 Cristian Cortes B. Todos los derechos reservados.",
+      "projectsPage.title": 'Mis <span class="accent">Proyectos</span>',
+      "projectsPage.subtitle":
+        "Explora mi portafolio de soluciones backend y aplicaciones desarrolladas",
+      "projectsPage.ctaTitle": "Tienes un proyecto en mente?",
+      "projectsPage.ctaBody":
+        "Estoy disponible para nuevos proyectos. Contactame y hablemos sobre como puedo ayudarte a construir soluciones tecnologicas.",
+      "projectsPage.ctaBtn": "Contactar ahora",
+      "theme.dark": "Oscuro",
+      "theme.light": "Claro",
+      "menu.open": "Abrir menu de navegacion",
+      "menu.close": "Cerrar menu de navegacion",
+    },
+    en: {
+      "nav.home": "Home",
+      "nav.skills": "Skills",
+      "nav.projects": "Projects",
+      "nav.contact": "Contact",
+      "hero.roleMain": "Software Developer",
+      "hero.roleAlt": "IT Technician",
+      "hero.subtitle":
+        'Building the <span class="accent">infrastructure</span> of the digital future',
+      "hero.description":
+        "Building websites, scalable architectures, APIs and high-performance solutions",
+      "hero.ctaPrimary": "View Projects",
+      "hero.ctaSecondary": "Get in Touch",
+      "skills.title": 'My <span class="accent">Skills</span>',
+      "skills.subtitle": "Technologies and tools I work with",
+      "projects.title": 'My <span class="accent">Projects</span>',
+      "projects.subtitle": "Technology solutions I have developed",
+      "projects.more": "See more projects",
+      "contact.title": 'Get in <span class="accent">Touch</span>',
+      "contact.subtitle": "Have a project in mind? Lets talk!",
+      "contact.locationLabel": "Location",
+      "contact.socialTitle": "Social",
+      "contact.form.name": "Name",
+      "contact.form.service": "What kind of service do you need?",
+      "contact.form.webDesign": "Web Design",
+      "contact.form.webDev": "Web Development",
+      "contact.form.backend": "Backend Development",
+      "contact.form.consulting": "Consulting",
+      "contact.form.support": "IT Support",
+      "contact.form.other": "Other",
+      "contact.form.message": "Message",
+      "contact.form.submit": "Send Message",
+      "contact.form.sending": "Sending...",
+      "contact.form.success": "Message sent successfully. Thanks for reaching out!",
+      "contact.form.error": "Message failed. Please try again later.",
+      "contact.form.network": "Message failed. Check your connection and try again.",
+      "footer.tagline": "Building robust and scalable solutions",
+      "footer.links": "Links",
+      "footer.services": "Services",
+      "footer.api": "API Development",
+      "footer.architecture": "Systems Architecture",
+      "footer.db": "Database Optimization",
+      "footer.devops": "DevOps Consulting",
+      "footer.copy": "© 2026 Cristian Cortes B. All rights reserved.",
+      "projectsPage.title": 'My <span class="accent">Projects</span>',
+      "projectsPage.subtitle":
+        "Explore my portfolio of backend solutions and built applications",
+      "projectsPage.ctaTitle": "Do you have a project in mind?",
+      "projectsPage.ctaBody":
+        "I am available for new projects. Contact me and lets talk about how I can help you build technology solutions.",
+      "projectsPage.ctaBtn": "Contact now",
+      "theme.dark": "Dark",
+      "theme.light": "Light",
+      "menu.open": "Open navigation menu",
+      "menu.close": "Close navigation menu",
+    },
+  };
+
+  const getCurrentLanguage = () => {
+    const stored = localStorage.getItem("language");
+    if (stored === "en" || stored === "es") return stored;
+    return document.documentElement.lang === "en" ? "en" : "es";
+  };
+
+  const t = (key, lang = getCurrentLanguage()) =>
+    translations[lang]?.[key] || translations.es[key] || key;
+
+  function applyLanguage(lang) {
+    document.documentElement.lang = lang;
+    localStorage.setItem("language", lang);
+
+    document.querySelectorAll("[data-i18n]").forEach((element) => {
+      const key = element.getAttribute("data-i18n");
+      if (!key) return;
+      element.textContent = t(key, lang);
+    });
+
+    document.querySelectorAll("[data-i18n-html]").forEach((element) => {
+      const key = element.getAttribute("data-i18n-html");
+      if (!key) return;
+      element.innerHTML = t(key, lang);
+    });
+
+    if (langToggle) {
+      const langLabel = langToggle.querySelector("[data-lang-label]");
+      if (langLabel) langLabel.textContent = lang === "es" ? "EN" : "ES";
+    }
+
+    const isMenuOpen = navLinks?.classList.contains("open");
+    if (menuToggle) {
+      menuToggle.setAttribute("aria-label", isMenuOpen ? t("menu.close", lang) : t("menu.open", lang));
+    }
+
+    const currentTheme = document.documentElement.dataset.theme === "dark" ? "dark" : "light";
+    updateThemeToggleLabel(currentTheme, lang);
+  }
+
+  function updateThemeToggleLabel(theme, lang = getCurrentLanguage()) {
+    if (!themeToggle) return;
+    const label = themeToggle.querySelector("[data-theme-label]");
+    const icon = themeToggle.querySelector("i");
+    const nextTheme = theme === "dark" ? "light" : "dark";
+
+    if (label) {
+      label.textContent = nextTheme === "dark" ? t("theme.dark", lang) : t("theme.light", lang);
+    }
+
+    if (icon) {
+      icon.classList.remove("fa-sun", "fa-moon");
+      icon.classList.add(theme === "dark" ? "fa-sun" : "fa-moon");
+    }
+
+    themeToggle.setAttribute("aria-label", `Switch to ${nextTheme} mode`);
+    themeToggle.setAttribute("aria-pressed", theme === "dark" ? "true" : "false");
+  }
+
+  function applyTheme(theme) {
+    document.documentElement.dataset.theme = theme;
+    localStorage.setItem("theme", theme);
+    updateThemeToggleLabel(theme);
+  }
+
+  (function initPreferences() {
+    const preferredTheme = localStorage.getItem("theme");
+    const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light";
+    applyTheme(preferredTheme || systemTheme);
+    applyLanguage(getCurrentLanguage());
+  })();
+
+  themeToggle?.addEventListener("click", () => {
+    const current = document.documentElement.dataset.theme === "dark" ? "dark" : "light";
+    const next = current === "dark" ? "light" : "dark";
+    applyTheme(next);
+  });
+
+  langToggle?.addEventListener("click", () => {
+    const current = getCurrentLanguage();
+    applyLanguage(current === "es" ? "en" : "es");
+  });
 
   // Función para cambiar el estilo del header al hacer scroll
   function handleScroll() {
@@ -43,10 +244,42 @@ document.addEventListener("DOMContentLoaded", () => {
   // Evento de scroll
   window.addEventListener("scroll", handleScroll);
 
-  // Menú móvil toggle
+  // Menú móvil toggle con estados de accesibilidad
+  const closeMobileMenu = () => {
+    navLinks.classList.remove("open");
+    menuToggle.classList.remove("open");
+    menuToggle.setAttribute("aria-expanded", "false");
+    menuToggle.setAttribute("aria-label", t("menu.open"));
+  };
+
+  const openMobileMenu = () => {
+    navLinks.classList.add("open");
+    menuToggle.classList.add("open");
+    menuToggle.setAttribute("aria-expanded", "true");
+    menuToggle.setAttribute("aria-label", t("menu.close"));
+  };
+
   menuToggle.addEventListener("click", () => {
-    navLinks.classList.toggle("open");
-    menuToggle.classList.toggle("open");
+    const isOpen = navLinks.classList.contains("open");
+    if (isOpen) {
+      closeMobileMenu();
+      return;
+    }
+    openMobileMenu();
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closeMobileMenu();
+    }
+  });
+
+  document.addEventListener("click", (event) => {
+    const clickedOutsideMenu =
+      !navLinks.contains(event.target) && !menuToggle.contains(event.target);
+    if (clickedOutsideMenu) {
+      closeMobileMenu();
+    }
   });
 
   // Cerrar menú móvil y manejar scroll suave con offset para header fijo
@@ -82,8 +315,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       }
 
-      navLinks.classList.remove("open");
-      menuToggle.classList.remove("open");
+      closeMobileMenu();
     });
   });
 
@@ -204,7 +436,7 @@ document.addEventListener("DOMContentLoaded", () => {
       // Mostrar spinner en el botón
       if (submitButton) {
         submitButton.disabled = true;
-        submitButton.innerHTML = '<span class="spinner"></span> Enviando...';
+        submitButton.innerHTML = `<span class="spinner"></span> ${t("contact.form.sending")}`;
       }
 
       const formData = new FormData(contactForm);
@@ -220,22 +452,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (response.ok) {
           if (formStatus) {
-            formStatus.textContent = "Envío exitoso. ¡Gracias por contactarme!";
+            formStatus.textContent = t("contact.form.success");
             formStatus.classList.add("success");
           }
           contactForm.reset();
         } else {
           if (formStatus) {
-            formStatus.textContent =
-              "Error en el envío. Intenta nuevamente más tarde.";
+            formStatus.textContent = t("contact.form.error");
             formStatus.classList.add("error");
           }
         }
       } catch (error) {
         console.error("Error al enviar el formulario:", error);
         if (formStatus) {
-          formStatus.textContent =
-            "Error en el envío. Revisa tu conexión e intenta de nuevo.";
+          formStatus.textContent = t("contact.form.network");
           formStatus.classList.add("error");
         }
       } finally {
@@ -355,6 +585,29 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   initProjectsCarousel();
+
+  // Scroll reveal liviano
+  (function setupRevealAnimations() {
+    const revealTargets = document.querySelectorAll(
+      ".section-header, .project-card, .skill-item, .contact-item, .contact-form-container, .footer-content",
+    );
+    if (!revealTargets.length) return;
+
+    revealTargets.forEach((element) => element.classList.add("reveal"));
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("in-view");
+          observer.unobserve(entry.target);
+        });
+      },
+      { threshold: 0.16 },
+    );
+
+    revealTargets.forEach((element) => observer.observe(element));
+  })();
 
   // ===== Skills Ambient Video: lazy-load + visibility control =====
   (function setupSkillsAmbientVideo() {

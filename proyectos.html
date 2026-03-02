@@ -6,7 +6,7 @@
     <title>Proyectos - Portfolio Cristian Cortés</title>
     <link rel="stylesheet" href="./css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Navegación Principal -->
@@ -15,22 +15,24 @@
             <a href="./index.html" class="logo">
                 <span class="logo-text">CRISTIAN <span class="accent">CORTÉS</span></span>
             </a>
-            <ul class="nav-links">
-                <li><a href="index.html" class="nav-link">Inicio</a></li>
-                <li><a href="index.html#habilidades" class="nav-link">Habilidades</a></li>
-                <li><a href="#proyectos" class="nav-link active">Proyectos</a></li>
-                <li><a href="index.html#contacto" class="nav-link">Contacto</a></li>
+            <ul class="nav-links" id="site-navigation">
+                <li><a href="index.html" class="nav-link" data-i18n="nav.home">Inicio</a></li>
+                <li><a href="index.html#habilidades" class="nav-link" data-i18n="nav.skills">Habilidades</a></li>
+                <li><a href="#proyectos" class="nav-link active" data-i18n="nav.projects">Proyectos</a></li>
+                <li><a href="index.html#contacto" class="nav-link" data-i18n="nav.contact">Contacto</a></li>
             </ul>
 
-            <div class="nav-social">
-                <a href="https://github.com/ccutsb" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                    <i class="fab fa-github" aria-hidden="true"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/ccortesbustamante/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                    <i class="fab fa-linkedin-in" aria-hidden="true"></i>
-                </a>
+            <div class="nav-controls">
+                <button class="lang-toggle" type="button" aria-label="Switch language">
+                    <i class="fas fa-language" aria-hidden="true"></i>
+                    <span data-lang-label>EN</span>
+                </button>
+                <button class="theme-toggle" type="button" aria-label="Cambiar tema" aria-pressed="false">
+                    <i class="fas fa-moon" aria-hidden="true"></i>
+                    <span data-theme-label data-i18n="theme.dark">Oscuro</span>
+                </button>
             </div>
-            <button class="menu-toggle" aria-label="Menú de navegación">
+            <button class="menu-toggle" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="site-navigation">
                 <i class="fas fa-bars"></i>
             </button>
         </nav>
@@ -41,8 +43,8 @@
         <section class="projects-header">
             <div class="container">
                 <div class="section-header">
-                    <h1>Mis <span class="accent">Proyectos</span></h1>
-                    <p>Explora mi portafolio de soluciones backend y aplicaciones desarrolladas</p>
+                    <h1 data-i18n-html="projectsPage.title">Mis <span class="accent">Proyectos</span></h1>
+                    <p data-i18n="projectsPage.subtitle">Explora mi portafolio de soluciones backend y aplicaciones desarrolladas</p>
                 </div>
             </div>
         </section>
@@ -54,7 +56,7 @@
                     <!-- Proyecto 1 -->
                     <article class="project-card" data-category="web">
                         <figure class="project-image">
-                            <img src="./assets/img/proyecto1.png" alt="Web Application" loading="lazy">
+                            <img src="./assets/img/proyecto1.png" alt="Web Application" loading="lazy" width="800" height="500">
                             <figcaption class="project-overlay">
                                 <nav class="project-links">
                                     <a href="https://github.com/ccutsb/Portal-Literario" target="_blank" class="project-link" aria-label="Ver en GitHub" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i></a>
@@ -78,7 +80,7 @@
                     <!-- Proyecto 2 -->
                     <article class="project-card" data-category="web">
                         <figure class="project-image">
-                            <img src="./assets/img/proyecto3.png" alt="Web Application" loading="lazy">
+                            <img src="./assets/img/proyecto3.png" alt="Web Application" loading="lazy" width="800" height="500">
                             <figcaption class="project-overlay">
                                 <nav class="project-links">
                                     <a href="https://github.com/ccutsb/espacio_Teodosa" target="_blank" class="project-link" aria-label="Ver en GitHub" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i></a>
@@ -102,7 +104,7 @@
                     <!-- Proyecto 3 -->
                     <article class="project-card" data-category="web">
                         <figure class="project-image">
-                            <img src="./assets/img/proyecto2.png" alt="CMS Headless" loading="lazy">
+                            <img src="./assets/img/proyecto2.png" alt="CMS Headless" loading="lazy" width="800" height="500">
                             <figcaption class="project-overlay">
                                 <nav class="project-links">
                                     <a href="https://github.com" target="_blank" class="project-link" aria-label="Ver en GitHub" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i></a>
@@ -125,7 +127,7 @@
                     <!-- Proyecto 4 -->
                     <article class="project-card" data-category="api">
                         <figure class="project-image">
-                            <img src="./assets/img/proyecto2.png" alt="API Pagos" loading="lazy">
+                            <img src="./assets/img/proyecto2.png" alt="API Pagos" loading="lazy" width="800" height="500">
                             <figcaption class="project-overlay">
                                 <nav class="project-links">
                                     <a href="https://github.com" target="_blank" class="project-link" aria-label="Ver en GitHub" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i></a>
@@ -148,7 +150,7 @@
                     <!-- Proyecto 5 -->
                     <article class="project-card" data-category="mobile">
                         <figure class="project-image">
-                            <img src="./assets/img/proyecto2.png" alt="Backend Mobile" loading="lazy">
+                            <img src="./assets/img/proyecto2.png" alt="Backend Mobile" loading="lazy" width="800" height="500">
                             <figcaption class="project-overlay">
                                 <nav class="project-links">
                                     <a href="https://github.com" target="_blank" class="project-link" aria-label="Ver en GitHub" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i></a>
@@ -171,7 +173,7 @@
                     <!-- Proyecto 6 -->
                     <article class="project-card" data-category="data">
                         <figure class="project-image">
-                            <img src="./assets/img/proyecto2.png" alt="Data Warehouse" loading="lazy">
+                            <img src="./assets/img/proyecto2.png" alt="Data Warehouse" loading="lazy" width="800" height="500">
                             <figcaption class="project-overlay">
                                 <nav class="project-links">
                                     <a href="https://github.com" target="_blank" class="project-link" aria-label="Ver en GitHub" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i></a>
@@ -198,9 +200,9 @@
         <section class="cta-section">
             <div class="container">
                 <div class="cta-content">
-                    <h2>¿Tienes un proyecto en mente?</h2>
-                    <p>Estoy disponible para nuevos proyectos. Contáctame y hablemos sobre cómo puedo ayudarte a construir soluciones tecnológicas.</p><br>
-                    <a href="index.html#contacto" class="btn btn-primary">Contactar ahora</a>
+                    <h2 data-i18n="projectsPage.ctaTitle">¿Tienes un proyecto en mente?</h2>
+                    <p data-i18n="projectsPage.ctaBody">Estoy disponible para nuevos proyectos. Contáctame y hablemos sobre cómo puedo ayudarte a construir soluciones tecnológicas.</p><br>
+                    <a href="index.html#contacto" class="btn btn-primary" data-i18n="projectsPage.ctaBtn">Contactar ahora</a>
                 </div>
             </div>
         </section>
@@ -212,31 +214,31 @@
             <div class="footer-content">
                 <article class="footer-logo">
                     <h3>CRISTIAN <span class="accent">CORTÉS</span></h3>
-                    <p>Construyendo soluciones robustas y escalables</p>
+                    <p data-i18n="footer.tagline">Construyendo soluciones robustas y escalables</p>
                 </article>
                 <nav class="footer-links">
                     <div class="footer-column">
-                        <h3>Enlaces</h3>
+                        <h3 data-i18n="footer.links">Enlaces</h3>
                         <ul>
-                            <li><a href="index.html">Inicio</a></li>
-                            <li><a href="index.html#habilidades">Habilidades</a></li>
-                            <li><a href="#proyectos">Proyectos</a></li>
-                            <li><a href="index.html#contacto">Contacto</a></li>
+                            <li><a href="index.html" data-i18n="nav.home">Inicio</a></li>
+                            <li><a href="index.html#habilidades" data-i18n="nav.skills">Habilidades</a></li>
+                            <li><a href="#proyectos" data-i18n="nav.projects">Proyectos</a></li>
+                            <li><a href="index.html#contacto" data-i18n="nav.contact">Contacto</a></li>
                         </ul>
                     </div>
                     <div class="footer-column">
-                        <h3>Servicios</h3>
+                        <h3 data-i18n="footer.services">Servicios</h3>
                         <ul>
-                            <li><a href="#" rel="noopener noreferrer">Desarrollo de APIs</a></li>
-                            <li><a href="#" rel="noopener noreferrer">Arquitectura de Sistemas</a></li>
-                            <li><a href="#" rel="noopener noreferrer">Optimización de Bases de Datos</a></li>
-                            <li><a href="#" rel="noopener noreferrer">Consultoría DevOps</a></li>
+                            <li><a href="#" rel="noopener noreferrer" data-i18n="footer.api">Desarrollo de APIs</a></li>
+                            <li><a href="#" rel="noopener noreferrer" data-i18n="footer.architecture">Arquitectura de Sistemas</a></li>
+                            <li><a href="#" rel="noopener noreferrer" data-i18n="footer.db">Optimización de Bases de Datos</a></li>
+                            <li><a href="#" rel="noopener noreferrer" data-i18n="footer.devops">Consultoría DevOps</a></li>
                         </ul>
                     </div>
                 </nav>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Cristian Cortés B. Todos los derechos reservados.</p>
+                <p data-i18n="footer.copy">&copy; 2025 Cristian Cortés B. Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>
