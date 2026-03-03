@@ -7,6 +7,15 @@
   --accent: #00e5a8;
   --accent-2: #00d8ff;
   --accent-3: #14b8a6;
+  --projects-bg-start: #e6efff;
+  --projects-bg-end: #d7e4f5;
+  --projects-panel: #f7fbff;
+  --projects-panel-alt: #ebf3ff;
+  --projects-border: #9ab3d6;
+  --projects-accent: #00cfe8;
+  --projects-accent-2: #5b8cff;
+  --projects-glow: #a663ff;
+  --projects-shadow: 0 16px 32px rgba(10, 26, 50, 0.16);
   --border: #d8e1f2;
   --success: #18794e;
   --danger: #b72a2a;
@@ -54,6 +63,15 @@ html[data-theme="dark"] {
   --accent: #32f0bc;
   --accent-2: #4be1ff;
   --accent-3: #30c6b3;
+  --projects-bg-start: #0c1628;
+  --projects-bg-end: #12152f;
+  --projects-panel: #172238;
+  --projects-panel-alt: #1a2f46;
+  --projects-border: #2b4465;
+  --projects-accent: #38d5ff;
+  --projects-accent-2: #7a8bff;
+  --projects-glow: #b86aff;
+  --projects-shadow: 0 18px 36px rgba(0, 0, 0, 0.4);
   --border: #273066;
   --success: #37c987;
   --danger: #ff7272;
@@ -411,6 +429,9 @@ section {
   max-width: 100%;
   white-space: normal;
   color: var(--accent);
+  -webkit-text-stroke: 1.2px rgba(0, 0, 0, 0.88);
+  paint-order: stroke fill;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
   opacity: 0;
   transform: translateY(8px);
   animation: heroSwap 7s infinite;
@@ -460,11 +481,15 @@ section {
 
 .hero-image {
   justify-self: end;
+  display: grid;
+  place-items: center;
 }
 
 .hero-image-container {
   width: min(340px, 100%);
   aspect-ratio: 1;
+  display: grid;
+  place-items: center;
   border-radius: 50%;
   overflow: hidden;
   border: 4px solid color-mix(in srgb, var(--accent), white 58%);
@@ -475,6 +500,8 @@ section {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: 52% center;
+  transform: scale(1.06);
 }
 
 .skills {
@@ -567,64 +594,24 @@ section {
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  background: linear-gradient(180deg, color-mix(in srgb, var(--surface), var(--accent) 9%), color-mix(in srgb, var(--surface), var(--accent-2) 8%));
+  background:
+    radial-gradient(circle at 16% 14%, color-mix(in srgb, var(--projects-accent), transparent 90%), transparent 48%),
+    radial-gradient(circle at 82% 12%, color-mix(in srgb, var(--projects-glow), transparent 92%), transparent 44%),
+    linear-gradient(180deg, var(--projects-bg-start), var(--projects-bg-end));
+  border-top: 1px solid color-mix(in srgb, var(--projects-border), transparent 12%);
+  border-bottom: 1px solid color-mix(in srgb, var(--projects-border), transparent 8%);
+}
+
+.projects .section-header p {
+  color: color-mix(in srgb, var(--text-muted), var(--text) 18%);
 }
 
 .projects::before {
-  content: "";
-  position: absolute;
-  inset: -15% -10% auto;
-  height: 460px;
-  background:
-    radial-gradient(circle at 14% 40%, color-mix(in srgb, var(--accent-3), transparent 72%), transparent 58%),
-    radial-gradient(circle at 82% 24%, color-mix(in srgb, var(--accent-2), transparent 75%), transparent 58%),
-    conic-gradient(from 210deg, transparent, color-mix(in srgb, var(--accent), transparent 88%), transparent);
-  filter: blur(4px);
-  opacity: 0.62;
-  animation: projectsAura 26s linear infinite;
-  pointer-events: none;
-  z-index: -1;
+  content: none;
 }
 
 .projects::after {
-  content: "";
-  position: absolute;
-  inset: 4% 2.5%;
-  background:
-    radial-gradient(circle at 16% 20%, color-mix(in srgb, var(--accent-2), transparent 84%) 0 20%, transparent 58%),
-    radial-gradient(circle at 84% 14%, color-mix(in srgb, var(--accent), transparent 86%) 0 22%, transparent 60%),
-    radial-gradient(circle at 70% 82%, color-mix(in srgb, var(--accent-3), transparent 86%) 0 20%, transparent 58%),
-    linear-gradient(
-      135deg,
-      color-mix(in srgb, var(--surface), transparent 16%),
-      color-mix(in srgb, var(--surface-2), transparent 24%) 32%,
-      color-mix(in srgb, var(--accent-2), transparent 93%) 56%,
-      color-mix(in srgb, var(--surface), transparent 20%) 78%,
-      color-mix(in srgb, var(--surface-2), transparent 28%)
-    );
-  border: 1px solid color-mix(in srgb, var(--surface), var(--accent-2) 22%);
-  border-radius: 30px;
-  box-shadow:
-    inset 0 1px 0 color-mix(in srgb, white, transparent 25%),
-    inset 0 -24px 34px color-mix(in srgb, var(--accent-2), transparent 95%),
-    0 16px 40px color-mix(in srgb, var(--accent), transparent 92%);
-  opacity: 0.88;
-  pointer-events: none;
-  z-index: -1;
-}
-
-@keyframes projectsAura {
-  0% {
-    transform: rotate(0deg) scale(1);
-  }
-
-  50% {
-    transform: rotate(8deg) scale(1.06);
-  }
-
-  100% {
-    transform: rotate(0deg) scale(1);
-  }
+  content: none;
 }
 
 .projects-carousel {
@@ -641,18 +628,21 @@ section {
   height: 100%;
   border-radius: var(--radius-lg);
   overflow: clip;
-  border: 1px solid var(--border);
-  background: linear-gradient(145deg, var(--surface), color-mix(in srgb, var(--surface), var(--accent-3) 4%));
-  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--projects-border);
+  background:
+    linear-gradient(155deg, color-mix(in srgb, var(--projects-panel), var(--projects-accent) 4%), var(--projects-panel-alt));
+  box-shadow: var(--projects-shadow);
   display: flex;
   flex-direction: column;
   transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
 }
 
 .project-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-md);
-  border-color: color-mix(in srgb, var(--accent), white 50%);
+  transform: translateY(-5px);
+  box-shadow:
+    0 20px 38px color-mix(in srgb, var(--projects-accent-2), transparent 84%),
+    0 0 0 1px color-mix(in srgb, var(--projects-accent), transparent 68%);
+  border-color: color-mix(in srgb, var(--projects-accent), white 34%);
 }
 
 .project-card:hover .project-image img {
@@ -680,7 +670,7 @@ section {
   position: absolute;
   inset: auto 0 0;
   padding: var(--space-3);
-  background: linear-gradient(180deg, transparent, rgba(15, 31, 46, 0.55));
+  background: linear-gradient(180deg, transparent, rgba(4, 14, 28, 0.74));
 }
 
 .project-links {
@@ -703,7 +693,7 @@ section {
 
 .project-link:hover {
   transform: translateY(-1px);
-  background: linear-gradient(145deg, var(--accent), var(--accent-2));
+  background: linear-gradient(145deg, var(--projects-accent), var(--projects-accent-2));
   border-color: transparent;
 }
 
@@ -722,7 +712,7 @@ section {
 }
 
 .project-info p {
-  color: var(--text-muted);
+  color: color-mix(in srgb, var(--text-muted), var(--text) 12%);
   font-size: var(--text-sm);
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -740,9 +730,9 @@ section {
   font-size: var(--text-xs);
   border-radius: 999px;
   padding: 0.25rem 0.6rem;
-  background: color-mix(in srgb, var(--accent-3), white 84%);
-  color: var(--accent-2);
-  border: 1px solid color-mix(in srgb, var(--accent-3), white 68%);
+  background: color-mix(in srgb, var(--projects-accent), var(--projects-panel) 84%);
+  color: color-mix(in srgb, var(--projects-accent-2), var(--text) 18%);
+  border: 1px solid color-mix(in srgb, var(--projects-glow), var(--projects-border) 74%);
 }
 
 .carousel-dots {
@@ -757,12 +747,12 @@ section {
   height: 8px;
   border-radius: 99px;
   border: 0;
-  background: color-mix(in srgb, var(--text-muted), white 50%);
+  background: color-mix(in srgb, var(--projects-border), var(--text) 12%);
 }
 
 .carousel-dot[aria-current="true"] {
   width: 24px;
-  background: var(--accent);
+  background: var(--projects-accent);
 }
 
 .projects-more {
@@ -1256,6 +1246,11 @@ footer {
     width: min(240px, 100%);
   }
 
+  .hero-image-container img {
+    object-position: 56% center;
+    transform: scale(1.15);
+  }
+
   .service-options {
     grid-template-columns: 1fr;
   }
@@ -1266,6 +1261,15 @@ footer {
 
   .btn {
     width: 100%;
+  }
+
+  a.btn.btn-primary, .btn-secondary {
+    width: 50%;
+  }
+
+  button.btn.btn-primary {
+    width: 50%;
+    margin: 0 auto;
   }
 
   .hero-actions {
@@ -1306,11 +1310,4 @@ footer {
     animation: none;
   }
 
-  .projects::before {
-    animation: none;
-  }
-
-  .projects::after {
-    animation: none;
-  }
 }
