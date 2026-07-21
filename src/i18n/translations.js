@@ -28,9 +28,9 @@ export const translations = {
     },
     about: {
       title: "sobre_mí",
-      p1: "Vengo del soporte técnico: años resolviendo problemas de equipos, redes y sistemas para que la gente pudiera seguir trabajando. Esa base me llevó al desarrollo, y hoy soy full-stack próximo a titularme de Ingeniería en Informática con distinción —más una señal de constancia que de nota—. Actualmente doy soporte IT en una empresa constructora en Santiago y desarrollo proyectos por mi cuenta, formalizado ante el SII.",
-      p2: "Construyo con React, Java/Spring, PostgreSQL y Docker, y despliego en Railway. Pero lo que me interesa no es el stack en sí: es cerrar el ciclo completo —detectar una fricción real, construir algo que la elimine y entregarlo funcionando y mantenible—. Haber estado del lado de quien reporta el problema me hace escribir software pensando en quien lo va a usar y mantener, no solo en que compile.",
-      p3: "No hago tecnología por moda: uso lo que sirve para resolver problemas concretos de personas y pymes. Uso IA a diario como parte de mi flujo, pero estudio la carrera justamente para entender lo que pasa debajo —redes, bases de datos, algoritmos— y dirigir la herramienta con criterio propio.",
+      p1: "Vengo del soporte técnico, y sigue siendo mi base. Hoy trabajo en una consultora informática con tres clientes a cargo —una constructora, una cadena de hoteles y un tribunal—: rubros muy distintos que me obligan a entender cada negocio antes de resolver su problema. En paralelo estudio Ingeniería en Informática, con buen rendimiento.",
+      p2: "Construyo soluciones reales con tecnologías como React, Java/Spring, PostgreSQL y Docker, apoyándome en herramientas de IA para escribir el código. Mi aporte está en el criterio: decidir qué construir, dirigir esas herramientas y evaluar si el resultado realmente resuelve el problema. Haber estado del lado de quien reporta la falla me hace pensar en quien va a usar y mantener lo que entrego, no solo en que compile.",
+      p3: "No hago tecnología por moda: uso lo que sirve para resolver problemas concretos de personas y pymes. La IA es parte de cómo construyo hoy, y estudio la carrera justamente para entender lo que pasa debajo —redes, bases de datos, algoritmos— y dirigir esas herramientas con criterio propio.",
     },
     skills: {
       title: "skills",
@@ -112,9 +112,9 @@ export const translations = {
     },
     about: {
       title: "about_me",
-      p1: "I come from tech support: years fixing hardware, network and system problems so people could keep working. That foundation led me into development, and today I'm a full-stack developer about to graduate in Computer Engineering with honors —more a sign of persistence than of grades—. I currently do IT support for a construction company in Santiago and build my own projects as a registered freelancer.",
-      p2: "I build with React, Java/Spring, PostgreSQL and Docker, and deploy on Railway. But what I care about isn't the stack itself: it's closing the full loop —spotting a real friction, building something that removes it, and shipping it working and maintainable—. Having been on the side of the person reporting the problem makes me write software with whoever will use and maintain it in mind, not just with getting it to compile.",
-      p3: "I don't do tech for hype: I use what actually helps solve concrete problems for people and small businesses. I use AI daily as part of my workflow, but I'm studying the degree precisely to understand what happens underneath —networks, databases, algorithms— and drive the tool with my own judgment.",
+      p1: "I come from tech support, and it's still my foundation. Today I work at an IT consultancy handling three clients —a construction company, a hotel chain and a courthouse—: very different sectors that force me to understand each business before solving its problem. Alongside that, I'm studying Computer Engineering and doing well so far.",
+      p2: "I build real solutions with technologies like React, Java/Spring, PostgreSQL and Docker, using AI tools to write the code. My contribution is the judgment: deciding what to build, directing those tools, and evaluating whether the result actually solves the problem. Having been on the side of the person reporting the failure makes me think about whoever will use and maintain what I ship, not just about getting it to compile.",
+      p3: "I don't do tech for hype: I use what actually helps solve concrete problems for people and small businesses. AI is part of how I build today, and I'm studying the degree precisely to understand what happens underneath —networks, databases, algorithms— and direct those tools with my own judgment.",
     },
     skills: {
       title: "skills",
