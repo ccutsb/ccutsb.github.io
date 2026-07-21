@@ -34,6 +34,7 @@ export const skillGroups = [
       "Git",
       "GitHub Actions",
       "Docker",
+      "Railway",
       "Bash",
       "Linux",
       "Figma",

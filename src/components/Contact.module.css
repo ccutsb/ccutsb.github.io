@@ -16,22 +16,6 @@
   margin-bottom: 8px;
 }
 
-.serviceList {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.serviceItem {
-  color: var(--text-dim);
-  font-size: 0.92rem;
-}
-
-.serviceItem span {
-  color: var(--accent);
-}
-
 .infoLink {
   font-size: 0.95rem;
 }

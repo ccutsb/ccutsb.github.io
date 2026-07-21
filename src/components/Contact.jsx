@@ -10,9 +10,10 @@ export default function Contact() {
   const [status, setStatus] = useState("idle"); // idle | sending | success | error
 
   const serviceOptions = [
-    { value: "Soporte IT", label: t.contact.form.options.support },
-    { value: "Desarrollo Web", label: t.contact.form.options.web },
+    { value: "Mantencion / Soporte pyme", label: t.contact.form.options.support },
+    { value: "Desarrollo web / backend", label: t.contact.form.options.web },
     { value: "Automatizacion", label: t.contact.form.options.automation },
+    { value: "Consultoria", label: t.contact.form.options.consulting },
     { value: "Otro", label: t.contact.form.options.other },
   ];
 
@@ -43,19 +44,6 @@ export default function Contact() {
 
       <div className={styles.layout}>
         <aside className={styles.info}>
-          <div className={styles.infoBlock}>
-            <h3 className={styles.infoTitle}>
-              # {t.contact.servicesTitle}
-            </h3>
-            <ul className={styles.serviceList}>
-              {t.contact.services.map((s) => (
-                <li key={s} className={styles.serviceItem}>
-                  <span aria-hidden="true">▸</span> {s}
-                </li>
-              ))}
-            </ul>
-          </div>
-
           <div className={styles.infoBlock}>
             <h3 className={styles.infoTitle}># {t.contact.emailLabel}</h3>
             <a href="mailto:cristiancortesb@icloud.com" className={styles.infoLink}>

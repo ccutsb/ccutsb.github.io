@@ -5,10 +5,16 @@ export const translations = {
       about: "sobre-mí",
       skills: "skills",
       projects: "proyectos",
+      services: "servicios",
       contact: "contacto",
     },
     hero: {
       greeting: "hola, soy",
+      // Variante corta (se muestra bajo el nombre en el hero)
+      tagline: "Del soporte al código: software claro que resuelve problemas reales.",
+      // Variante B completa (disponible si se prefiere la versión larga)
+      taglineLong:
+        "Resuelvo problemas reales: del soporte al código. Software claro para personas y pymes, no tecnología por moda.",
       role: "Desarrollador de Software · Técnico en Informática",
       typed: [
         "construyo sitios y apps web",
@@ -23,9 +29,9 @@ export const translations = {
     },
     about: {
       title: "sobre_mí",
-      p1: "Soy técnico en informática y trabajo en soporte IT para una empresa constructora en Santiago: redes, equipos, sistemas y todos los incendios que aparecen entre medio. En paralelo estudio Ingeniería en Informática en Santo Tomás y desarrollo proyectos como freelance, formalizado ante el SII.",
-      p2: "Programar partió como una forma de resolver problemas concretos —un sitio para una sala de ensayo, un bot que revisa ofertas laborales por mí, una app para ordenar mi propia vida— y se convirtió en el plan de carrera. Lo que más me gusta es ese ciclo: detectar una fricción real, construir algo que la elimine y dejarlo funcionando solo.",
-      p3: "Uso IA a diario, en el trabajo y en mis proyectos; es parte de mi flujo, no un experimento. Pero justamente por eso estudio la carrera: quiero entender lo que pasa debajo —redes, bases de datos, algoritmos— para dirigir la herramienta con criterio propio y no depender de ella a ciegas.",
+      p1: "Vengo del soporte técnico, y sigue siendo mi base. Hoy trabajo en una consultora informática con tres clientes a cargo —una constructora, una cadena de hoteles y un tribunal—: rubros muy distintos que me obligan a entender cada negocio antes de resolver su problema. En paralelo estudio Ingeniería en Informática, con buen rendimiento.",
+      p2: "Construyo soluciones reales con tecnologías como React, Java/Spring, PostgreSQL y Docker, apoyándome en herramientas de IA para escribir el código. Mi aporte está en el criterio: decidir qué construir, dirigir esas herramientas y evaluar si el resultado realmente resuelve el problema. Haber estado del lado de quien reporta la falla me hace pensar en quien va a usar y mantener lo que entrego, no solo en que compile.",
+      p3: "Elijo cada herramienta por lo que resuelve: me mueven los problemas concretos de personas y pymes, y la solución que de verdad los saca adelante. Por eso estudio la carrera en serio —redes, bases de datos, algoritmos—: quiero entender lo que pasa debajo y construir una base técnica real, no memorizar recetas.",
     },
     skills: {
       title: "skills",
@@ -43,16 +49,32 @@ export const translations = {
       demoLabel: "demo",
       siteLabel: "sitio",
     },
+    services: {
+      title: "servicios",
+      sub: "// lo que puedo hacer por tu negocio o equipo",
+      items: [
+        {
+          name: "Mantención y soporte para pymes",
+          description:
+            "Mantengo tu sitio web, correos y equipos operativos, con respaldos al día y soporte cuando algo falla. Tranquilidad técnica por un valor mensual fijo, sin sorpresas.",
+        },
+        {
+          name: "Desarrollo web a medida",
+          description:
+            "Sitios, APIs y aplicaciones que se entregan funcionando y se pueden mantener en el tiempo. Del frontend a la base de datos, con React, Java/Spring, PostgreSQL y Docker.",
+        },
+        {
+          name: "Automatización de tareas",
+          description:
+            "Scripts y flujos que eliminan el trabajo manual repetitivo de tu negocio: reportes, avisos y sincronización de datos. Menos tareas a mano, menos errores.",
+        },
+      ],
+      ctaText: "¿Tienes algo entre manos?",
+      ctaLink: "conversémoslo",
+    },
     contact: {
       title: "contacto",
       sub: "// ¿tienes un proyecto o problema técnico? hablemos",
-      servicesTitle: "servicios",
-      services: [
-        "Soporte IT (equipos, redes, sistemas)",
-        "Desarrollo web (sitios y apps)",
-        "Automatizaciones y bots",
-        "Freelance con inicio de actividades en SII (cód. 749009)",
-      ],
       emailLabel: "email",
       locationLabel: "ubicación",
       socialTitle: "redes",
@@ -61,9 +83,10 @@ export const translations = {
         email: "email",
         service: "tipo de servicio",
         options: {
-          support: "Soporte IT",
-          web: "Desarrollo Web",
+          support: "Mantención / Soporte pyme",
+          web: "Desarrollo web / backend",
           automation: "Automatización",
+          consulting: "Consultoría",
           other: "Otro",
         },
         message: "mensaje",
@@ -84,10 +107,16 @@ export const translations = {
       about: "about-me",
       skills: "skills",
       projects: "projects",
+      services: "services",
       contact: "contact",
     },
     hero: {
       greeting: "hi, I'm",
+      // Short variant (shown under the name in the hero)
+      tagline: "From support to code: clear software that solves real problems.",
+      // Full variant B (available if the longer version is preferred)
+      taglineLong:
+        "Solving real problems, from support to code. Clear software for people and small businesses — not tech for hype.",
       role: "Software Developer · IT Technician",
       typed: [
         "I build websites and web apps",
@@ -102,9 +131,9 @@ export const translations = {
     },
     about: {
       title: "about_me",
-      p1: "I'm an IT technician working in IT support for a construction company in Santiago, Chile: networks, hardware, systems, and every fire that breaks out in between. In parallel I'm studying Computer Engineering at Santo Tomás and building projects as a registered freelancer.",
-      p2: "Programming started as a way to solve concrete problems — a website for a rehearsal studio, a bot that checks job postings for me, an app to organize my own life — and became the career plan. What I enjoy most is that loop: spot a real friction, build something that removes it, and leave it running on its own.",
-      p3: "I use AI daily, at work and in my projects; it's part of my workflow, not an experiment. That's exactly why I'm studying the degree: I want to understand what happens underneath — networks, databases, algorithms — so I can drive the tool with my own judgment instead of depending on it blindly.",
+      p1: "I come from tech support, and it's still my foundation. Today I work at an IT consultancy handling three clients —a construction company, a hotel chain and a courthouse—: very different sectors that force me to understand each business before solving its problem. Alongside that, I'm studying Computer Engineering and doing well so far.",
+      p2: "I build real solutions with technologies like React, Java/Spring, PostgreSQL and Docker, using AI tools to write the code. My contribution is the judgment: deciding what to build, directing those tools, and evaluating whether the result actually solves the problem. Having been on the side of the person reporting the failure makes me think about whoever will use and maintain what I ship, not just about getting it to compile.",
+      p3: "I choose each tool for what it solves: I'm driven by concrete problems faced by people and small businesses, and by the solution that genuinely moves them forward. That's why I take the degree seriously —networks, databases, algorithms—: I want to understand what happens underneath and build a real technical foundation, not memorize recipes.",
     },
     skills: {
       title: "skills",
@@ -122,16 +151,32 @@ export const translations = {
       demoLabel: "demo",
       siteLabel: "site",
     },
+    services: {
+      title: "services",
+      sub: "// what I can do for your business or team",
+      items: [
+        {
+          name: "Maintenance & support for small businesses",
+          description:
+            "I keep your website, email and equipment up and running, with backups on schedule and support when something breaks. Technical peace of mind for a fixed monthly fee, no surprises.",
+        },
+        {
+          name: "Custom web development",
+          description:
+            "Websites, APIs and applications delivered working and built to last. From the frontend to the database, with React, Java/Spring, PostgreSQL and Docker.",
+        },
+        {
+          name: "Task automation",
+          description:
+            "Scripts and workflows that remove repetitive manual work from your business: reports, alerts and data syncing. Less by hand, fewer errors.",
+        },
+      ],
+      ctaText: "Got something in mind?",
+      ctaLink: "let's talk",
+    },
     contact: {
       title: "contact",
       sub: "// got a project or a technical problem? let's talk",
-      servicesTitle: "services",
-      services: [
-        "IT support (hardware, networks, systems)",
-        "Web development (sites and apps)",
-        "Automations and bots",
-        "Registered freelancer in Chile (SII, code 749009)",
-      ],
       emailLabel: "email",
       locationLabel: "location",
       socialTitle: "social",
@@ -140,9 +185,10 @@ export const translations = {
         email: "email",
         service: "service type",
         options: {
-          support: "IT Support",
-          web: "Web Development",
+          support: "Maintenance / SMB support",
+          web: "Web / backend development",
           automation: "Automation",
+          consulting: "Consulting",
           other: "Other",
         },
         message: "message",
