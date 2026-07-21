@@ -19,3 +19,6 @@ config.json
 .vscode/
 
 .agents/
+
+# Build de Vite
+dist/

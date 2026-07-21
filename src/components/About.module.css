@@ -1,0 +1,25 @@
+.card {
+  border-left: 2px solid var(--accent-dim);
+  padding-left: 20px;
+  max-width: 760px;
+}
+
+.paragraph {
+  color: var(--text);
+  margin-bottom: 20px;
+  font-size: 1rem;
+}
+
+.paragraph:last-child {
+  margin-bottom: 0;
+}
+
+@media (min-width: 768px) {
+  .card {
+    padding-left: 28px;
+  }
+
+  .paragraph {
+    font-size: 1.05rem;
+  }
+}
