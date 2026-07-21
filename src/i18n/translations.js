@@ -28,9 +28,9 @@ export const translations = {
     },
     about: {
       title: "sobre_mí",
-      p1: "Soy técnico en informática y trabajo en soporte IT para una empresa constructora en Santiago: redes, equipos, sistemas y todos los incendios que aparecen entre medio. En paralelo estudio Ingeniería en Informática en Santo Tomás y desarrollo proyectos como freelance, formalizado ante el SII.",
-      p2: "Programar partió como una forma de resolver problemas concretos —un sitio para una sala de ensayo, un bot que revisa ofertas laborales por mí, una app para ordenar mi propia vida— y se convirtió en el plan de carrera. Lo que más me gusta es ese ciclo: detectar una fricción real, construir algo que la elimine y dejarlo funcionando solo.",
-      p3: "Uso IA a diario, en el trabajo y en mis proyectos; es parte de mi flujo, no un experimento. Pero justamente por eso estudio la carrera: quiero entender lo que pasa debajo —redes, bases de datos, algoritmos— para dirigir la herramienta con criterio propio y no depender de ella a ciegas.",
+      p1: "Vengo del soporte técnico: años resolviendo problemas de equipos, redes y sistemas para que la gente pudiera seguir trabajando. Esa base me llevó al desarrollo, y hoy soy full-stack próximo a titularme de Ingeniería en Informática con distinción —más una señal de constancia que de nota—. Actualmente doy soporte IT en una empresa constructora en Santiago y desarrollo proyectos por mi cuenta, formalizado ante el SII.",
+      p2: "Construyo con React, Java/Spring, PostgreSQL y Docker, y despliego en Railway. Pero lo que me interesa no es el stack en sí: es cerrar el ciclo completo —detectar una fricción real, construir algo que la elimine y entregarlo funcionando y mantenible—. Haber estado del lado de quien reporta el problema me hace escribir software pensando en quien lo va a usar y mantener, no solo en que compile.",
+      p3: "No hago tecnología por moda: uso lo que sirve para resolver problemas concretos de personas y pymes. Uso IA a diario como parte de mi flujo, pero estudio la carrera justamente para entender lo que pasa debajo —redes, bases de datos, algoritmos— y dirigir la herramienta con criterio propio.",
     },
     skills: {
       title: "skills",
@@ -112,9 +112,9 @@ export const translations = {
     },
     about: {
       title: "about_me",
-      p1: "I'm an IT technician working in IT support for a construction company in Santiago, Chile: networks, hardware, systems, and every fire that breaks out in between. In parallel I'm studying Computer Engineering at Santo Tomás and building projects as a registered freelancer.",
-      p2: "Programming started as a way to solve concrete problems — a website for a rehearsal studio, a bot that checks job postings for me, an app to organize my own life — and became the career plan. What I enjoy most is that loop: spot a real friction, build something that removes it, and leave it running on its own.",
-      p3: "I use AI daily, at work and in my projects; it's part of my workflow, not an experiment. That's exactly why I'm studying the degree: I want to understand what happens underneath — networks, databases, algorithms — so I can drive the tool with my own judgment instead of depending on it blindly.",
+      p1: "I come from tech support: years fixing hardware, network and system problems so people could keep working. That foundation led me into development, and today I'm a full-stack developer about to graduate in Computer Engineering with honors —more a sign of persistence than of grades—. I currently do IT support for a construction company in Santiago and build my own projects as a registered freelancer.",
+      p2: "I build with React, Java/Spring, PostgreSQL and Docker, and deploy on Railway. But what I care about isn't the stack itself: it's closing the full loop —spotting a real friction, building something that removes it, and shipping it working and maintainable—. Having been on the side of the person reporting the problem makes me write software with whoever will use and maintain it in mind, not just with getting it to compile.",
+      p3: "I don't do tech for hype: I use what actually helps solve concrete problems for people and small businesses. I use AI daily as part of my workflow, but I'm studying the degree precisely to understand what happens underneath —networks, databases, algorithms— and drive the tool with my own judgment.",
     },
     skills: {
       title: "skills",
