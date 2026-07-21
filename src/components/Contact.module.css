@@ -1,0 +1,162 @@
+.layout {
+  display: grid;
+  gap: 40px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.infoTitle {
+  color: var(--accent);
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.serviceList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.serviceItem {
+  color: var(--text-dim);
+  font-size: 0.92rem;
+}
+
+.serviceItem span {
+  color: var(--accent);
+}
+
+.infoLink {
+  font-size: 0.95rem;
+}
+
+.infoText {
+  color: var(--text-dim);
+  font-size: 0.95rem;
+}
+
+.social {
+  display: flex;
+  gap: 16px;
+}
+
+.form {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.row {
+  display: grid;
+  gap: 20px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.label {
+  color: var(--text-dim);
+  font-size: 0.88rem;
+}
+
+.label span {
+  color: var(--amber);
+}
+
+.input {
+  background: var(--bg);
+  border: 1px solid var(--border-bright);
+  border-radius: 6px;
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  padding: 10px 14px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  resize: vertical;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--accent-dim);
+  box-shadow: 0 0 14px rgba(52, 232, 138, 0.15);
+}
+
+.fieldset {
+  border: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.radioGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.radioLabel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--border-bright);
+  border-radius: 6px;
+  padding: 9px 12px;
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.radioLabel:hover {
+  color: var(--text);
+  border-color: var(--accent-dim);
+}
+
+.radioLabel:has(.radio:checked) {
+  color: var(--accent);
+  border-color: var(--accent-dim);
+  box-shadow: 0 0 12px rgba(52, 232, 138, 0.12);
+}
+
+.radio {
+  accent-color: var(--accent);
+}
+
+.status {
+  min-height: 1.5em;
+  font-size: 0.9rem;
+}
+
+.statusOk {
+  color: var(--accent);
+}
+
+.statusError {
+  color: var(--amber);
+}
+
+@media (min-width: 640px) {
+  .row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr 1.4fr;
+    gap: 56px;
+  }
+}

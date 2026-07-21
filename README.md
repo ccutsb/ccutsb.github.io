@@ -1,49 +1,45 @@
-# Portfolio
+# Portafolio — ccutsb.github.io
 
+Portafolio personal con estética terminal/hacker, construido con **React + Vite** y desplegado en **GitHub Pages**.
 
-## Tecnologías Utilizadas
+## Stack
 
-- HTML5 semántico
-- CSS3 (con variables CSS, flexbox/grid, animaciones)
-- JavaScript (Vanilla)
+- React 18 + Vite
+- CSS Modules + variables CSS (sin frameworks de UI)
+- Tipografía JetBrains Mono
+- i18n propio (ES/EN) con Context API
+- Formulario de contacto vía Formspree
+- Deploy automático con GitHub Actions
 
-## Instalación
+## Desarrollo local
 
-1. Clona este repositorio:
 ```bash
-git clone [URL_DEL_REPOSITORIO]
+npm install
+npm run dev      # servidor de desarrollo
+npm run build    # build de producción en dist/
+npm run preview  # previsualizar el build
 ```
 
-2. Navega al directorio del proyecto:
-```bash
-cd portfolio
-```
-
-3. Abre el archivo `index.html` en tu navegador web preferido.
-
-## Estructura del Proyecto
+## Estructura
 
 ```
-portfolio-backend-dev/
-├── index.html
-├── proyectos.html
-├── css/
-│   └── styles.css
-├── js/
-│   └── main.js
-├── assets/
-│   └── img/
-│       └── profile.png
-│   └── favicon/
-│   └── svg/
-└── README.md
+├── index.html              # entrada de Vite + SEO (meta, OG, JSON-LD)
+├── public/                 # assets estáticos (foto, CV, verificación Google)
+├── src/
+│   ├── main.jsx / App.jsx
+│   ├── components/         # Navbar, Hero, About, Skills, Projects, Contact, Footer
+│   ├── data/               # proyectos y skills (datos verificados contra los repos)
+│   ├── i18n/               # traducciones ES/EN + contexto de idioma
+│   └── styles/global.css   # tokens de diseño, scanlines, glitch, utilidades
+└── .github/workflows/deploy.yml  # build + deploy a GitHub Pages
 ```
 
+## Deploy
 
-## Licencia
+Cada push a `main` ejecuta el workflow que compila el sitio y lo publica en GitHub Pages.
 
-Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más detalles.
+> Requisito único (una sola vez): en **Settings → Pages** del repo, la fuente debe estar en **GitHub Actions**.
 
 ## Autor
 
-Cristian Cortés B.
+Cristian Cortés B. — [github.com/ccutsb](https://github.com/ccutsb)
