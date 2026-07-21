@@ -102,9 +102,17 @@
   text-shadow: 0 0 22px var(--accent-glow);
 }
 
+.tagline {
+  color: var(--text);
+  font-size: clamp(1rem, 2.8vw, 1.2rem);
+  line-height: 1.5;
+  margin-bottom: 10px;
+  max-width: 46ch;
+}
+
 .role {
   color: var(--accent);
-  font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+  font-size: clamp(0.9rem, 2.3vw, 1rem);
   margin-bottom: 14px;
 }
 

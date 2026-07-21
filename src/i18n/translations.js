@@ -9,6 +9,11 @@ export const translations = {
     },
     hero: {
       greeting: "hola, soy",
+      // Variante corta (se muestra bajo el nombre en el hero)
+      tagline: "Del soporte al código: software claro que resuelve problemas reales.",
+      // Variante B completa (disponible si se prefiere la versión larga)
+      taglineLong:
+        "Resuelvo problemas reales: del soporte al código. Software claro para personas y pymes, no tecnología por moda.",
       role: "Desarrollador de Software · Técnico en Informática",
       typed: [
         "construyo sitios y apps web",
@@ -88,6 +93,11 @@ export const translations = {
     },
     hero: {
       greeting: "hi, I'm",
+      // Short variant (shown under the name in the hero)
+      tagline: "From support to code: clear software that solves real problems.",
+      // Full variant B (available if the longer version is preferred)
+      taglineLong:
+        "Solving real problems, from support to code. Clear software for people and small businesses — not tech for hype.",
       role: "Software Developer · IT Technician",
       typed: [
         "I build websites and web apps",

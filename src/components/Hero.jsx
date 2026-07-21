@@ -39,6 +39,7 @@ export default function Hero() {
                 Cristian Cortés
               </span>
             </h1>
+            <p className={styles.tagline}>{t.hero.tagline}</p>
             <p className={styles.role}>{t.hero.role}</p>
             <p className={styles.typed}>
               <span className={styles.prompt}>&gt;</span>{" "}
