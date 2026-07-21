@@ -10,9 +10,10 @@ export default function Contact() {
   const [status, setStatus] = useState("idle"); // idle | sending | success | error
 
   const serviceOptions = [
-    { value: "Soporte IT", label: t.contact.form.options.support },
-    { value: "Desarrollo Web", label: t.contact.form.options.web },
+    { value: "Mantencion / Soporte pyme", label: t.contact.form.options.support },
+    { value: "Desarrollo web / backend", label: t.contact.form.options.web },
     { value: "Automatizacion", label: t.contact.form.options.automation },
+    { value: "Consultoria", label: t.contact.form.options.consulting },
     { value: "Otro", label: t.contact.form.options.other },
   ];
 
