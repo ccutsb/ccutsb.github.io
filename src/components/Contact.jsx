@@ -45,19 +45,6 @@ export default function Contact() {
       <div className={styles.layout}>
         <aside className={styles.info}>
           <div className={styles.infoBlock}>
-            <h3 className={styles.infoTitle}>
-              # {t.contact.servicesTitle}
-            </h3>
-            <ul className={styles.serviceList}>
-              {t.contact.services.map((s) => (
-                <li key={s} className={styles.serviceItem}>
-                  <span aria-hidden="true">▸</span> {s}
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className={styles.infoBlock}>
             <h3 className={styles.infoTitle}># {t.contact.emailLabel}</h3>
             <a href="mailto:cristiancortesb@icloud.com" className={styles.infoLink}>
               cristiancortesb@icloud.com

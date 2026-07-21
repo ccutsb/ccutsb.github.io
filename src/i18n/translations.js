@@ -75,13 +75,6 @@ export const translations = {
     contact: {
       title: "contacto",
       sub: "// ¿tienes un proyecto o problema técnico? hablemos",
-      servicesTitle: "servicios",
-      services: [
-        "Soporte IT (equipos, redes, sistemas)",
-        "Desarrollo web (sitios y apps)",
-        "Automatizaciones y bots",
-        "Freelance con inicio de actividades en SII (cód. 749009)",
-      ],
       emailLabel: "email",
       locationLabel: "ubicación",
       socialTitle: "redes",
@@ -184,13 +177,6 @@ export const translations = {
     contact: {
       title: "contact",
       sub: "// got a project or a technical problem? let's talk",
-      servicesTitle: "services",
-      services: [
-        "IT support (hardware, networks, systems)",
-        "Web development (sites and apps)",
-        "Automations and bots",
-        "Registered freelancer in Chile (SII, code 749009)",
-      ],
       emailLabel: "email",
       locationLabel: "location",
       socialTitle: "social",
