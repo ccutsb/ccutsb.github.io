@@ -11,6 +11,7 @@ export default function Navbar() {
     { href: "#sobre-mi", label: t.nav.about },
     { href: "#skills", label: t.nav.skills },
     { href: "#proyectos", label: t.nav.projects },
+    { href: "#servicios", label: t.nav.services },
     { href: "#contacto", label: t.nav.contact },
   ];
 

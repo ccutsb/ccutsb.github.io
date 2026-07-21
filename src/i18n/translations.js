@@ -5,6 +5,7 @@ export const translations = {
       about: "sobre-mí",
       skills: "skills",
       projects: "proyectos",
+      services: "servicios",
       contact: "contacto",
     },
     hero: {
@@ -48,6 +49,29 @@ export const translations = {
       demoLabel: "demo",
       siteLabel: "sitio",
     },
+    services: {
+      title: "servicios",
+      sub: "// lo que puedo hacer por tu negocio o equipo",
+      items: [
+        {
+          name: "Mantención y soporte para pymes",
+          description:
+            "Mantengo tu sitio web, correos y equipos operativos, con respaldos al día y soporte cuando algo falla. Tranquilidad técnica por un valor mensual fijo, sin sorpresas.",
+        },
+        {
+          name: "Desarrollo web a medida",
+          description:
+            "Sitios, APIs y aplicaciones que se entregan funcionando y se pueden mantener en el tiempo. Del frontend a la base de datos, con React, Java/Spring, PostgreSQL y Docker.",
+        },
+        {
+          name: "Automatización de tareas",
+          description:
+            "Scripts y flujos que eliminan el trabajo manual repetitivo de tu negocio: reportes, avisos y sincronización de datos. Menos tareas a mano, menos errores.",
+        },
+      ],
+      ctaText: "¿Tienes algo entre manos?",
+      ctaLink: "conversémoslo",
+    },
     contact: {
       title: "contacto",
       sub: "// ¿tienes un proyecto o problema técnico? hablemos",
@@ -89,6 +113,7 @@ export const translations = {
       about: "about-me",
       skills: "skills",
       projects: "projects",
+      services: "services",
       contact: "contact",
     },
     hero: {
@@ -131,6 +156,29 @@ export const translations = {
       codeLabel: "code",
       demoLabel: "demo",
       siteLabel: "site",
+    },
+    services: {
+      title: "services",
+      sub: "// what I can do for your business or team",
+      items: [
+        {
+          name: "Maintenance & support for small businesses",
+          description:
+            "I keep your website, email and equipment up and running, with backups on schedule and support when something breaks. Technical peace of mind for a fixed monthly fee, no surprises.",
+        },
+        {
+          name: "Custom web development",
+          description:
+            "Websites, APIs and applications delivered working and built to last. From the frontend to the database, with React, Java/Spring, PostgreSQL and Docker.",
+        },
+        {
+          name: "Task automation",
+          description:
+            "Scripts and workflows that remove repetitive manual work from your business: reports, alerts and data syncing. Less by hand, fewer errors.",
+        },
+      ],
+      ctaText: "Got something in mind?",
+      ctaLink: "let's talk",
     },
     contact: {
       title: "contact",
