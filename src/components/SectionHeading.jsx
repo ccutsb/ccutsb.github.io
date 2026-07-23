@@ -1,13 +1,8 @@
 export default function SectionHeading({ title, sub }) {
   return (
-    <>
-      <h2 className="section-comment">
-        <span className="comment-slashes" aria-hidden="true">
-          //
-        </span>
-        <span className="comment-title">{title}</span>
-      </h2>
+    <div className="section-head">
+      <h2 className="section-title">{title}</h2>
       {sub && <p className="section-sub">{sub}</p>}
-    </>
+    </div>
   );
 }

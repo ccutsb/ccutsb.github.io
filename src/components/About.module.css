@@ -1,13 +1,18 @@
 .card {
-  border-left: 2px solid var(--accent-dim);
-  padding-left: 20px;
-  max-width: 760px;
+  padding: 32px;
+  max-width: 820px;
+  border-left: 4px solid var(--accent);
+}
+
+.card:hover {
+  transform: none;
+  box-shadow: var(--shadow);
 }
 
 .paragraph {
-  color: var(--text);
-  margin-bottom: 20px;
-  font-size: 1rem;
+  color: var(--text-secondary);
+  margin-bottom: 18px;
+  font-size: 1.05rem;
 }
 
 .paragraph:last-child {
@@ -16,10 +21,6 @@
 
 @media (min-width: 768px) {
   .card {
-    padding-left: 28px;
-  }
-
-  .paragraph {
-    font-size: 1.05rem;
+    padding: 40px;
   }
 }

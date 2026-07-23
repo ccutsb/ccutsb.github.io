@@ -2,59 +2,61 @@
   min-height: 100svh;
   display: flex;
   align-items: center;
-  padding-top: calc(var(--nav-height) + 40px);
+  padding-top: calc(var(--nav-height) + 32px);
   padding-bottom: 56px;
 }
 
-.terminal {
+.inner {
   width: 100%;
-  background: var(--bg-panel);
-  border: 1px solid var(--border-bright);
-  border-radius: 12px;
-  box-shadow: 0 0 40px rgba(52, 232, 138, 0.07), 0 20px 60px rgba(0, 0, 0, 0.5);
-  overflow: hidden;
-}
-
-.terminalBar {
   display: flex;
+  flex-direction: column-reverse;
   align-items: center;
-  gap: 8px;
-  padding: 12px 16px;
-  background: var(--bg-soft);
-  border-bottom: 1px solid var(--border);
-}
-
-.dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-}
-
-.dotRed {
-  background: #f26d6d;
-}
-
-.dotYellow {
-  background: var(--amber);
-}
-
-.dotGreen {
-  background: var(--accent);
-}
-
-.terminalTitle {
-  margin-left: 10px;
-  color: var(--text-faint);
-  font-size: 0.85rem;
-}
-
-.terminalBody {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 28px;
-  padding: 36px 24px 44px;
+  gap: 40px;
   text-align: center;
+}
+
+.text {
+  max-width: 620px;
+}
+
+.greeting {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.name {
+  font-size: clamp(2.4rem, 8vw, 4rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-bottom: 18px;
+}
+
+.accent {
+  color: var(--accent);
+}
+
+.tagline {
+  font-family: var(--font-head);
+  font-weight: 500;
+  color: var(--text);
+  font-size: clamp(1.15rem, 3vw, 1.5rem);
+  line-height: 1.4;
+  margin-bottom: 14px;
+}
+
+.role {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  margin-bottom: 30px;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  justify-content: center;
 }
 
 .avatarWrap {
@@ -63,87 +65,43 @@
 }
 
 .avatar {
-  width: 150px;
-  height: 150px;
+  position: relative;
+  z-index: 1;
+  width: 200px;
+  height: 200px;
   object-fit: cover;
   border-radius: 50%;
-  border: 2px solid var(--accent-dim);
-  box-shadow: 0 0 28px var(--accent-glow);
-  filter: saturate(0.9) contrast(1.05);
+  border: 5px solid var(--surface-white);
+  box-shadow: var(--shadow-lift);
 }
 
-.text {
-  min-width: 0;
+/* Halo terracota suave detrás del avatar */
+.avatarGlow {
+  position: absolute;
+  inset: -14px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 50% 40%,
+    var(--accent-soft),
+    transparent 70%
+  );
+  z-index: 0;
 }
 
-.greeting {
-  color: var(--text-faint);
-  font-size: 0.95rem;
-  margin-bottom: 8px;
-}
-
-.prompt {
-  color: var(--accent);
-}
-
-.greetingWord {
-  color: var(--text-dim);
-  font-weight: 400;
-}
-
-.name {
-  font-size: clamp(1.7rem, 6vw, 2.8rem);
-  line-height: 1.2;
-  margin-bottom: 10px;
-}
-
-.nameGlitch {
-  color: var(--text);
-  text-shadow: 0 0 22px var(--accent-glow);
-}
-
-.tagline {
-  color: var(--text);
-  font-size: clamp(1rem, 2.8vw, 1.2rem);
-  line-height: 1.5;
-  margin-bottom: 10px;
-  max-width: 46ch;
-}
-
-.role {
-  color: var(--accent);
-  font-size: clamp(0.9rem, 2.3vw, 1rem);
-  margin-bottom: 14px;
-}
-
-.typed {
-  color: var(--text-dim);
-  font-size: clamp(0.9rem, 2.5vw, 1.05rem);
-  min-height: 1.7em;
-  margin-bottom: 28px;
-}
-
-.actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  justify-content: center;
-}
-
-@media (min-width: 768px) {
-  .terminalBody {
+@media (min-width: 860px) {
+  .inner {
     flex-direction: row;
+    justify-content: space-between;
     text-align: left;
-    padding: 48px 48px 56px;
-    gap: 44px;
-  }
-
-  .avatar {
-    width: 180px;
-    height: 180px;
+    gap: 56px;
   }
 
   .actions {
     justify-content: flex-start;
+  }
+
+  .avatar {
+    width: 300px;
+    height: 300px;
   }
 }

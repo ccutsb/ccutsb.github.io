@@ -8,10 +8,10 @@ export default function About() {
   return (
     <section id="sobre-mi">
       <SectionHeading title={t.about.title} />
-      <div className={styles.card}>
+      <div className={`card ${styles.card}`}>
         <p className={styles.paragraph}>{t.about.p1}</p>
         <p className={styles.paragraph}>{t.about.p2}</p>
-        <p className={`${styles.paragraph} blink-cursor`}>{t.about.p3}</p>
+        <p className={styles.paragraph}>{t.about.p3}</p>
       </div>
     </section>
   );

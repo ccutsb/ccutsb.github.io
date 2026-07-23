@@ -6,38 +6,69 @@
 .info {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 28px;
 }
 
 .infoTitle {
-  color: var(--accent);
-  font-size: 0.95rem;
-  font-weight: 700;
-  margin-bottom: 8px;
+  color: var(--text);
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.infoLink,
+.infoText {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.98rem;
+  color: var(--text-secondary);
 }
 
 .infoLink {
-  font-size: 0.95rem;
+  transition: all 0.3s ease;
 }
 
-.infoText {
-  color: var(--text-dim);
-  font-size: 0.95rem;
+.infoLink:hover {
+  color: var(--accent);
 }
 
 .social {
   display: flex;
-  gap: 16px;
+  gap: 12px;
+}
+
+.socialLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  background: var(--surface-white);
+  border: 1px solid var(--border);
+  color: var(--text);
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+}
+
+.socialLink:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lift);
 }
 
 .form {
-  background: var(--bg-panel);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 24px;
+  padding: 28px;
   display: flex;
   flex-direction: column;
   gap: 20px;
+}
+
+.form:hover {
+  transform: none;
+  box-shadow: var(--shadow);
 }
 
 .row {
@@ -48,71 +79,76 @@
 .field {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
 }
 
 .label {
-  color: var(--text-dim);
-  font-size: 0.88rem;
+  color: var(--text);
+  font-size: 0.9rem;
+  font-weight: 500;
 }
 
 .label span {
-  color: var(--amber);
+  color: var(--accent);
 }
 
 .input {
   background: var(--bg);
-  border: 1px solid var(--border-bright);
-  border-radius: 6px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
   color: var(--text);
-  font-family: var(--font-mono);
-  font-size: 0.95rem;
-  padding: 10px 14px;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  font-family: var(--font-body);
+  font-size: 0.98rem;
+  padding: 12px 14px;
+  transition: all 0.3s ease;
   resize: vertical;
+}
+
+.input::placeholder {
+  color: var(--text-muted);
 }
 
 .input:focus {
   outline: none;
-  border-color: var(--accent-dim);
-  box-shadow: 0 0 14px rgba(52, 232, 138, 0.15);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
 }
 
 .fieldset {
   border: none;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
 }
 
 .radioGrid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 8px;
+  gap: 10px;
 }
 
 .radioLabel {
   display: flex;
   align-items: center;
-  gap: 8px;
-  border: 1px solid var(--border-bright);
-  border-radius: 6px;
-  padding: 9px 12px;
-  font-size: 0.85rem;
-  color: var(--text-dim);
+  gap: 9px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 11px 14px;
+  font-size: 0.88rem;
+  color: var(--text-secondary);
   cursor: pointer;
-  transition: color 0.2s ease, border-color 0.2s ease;
+  transition: all 0.3s ease;
 }
 
 .radioLabel:hover {
+  border-color: var(--accent);
   color: var(--text);
-  border-color: var(--accent-dim);
 }
 
 .radioLabel:has(.radio:checked) {
   color: var(--accent);
-  border-color: var(--accent-dim);
-  box-shadow: 0 0 12px rgba(52, 232, 138, 0.12);
+  border-color: var(--accent);
+  background: var(--accent-soft);
 }
 
 .radio {
@@ -120,16 +156,16 @@
 }
 
 .status {
-  min-height: 1.5em;
-  font-size: 0.9rem;
+  min-height: 1.4em;
+  font-size: 0.92rem;
 }
 
 .statusOk {
-  color: var(--accent);
+  color: var(--emerald-text);
 }
 
 .statusError {
-  color: var(--amber);
+  color: var(--accent-hover);
 }
 
 @media (min-width: 640px) {
