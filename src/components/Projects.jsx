@@ -1,3 +1,5 @@
+import { ExternalLink } from "lucide-react";
+import { GithubIcon } from "./BrandIcons";
 import { useLang } from "../i18n/LanguageContext";
 import SectionHeading from "./SectionHeading";
 import { projects } from "../data/projects";
@@ -11,18 +13,24 @@ export default function Projects() {
       <SectionHeading title={t.projects.title} sub={t.projects.sub} />
       <div className={styles.grid}>
         {projects.map((p) => (
-          <article key={p.id} className={styles.card}>
-            <div className={styles.cardBar}>
-              <span className={styles.fileName}>
-                ~/proyectos/{p.id}
-              </span>
-            </div>
+          <article key={p.id} className={`card ${styles.card}`}>
             <div className={styles.cardBody}>
-              <h3 className={styles.name}>{p.name}</h3>
+              <div className={styles.titleRow}>
+                <h3 className={styles.name}>{p.name}</h3>
+                <a
+                  href={p.demo || p.repo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.titleLink}
+                  aria-label={`Abrir ${p.name}`}
+                >
+                  <ExternalLink size={20} strokeWidth={2} />
+                </a>
+              </div>
               <p className={styles.description}>{p.description[lang]}</p>
               <ul className={styles.stack}>
                 {p.stack.map((tech) => (
-                  <li key={tech} className={styles.tech}>
+                  <li key={tech} className="badge">
                     {tech}
                   </li>
                 ))}
@@ -34,7 +42,8 @@ export default function Projects() {
                   rel="noopener noreferrer"
                   className={styles.link}
                 >
-                  [{t.projects.codeLabel}]
+                  <GithubIcon size={18} />
+                  {t.projects.codeLabel}
                 </a>
                 {p.demo && (
                   <a
@@ -43,7 +52,10 @@ export default function Projects() {
                     rel="noopener noreferrer"
                     className={styles.link}
                   >
-                    [{p.demoType === "site" ? t.projects.siteLabel : t.projects.demoLabel}]
+                    <ExternalLink size={18} strokeWidth={2} />
+                    {p.demoType === "site"
+                      ? t.projects.siteLabel
+                      : t.projects.demoLabel}
                   </a>
                 )}
               </div>

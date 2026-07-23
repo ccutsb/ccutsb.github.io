@@ -1,22 +1,18 @@
 .footer {
   border-top: 1px solid var(--border);
-  padding: 32px 20px 40px;
+  padding: 36px 20px 44px;
   text-align: center;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
 }
 
-.line {
-  color: var(--text-dim);
-  font-size: 0.9rem;
-}
-
-.prompt {
-  color: var(--accent);
+.copy {
+  color: var(--text-secondary);
+  font-size: 0.92rem;
 }
 
 .tagline {
-  color: var(--text-faint);
-  font-size: 0.82rem;
+  color: var(--text-muted);
+  font-size: 0.85rem;
 }

@@ -7,15 +7,10 @@ export default function Footer() {
 
   return (
     <footer className={styles.footer}>
-      <p className={styles.line}>
-        <span className={styles.prompt}>~$</span> echo "© {year} Cristian
-        Cortés B. {t.footer.rights}"
+      <p className={styles.copy}>
+        © {year} Cristian Cortés B. {t.footer.rights}
       </p>
-      <p className={styles.tagline}>
-        {"/* "}
-        {t.footer.tagline}
-        {" */"}
-      </p>
+      <p className={styles.tagline}>{t.footer.tagline}</p>
     </footer>
   );
 }

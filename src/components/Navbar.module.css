@@ -4,8 +4,8 @@
   left: 0;
   right: 0;
   z-index: 100;
-  background: rgba(10, 15, 13, 0.88);
-  backdrop-filter: blur(8px);
+  background: rgba(253, 251, 247, 0.85);
+  backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border);
 }
 
@@ -21,24 +21,19 @@
 }
 
 .logo {
+  font-family: var(--font-head);
   font-weight: 700;
-  font-size: 1.05rem;
+  font-size: 1.15rem;
   color: var(--text);
   white-space: nowrap;
 }
 
 .logo:hover {
-  text-decoration: none;
-  text-shadow: 0 0 14px var(--accent-glow);
+  color: var(--text);
 }
 
-.prompt {
+.accent {
   color: var(--accent);
-}
-
-.cursor {
-  color: var(--accent);
-  animation: blink 1.1s steps(1) infinite;
 }
 
 .links {
@@ -49,53 +44,70 @@
 
 .link {
   display: block;
-  padding: 8px 12px;
-  color: var(--text-dim);
-  font-size: 0.92rem;
-  border-radius: 6px;
-  transition: color 0.2s ease, background-color 0.2s ease;
-}
-
-.link span {
-  color: var(--text-faint);
+  padding: 8px 14px;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  font-weight: 500;
+  border-radius: 999px;
+  transition: all 0.3s ease;
 }
 
 .link:hover {
   color: var(--accent);
-  background: rgba(52, 232, 138, 0.07);
-  text-decoration: none;
+  background: var(--accent-soft);
 }
 
 .controls {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
 }
 
-.langBtn,
-.menuBtn {
-  background: none;
-  border: 1px solid var(--border-bright);
-  color: var(--text-dim);
-  font-size: 0.9rem;
-  padding: 6px 10px;
-  border-radius: 6px;
+.langBtn {
+  background: var(--surface-white);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 7px 12px;
+  border-radius: 999px;
   cursor: pointer;
-  transition: color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: all 0.3s ease;
 }
 
-.langBtn:hover,
-.menuBtn:hover {
+.langBtn:hover {
   color: var(--accent);
-  border-color: var(--accent-dim);
-  box-shadow: 0 0 12px rgba(52, 232, 138, 0.15);
+  border-color: var(--accent);
+  transform: translateY(-2px);
 }
 
 .menuBtn {
-  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  padding: 0 9px;
+  background: var(--surface-white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-/* Móvil: menú desplegable */
+.menuBar {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: var(--text);
+  border-radius: 2px;
+}
+
+.menuBtn:hover {
+  border-color: var(--accent);
+}
+
 @media (max-width: 767px) {
   .links {
     position: absolute;
@@ -104,8 +116,9 @@
     right: 0;
     flex-direction: column;
     padding: 12px 20px 20px;
-    background: rgba(10, 15, 13, 0.97);
+    background: rgba(253, 251, 247, 0.98);
     border-bottom: 1px solid var(--border);
+    box-shadow: var(--shadow);
   }
 
   .linksOpen {

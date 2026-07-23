@@ -1,29 +1,33 @@
 .grid {
   display: grid;
-  gap: 20px;
+  gap: 24px;
 }
 
 .group {
-  background: var(--bg-panel);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 20px;
-  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  padding: 26px;
 }
 
-.group:hover {
-  border-color: var(--accent-dim);
-  box-shadow: 0 0 24px rgba(52, 232, 138, 0.08);
+.groupHead {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
 }
 
-.command {
-  color: var(--text-dim);
-  font-size: 0.9rem;
-  margin-bottom: 16px;
-}
-
-.prompt {
+.iconWrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: var(--accent-soft);
   color: var(--accent);
+}
+
+.groupTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
 }
 
 .list {
@@ -31,21 +35,6 @@
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-}
-
-.tag {
-  border: 1px solid var(--border-bright);
-  border-radius: 6px;
-  padding: 5px 12px;
-  font-size: 0.88rem;
-  color: var(--text);
-  transition: color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-.tag:hover {
-  color: var(--accent);
-  border-color: var(--accent-dim);
-  box-shadow: 0 0 12px rgba(52, 232, 138, 0.18);
 }
 
 @media (min-width: 768px) {

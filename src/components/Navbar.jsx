@@ -19,10 +19,7 @@ export default function Navbar() {
     <header className={styles.header}>
       <nav className={styles.nav} aria-label="Principal">
         <a href="#inicio" className={styles.logo}>
-          <span className={styles.prompt}>~$</span> ccutsb
-          <span className={styles.cursor} aria-hidden="true">
-            ▋
-          </span>
+          Cristian <span className={styles.accent}>Cortés</span>
         </a>
 
         <ul
@@ -36,7 +33,6 @@ export default function Navbar() {
                 className={styles.link}
                 onClick={() => setOpen(false)}
               >
-                <span aria-hidden="true">./</span>
                 {l.label}
               </a>
             </li>
@@ -52,7 +48,7 @@ export default function Navbar() {
               lang === "es" ? "Switch to English" : "Cambiar a español"
             }
           >
-            [{lang === "es" ? "EN" : "ES"}]
+            {lang === "es" ? "EN" : "ES"}
           </button>
           <button
             type="button"
@@ -62,7 +58,9 @@ export default function Navbar() {
             aria-label={open ? "Cerrar menú" : "Abrir menú"}
             onClick={() => setOpen((o) => !o)}
           >
-            {open ? "[x]" : "[≡]"}
+            <span className={styles.menuBar} />
+            <span className={styles.menuBar} />
+            <span className={styles.menuBar} />
           </button>
         </div>
       </nav>

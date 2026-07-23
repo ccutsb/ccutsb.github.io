@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { Mail, MapPin } from "lucide-react";
+import { GithubIcon, LinkedinIcon } from "./BrandIcons";
 import { useLang } from "../i18n/LanguageContext";
 import SectionHeading from "./SectionHeading";
 import styles from "./Contact.module.css";
@@ -45,41 +47,57 @@ export default function Contact() {
       <div className={styles.layout}>
         <aside className={styles.info}>
           <div className={styles.infoBlock}>
-            <h3 className={styles.infoTitle}># {t.contact.emailLabel}</h3>
-            <a href="mailto:cristiancortesb@icloud.com" className={styles.infoLink}>
+            <h3 className={styles.infoTitle}>{t.contact.emailLabel}</h3>
+            <a
+              href="mailto:cristiancortesb@icloud.com"
+              className={styles.infoLink}
+            >
+              <Mail size={20} strokeWidth={2} />
               cristiancortesb@icloud.com
             </a>
           </div>
 
           <div className={styles.infoBlock}>
-            <h3 className={styles.infoTitle}># {t.contact.locationLabel}</h3>
-            <p className={styles.infoText}>Santiago, Chile 🇨🇱</p>
+            <h3 className={styles.infoTitle}>{t.contact.locationLabel}</h3>
+            <p className={styles.infoText}>
+              <MapPin size={20} strokeWidth={2} />
+              Santiago, Chile
+            </p>
           </div>
 
           <div className={styles.infoBlock}>
-            <h3 className={styles.infoTitle}># {t.contact.socialTitle}</h3>
+            <h3 className={styles.infoTitle}>{t.contact.socialTitle}</h3>
             <div className={styles.social}>
               <a
                 href="https://github.com/ccutsb"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={styles.infoLink}
+                aria-label="GitHub"
+                className={styles.socialLink}
               >
-                [GitHub]
+                <GithubIcon size={22} />
               </a>
               <a
                 href="https://www.linkedin.com/in/ccortesbustamante/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={styles.infoLink}
+                aria-label="LinkedIn"
+                className={styles.socialLink}
               >
-                [LinkedIn]
+                <LinkedinIcon size={22} />
+              </a>
+              <a
+                href="mailto:cristiancortesb@icloud.com"
+                aria-label="Email"
+                className={styles.socialLink}
+              >
+                <Mail size={22} strokeWidth={2} />
               </a>
             </div>
           </div>
         </aside>
 
-        <form className={styles.form} onSubmit={handleSubmit}>
+        <form className={`card ${styles.form}`} onSubmit={handleSubmit}>
           <div className={styles.row}>
             <div className={styles.field}>
               <label htmlFor="nombre" className={styles.label}>
